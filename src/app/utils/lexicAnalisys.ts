@@ -7,9 +7,16 @@ const lexicAnalysis = (text: string) => {
 
     let tokens = [];
 
+    let line = 1;
+    let col = 0;
+
     for (let i = 0; i < text.length; i++) {
         const char = text[i];
         
+        if(char === "\n") {
+            line++;
+            col = 0;
+        }
         //tests if char is a valid char
         if (alphabet.includes(char)) {
             //tests if char is a integer number
@@ -30,8 +37,9 @@ const lexicAnalysis = (text: string) => {
         //if it is not a valid char
         else {
             console.log("Error: invalid char: " + char + " at position " + i);
-            return {error: true, tokens: null, errorChar: char, errorPosition: i};
+            return {error: true, tokens: null, errorChar: char, errorPosition: i, line: line, col: col};
         }
+        col++;
     }
 
     return {error: false, tokens: tokens, errorChar: null, errorPosition: null};
