@@ -6,7 +6,6 @@ let regexFloatNumber = new RegExp('^[0-9]+.?[0-9]*$');
 const lexicAnalysis = (text: string) => {
 
     let tokens = [];
-    let currentToken = '';
 
     for (let i = 0; i < text.length; i++) {
         const char = text[i];
@@ -31,11 +30,11 @@ const lexicAnalysis = (text: string) => {
         //if it is not a valid char
         else {
             console.log("Error: invalid char: " + char + " at position " + i);
-            return;
+            return {error: true, tokens: null, errorChar: char, errorPosition: i};
         }
     }
 
-    return tokens;
+    return {error: false, tokens: tokens, errorChar: null, errorPosition: null};
 }
 
 const numberConcat = (text: string, i: number) => {
@@ -55,12 +54,8 @@ const numberTypeTesting = (number: string, i: number) => {
     if (regexIntegerNumber.test(number)) {
         return "INTNUM";
     }
-    else if (regexFloatNumber.test(number)) {
+    if (regexFloatNumber.test(number)) {
         return "FLOATNUM";
-    }
-    else {
-        console.log("Error: invalid number: " + number + " at position " + i);
-        return;
     }
 }
 
