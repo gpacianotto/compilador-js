@@ -1,5 +1,6 @@
 
-let regexNumber = new RegExp('^[0-9]+.[0-9]*$');
+let regexIntegerNumber = new RegExp('^[0-9]+$');
+let regexFloatNumber = new RegExp('^[0-9]+.?[0-9]*$');
 
 const lexicAnalysis = (text: string) => {
 
@@ -7,8 +8,14 @@ const lexicAnalysis = (text: string) => {
     const lexems: string[] = [];
 
     tokens.forEach(token => {
-        if (regexNumber.test(token)) {
-            lexems.push('NUM');
+        if (token === " "){
+            return;   
+        }
+        if (regexIntegerNumber.test(token)) {
+            lexems.push('INTNUM');
+        }
+        if (regexFloatNumber.test(token)) {
+            lexems.push('FLOATNUM');
         }
         if (token === '+') {
             lexems.push('OPSOMA');
@@ -28,11 +35,8 @@ const lexicAnalysis = (text: string) => {
         if (token === ')') {
             lexems.push('FP');
         }
-        else {
-            lexems.push('ID');
-        }
     });
-
     return lexems;
-
 }
+
+export default lexicAnalysis;
