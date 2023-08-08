@@ -1,10 +1,14 @@
 'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
-import { Button, Row, Col} from 'reactstrap';
+import { Button, Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import lexicAnalysis from './utils/lexicAnalisys';
 
 export default function Home() {
+  
+  const [fileContentRaw, setFileContentRaw] = useState<string>("")
 
     function handleFilePickerClick() {
         // Create an input element of type 'file'
@@ -24,6 +28,16 @@ export default function Home() {
             alert("precisa ser um arquivo .txt");
             return;
           }
+
+          const reader = new FileReader();
+
+          reader.onload = (event) => {
+            const fileContents = event.target.result;
+            console.log(fileContents);
+            setFileContentRaw(fileContents as string);
+          };
+
+          reader.readAsText(selectedFile);
         });
     
         // Click the file input element programmatically
@@ -35,6 +49,27 @@ export default function Home() {
         <Col className='text-center mt-4'>
           <Button onClick={() => {handleFilePickerClick()}}>
             Escolher arquivo
+          </Button>
+        </Col>
+      </Row>
+      
+      <Row className='mt-5'>
+        <Col className='p-5'>
+          <Input
+            id='textArea'
+            value={fileContentRaw}
+            onChange={(e) => {setFileContentRaw(e.target.value)}}
+            type='textarea'
+            style={{minHeight: "500px"}}
+          />
+          
+        </Col>
+      </Row>
+
+      <Row className='text-center mb-4'>
+        <Col>
+          <Button onClick={() => {console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)}}>
+            Analise Lexica
           </Button>
         </Col>
       </Row>
