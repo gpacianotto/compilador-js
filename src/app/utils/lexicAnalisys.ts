@@ -3,9 +3,43 @@ let numbers = ['0','1','2','3','4','5','6','7','8','9','.'];
 let regexIntegerNumber = new RegExp('^[0-9]+$');
 let regexFloatNumber = new RegExp('^[0-9]+.?[0-9]*$');
 
-const lexicAnalysis = (text: string) => {
+/*
+    para charmap: 
+
+    0: nada ou espaço
+    1: número
+    2: operador
+    3: delimitador ()
+
+*/
+
+let charMap : number[] = [];
+
+export interface LexicReturn {
+    error: boolean,
+    tokens: any[] | null,
+    errorChar: string | null,
+    errorPosition: number | null,
+    line?: number,
+    col?: number,
+    charMap: number[]
+}
+
+const addToCharMap = ( value: number, times:number) => {
+
+    times++;
+
+    for(let i = 0; i < times; i++) {
+        charMap.push(value);
+    }
+
+}
+
+const lexicAnalysis = (text: string) : LexicReturn => {
 
     let tokens = [];
+    
+    charMap = [];
 
     let line = 1;
     let col = 0;
@@ -19,9 +53,11 @@ const lexicAnalysis = (text: string) => {
         }
         //tests if char is a valid char
         if (alphabet.includes(char)) {
-            //tests if char is a integer number
+            //tests if char is a integer number and skips until the end of the number
             if (numbers.includes(char)) {
                 let number_i = numberConcat(text, i);
+                console.log("concat: ", number_i)
+                addToCharMap(1, number_i.i - i);
                 let number = number_i.number;
                 i = number_i.i;
                 tokens.push(numberTypeTesting(number, i));
@@ -37,12 +73,14 @@ const lexicAnalysis = (text: string) => {
         //if it is not a valid char
         else {
             console.log("Error: invalid char: " + char + " at position " + i);
-            return {error: true, tokens: null, errorChar: char, errorPosition: i, line: line, col: col};
+            charMap.push(-1);
+            const result : LexicReturn =  {error: true, tokens: null, errorChar: char, errorPosition: i, line: line, col: col, charMap: charMap}
+            return result as LexicReturn;
         }
         col++;
     }
-
-    return {error: false, tokens: tokens, errorChar: null, errorPosition: null};
+    const result : LexicReturn = {error: false, tokens: tokens, errorChar: null, errorPosition: null, charMap: charMap};
+    return  result as LexicReturn;
 }
 
 const numberConcat = (text: string, i: number) => {
@@ -70,19 +108,29 @@ const numberTypeTesting = (number: string, i: number) => {
 const operatorTesting = (char: string) => {
     switch (char) {
         case ' ':
+            charMap.push(0)
             return null;
         case '+':
+            charMap.push(2)
             return "OPSOMA";
         case '-':
+            charMap.push(2)
             return "OPSUB";
         case '*':
+            charMap.push(2)
             return "OPMULT";
         case '/':
+            charMap.push(2)
             return "OPDIV";
         case '(':
+            charMap.push(3)
             return "AP";
         case ')':
+            charMap.push(3)
             return "FP";
+        case '\n': 
+            charMap.push(0)
+            return "NEXTLINE";
     }
 }
 
