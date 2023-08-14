@@ -7,6 +7,7 @@ import { useState } from 'react';
 import lexicAnalysis, { LexicReturn } from './utils/lexicAnalisys';
 import TextAreaWithLineNumber from 'text-area-with-line-number';
 import Highlighter from './components/Highlighter';
+import { SaveButton } from './components/SaveButton';
 
 export default function Home() {
   
@@ -53,6 +54,9 @@ export default function Home() {
           <Button onClick={() => {handleFilePickerClick()}}>
             Escolher arquivo
           </Button>
+        </Col>
+        <Col className='text-center mt-4'>
+          <SaveButton content={fileContentRaw}/>
         </Col>
       </Row>
       
