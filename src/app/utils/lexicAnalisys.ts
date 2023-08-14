@@ -47,6 +47,7 @@ const lexicAnalysis = (text: string) : LexicReturn => {
         error: false,
         tokens: null,
         errorChar: null,
+        
         charMap: []
     };
 
