@@ -15,13 +15,15 @@ let regexFloatNumber = new RegExp('^[0-9]+.?[0-9]*$');
 
 let charMap : number[] = [];
 
+export interface errorPosition {
+    line: number,
+    col: number
+}
 export interface LexicReturn {
     error: boolean,
     tokens: any[] | null,
-    errorChar: string | null,
-    errorPosition: number | null,
-    line?: number,
-    col?: number,
+    errorChar: string[] | null,
+    erroPos?: errorPosition[],
     charMap: number[]
 }
 
@@ -38,7 +40,17 @@ const addToCharMap = ( value: number, times:number) => {
 const lexicAnalysis = (text: string) : LexicReturn => {
 
     let tokens = [];
-    
+    let error = false;
+    let errorCharList = [];
+    let errorPositionList = [];
+    let result : LexicReturn = {
+        error: false,
+        tokens: null,
+        errorChar: null,
+        
+        charMap: []
+    };
+
     charMap = [];
 
     let line = 1;
@@ -72,14 +84,26 @@ const lexicAnalysis = (text: string) : LexicReturn => {
 
         //if it is not a valid char
         else {
-            console.log("Error: invalid char: " + char + " at position " + i);
+            error = true;
+            tokens.push("ERROR");
+            console.error("Error: invalid char: " + char + " at position " + i);
             charMap.push(-1);
-            const result : LexicReturn =  {error: true, tokens: null, errorChar: char, errorPosition: i, line: line, col: col, charMap: charMap}
-            return result as LexicReturn;
+            errorPositionList.push({line: line, col: col});
+            errorCharList.push(char);
         }
         col++;
     }
-    const result : LexicReturn = {error: false, tokens: tokens, errorChar: null, errorPosition: null, charMap: charMap};
+
+    if (error) {
+        result.charMap = charMap;
+        result.tokens = tokens;
+        result.error = true;
+        result.errorChar = errorCharList;
+        result.erroPos = errorPositionList;
+        return result as LexicReturn;
+    }
+
+    result = {error: false, tokens: tokens, errorChar: null, charMap: charMap};
     return  result as LexicReturn;
 }
 
