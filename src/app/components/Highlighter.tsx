@@ -26,8 +26,9 @@ export default function Highlighter(props : HighlighterProps) {
 
             {(lexic.tokens && lexic.tokens?.length > 0) && code.split("").map((char, index) => {
                 char === "\n" ? lines++ : null;
+                let color = lexic.charMap[index]
                 return <>
-                    <span style={{fontWeight: "700" ,color: colorSchemes.default[lexic.charMap[index]]}}>
+                    <span style={{fontWeight: "700" ,color: colorSchemes.default[color as keyof typeof colorSchemes.default]}}>
                         {char === "\n" && <><br></br> </>}
                         {/* {(char === "\n" || index === 0) && <>{lines + 1}{"\t"}</>} */}
                         {char !== "\n" && <>{char}</>}
