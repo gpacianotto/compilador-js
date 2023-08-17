@@ -22,8 +22,11 @@ export default function Home() {
     
         // Add an event listener to handle file selection
         fileInput.addEventListener('change', (event) => {
-            
-          const selectedFile = event?.target ? event.target.files[0] : null;
+          
+          const target = event.target as HTMLInputElement;
+           const files = target.files as FileList;
+
+          const selectedFile = files[0];
           // Do something with the selected file, e.g., upload or process it
           console.log('Selected file:', selectedFile);
           console.log("extension: ", selectedFile.type);
@@ -36,7 +39,7 @@ export default function Home() {
           const reader = new FileReader();
 
           reader.onload = (event) => {
-            const fileContents = event.target.result;
+            const fileContents = event?.target ? event.target.result : null;
             console.log(fileContents);
             setFileContentRaw(fileContents as string);
           };
