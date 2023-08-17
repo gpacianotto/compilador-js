@@ -5,7 +5,8 @@ const colorSchemes = {
         0: "black",
         1: "blue",
         2: "green",
-        3: "red"
+        3: "yellow",
+        4: "red"
     }
 }
 

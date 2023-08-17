@@ -87,7 +87,7 @@ const lexicAnalysis = (text: string) : LexicReturn => {
             error = true;
             tokens.push("ERROR");
             console.error("Error: invalid char: " + char + " at position " + i);
-            charMap.push(-1);
+            charMap.push(4);
             errorPositionList.push({line: line, col: col});
             errorCharList.push(char);
         }
