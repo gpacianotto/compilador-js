@@ -1,0 +1,1 @@
+declare module 'text-area-with-line-number';
