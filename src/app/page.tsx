@@ -8,6 +8,7 @@ import lexicAnalysis, { LexicReturn } from './utils/lexicAnalisys';
 import TextAreaWithLineNumber from 'text-area-with-line-number';
 import Highlighter from './components/Highlighter';
 import { SaveButton } from './components/SaveButton';
+import LexicTable from './components/LexicTable';
 
 export default function Home() {
   
@@ -78,7 +79,7 @@ export default function Home() {
             value={fileContentRaw}
             onChange={(e : any) => {setFileContentRaw(e.target.value)}}
             style={{border: "1px solid black"}}
-            height={"75vh"}
+            height={"50vh"}
           />
           
         </Col>
@@ -86,7 +87,11 @@ export default function Home() {
           <Highlighter lexic={lexic} code={fileContentRaw}/>
         </Col>
       </Row>
-      
+      <Row>
+        <Col>
+          <LexicTable lexic={lexic}/>
+        </Col>
+      </Row>
       <Row className='text-center mb-4'>
         <Col>
           <Button onClick={() => {
@@ -105,6 +110,7 @@ export default function Home() {
           </Button>
         </Col>
       </Row>
+      
     </main>
     
   )

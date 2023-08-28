@@ -15,16 +15,28 @@ let regexFloatNumber = new RegExp('^[0-9]+.?[0-9]*$');
 
 let charMap : number[] = [];
 
-export interface errorPosition {
+export interface errorPosition { //deprecated
     line: number,
     col: number
 }
+
+export interface Position {
+    line: number,
+    colStart: number,
+    colEnd: number
+}
 export interface LexicReturn {
     error: boolean,
-    tokens: any[] | null,
+    tokens: Token[] | null,
     errorChar: string[] | null,
     erroPos?: errorPosition[],
     charMap: number[]
+}
+
+export interface Token {
+    lexem: string,
+    token: string,
+    position: Position
 }
 
 const addToCharMap = ( value: number, times:number) => {
@@ -39,7 +51,7 @@ const addToCharMap = ( value: number, times:number) => {
 
 const lexicAnalysis = (text: string) : LexicReturn => {
 
-    let tokens = [];
+    let tokens : Token[] = [] as Token[];
     let error = false;
     let errorCharList = [];
     let errorPositionList = [];
@@ -71,13 +83,14 @@ const lexicAnalysis = (text: string) : LexicReturn => {
                 console.log("concat: ", number_i)
                 addToCharMap(1, number_i.i - i);
                 let number = number_i.number;
+                
+                tokens.push({token: numberTypeTesting(number, i), lexem: number, position: {line: line, colStart: (i + 1), colEnd: (number_i.i + 1)}});
                 i = number_i.i;
-                tokens.push(numberTypeTesting(number, i));
             }
             else {
                 let opResult = operatorTesting(char);
                 if (opResult) {
-                    tokens.push(opResult);
+                    tokens.push({token: opResult.token, lexem: opResult.lexem, position:{line: line, colStart: (i + 1), colEnd: (i + 1)}});
                 }
             }
         }
@@ -85,7 +98,8 @@ const lexicAnalysis = (text: string) : LexicReturn => {
         //if it is not a valid char
         else {
             error = true;
-            tokens.push("ERROR");
+            let errorConcatResult = errorConcat(text, i); 
+            tokens.push({token: "ERROR", lexem: errorConcatResult.errorText, position: {line: line, colStart: i + 1, colEnd: (errorConcatResult.i + 1)}});
             console.error("Error: invalid char: " + char + " at position " + i);
             charMap.push(4);
             errorPositionList.push({line: line, col: col});
@@ -107,6 +121,20 @@ const lexicAnalysis = (text: string) : LexicReturn => {
     return  result as LexicReturn;
 }
 
+const errorConcat = (text: string, i: number) => {
+    let j = i;
+    let errorText = "";
+
+    while (!alphabet.includes(text[j])) {
+        errorText += text[j];
+        j++;
+    }
+
+    i = j - 1
+
+    return {errorText, i};
+};
+
 const numberConcat = (text: string, i: number) => {
     let j = i;
     let number = '';
@@ -127,6 +155,7 @@ const numberTypeTesting = (number: string, i: number) => {
     if (regexFloatNumber.test(number)) {
         return "FLOATNUM";
     }
+    return "ERROR"
 }
 
 const operatorTesting = (char: string) => {
@@ -136,25 +165,25 @@ const operatorTesting = (char: string) => {
             return null;
         case '+':
             charMap.push(2)
-            return "OPSOMA";
+            return {token: "OPSOMA", lexem: "+"};
         case '-':
             charMap.push(2)
-            return "OPSUB";
+            return {token: "OPSUB", lexem: "-"};
         case '*':
             charMap.push(2)
-            return "OPMULT";
+            return {token: "OPMULT", lexem: "*"};
         case '/':
             charMap.push(2)
-            return "OPDIV";
+            return {token: "OPDIV", lexem: "/"};
         case '(':
             charMap.push(3)
-            return "AP";
+            return {token: "AP", lexem: "("};
         case ')':
             charMap.push(3)
-            return "FP";
+            return {token: "FP", lexem: ")"};
         case '\n': 
             charMap.push(0)
-            return "NEXTLINE";
+            return null;
     }
 }
 
