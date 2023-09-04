@@ -10,7 +10,7 @@ lista_identificadores : identificador (',' identificador)*;
 declaracao_subrotinas : declaracao_procedimento*;
 declaracao_procedimento : 'procedure' identificador parametros_formais ';' bloco;
 parametros_formais : '(' secao_parametros_formais ( ';' secao_parametros_formais )* ')';
-secao_parametros_formais : ['var'] lista_identificadores ':' identificador;
+secao_parametros_formais : lista_identificadores ':' identificador;
 
 comando_composto : 'begin' comando ( ';' comando )* 'end';
 comando : atribuicao | chamada_procedimento | comando_composto | comando_condicional | comando_repetitivo;
