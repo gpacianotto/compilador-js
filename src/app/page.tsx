@@ -5,6 +5,7 @@ import { Button, Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import lexicAnalysis, { LexicReturn } from './utils/lexicAnalisys';
+import lexicAnalisysGenerator from './utils/lexicAnalisysGenerator';
 import TextAreaWithLineNumber from 'text-area-with-line-number';
 import Highlighter from './components/Highlighter';
 import { SaveButton } from './components/SaveButton';
@@ -96,12 +97,13 @@ export default function Home() {
         <Col>
           <Button onClick={() => {
             
-            const lexicAux : LexicReturn = lexicAnalysis(fileContentRaw);
+            // const lexicAux : LexicReturn = lexicAnalysis(fileContentRaw);
+            // console.log(lexicAux);
+            // console.log(fileContentRaw.length)
 
-            console.log(lexicAux);
-            console.log(fileContentRaw.length)
+            const lexicAux = lexicAnalisysGenerator(fileContentRaw);
 
-            setLexic(lexicAux);
+            // setLexic(lexicAux);
 
             // console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)
 

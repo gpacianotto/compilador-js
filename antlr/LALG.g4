@@ -1,37 +1,49 @@
-grammar LALG;
+// Definição da gramática
+lexer grammar LALG;
 
-programa : 'program' identificador ';' bloco '.';
-bloco : (declaracao_variaveis ';')* (declaracao_subrotinas ';')? comando_composto;
+// Palavras reservadas
+PROGRAM: 'program';
+BEGIN: 'begin';
+END: 'end';
+PROCEDURE: 'procedure';
+IF: 'if';
+THEN: 'then';
+ELSE: 'else';
+WHILE: 'while';
+DO: 'do';
+TRUE: 'true';
+FALSE: 'false';
+INT: 'int';
+BOOLEAN: 'boolean';
+READ: 'read';
+WRITE: 'write';
+NOT: 'not';
+VAR: 'var';
 
-declaracao_variaveis : tipo lista_identificadores;
-tipo : 'int' | 'boolean';
-lista_identificadores : identificador (',' identificador)*;
+// Identificadores
+ASSIGN: ':=';
+SEMICOLON: ';';
+COMMA: ',';
+DOT: '.';
+COLON: ':';
+LPAREN: '(';
+RPAREN: ')';
+LBRACKET: '[';
+RBRACKET: ']';
+LETRA: [a-zA-Z_];
 
-declaracao_subrotinas : declaracao_procedimento*;
-declaracao_procedimento : 'procedure' identificador parametros_formais ';' bloco;
-parametros_formais : '(' secao_parametros_formais ( ';' secao_parametros_formais )* ')';
-secao_parametros_formais : lista_identificadores ':' identificador;
+// Símbolos
+PLUS: '+';
+MINUS: '-';
+TIMES: '*';
+DIV: '/';
+EQUAL: '=';
+DIFF: '<>';
+LESS_THEN: '<';
+GREATER_THEN: '>';
+LESS_TTHEN_EQUAL: '<=';
+GREATER_THEN_EQUAL: '>=';
 
-comando_composto : 'begin' comando ( ';' comando )* 'end';
-comando : atribuicao | chamada_procedimento | comando_composto | comando_condicional | comando_repetitivo;
-
-atribuicao : variavel ':=' expressao;
-chamada_procedimento : identificador '(' lista_expressoes ')';
-comando_condicional : 'if' expressao 'then' comando ('else' comando)?;
-comando_repetitivo : 'while' expressao 'do' comando;
-
-expressao : expressao_simples (relacao expressao_simples)?;
-relacao : '=' | '<>' | '<' | '<=' | '>=' | '>';
-expressao_simples : ( '+' | '-' )? termo ( ( '+' | '-' | 'or' ) termo )*;
-termo : fator ( ( '*' | 'div' | 'and' ) fator )*;
-fator : variavel | numero | '(' expressao ')' | 'not' fator;
-
-variavel : identificador | identificador '[' expressao ']';
-lista_expressoes : expressao (',' expressao)*;
-
-identificador : LETRA (LETRA | DIGITO)*;
-numero : DIGITO+;
-
-DIGITO : [0-9];
-LETRA : [a-zA-Z_];
-WS : [ \t\r\n]+ -> skip;
+// Comentátios
+COMMENT: '//' ~[\r\n]* -> skip;
+MULTILINE_COMMENT: '{' .*? '}' -> skip;

@@ -85,7 +85,7 @@ const lexicAnalysis = (text: string) : LexicReturn => {
             //tests if char is a integer number and skips until the end of the number
             if (digit.includes(char)) {
                 let number_i = numberConcat(text, i);
-                console.log("concat: ", number_i)
+                // console.log("concat: ", number_i)
                 addToCharMap(1, number_i.i - i);
                 let number = number_i.number;
                 
