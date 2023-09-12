@@ -1,49 +1,46 @@
-// Definição da gramática
 lexer grammar LALG;
+
+// Comentátios
+COMENTARIO: '//' ~[\r\n]* -> skip;
+COMENTARIO_MULTI: '{' .*? '}' -> skip;
+WS: [ \t\r\n]+ -> skip;
 
 // Palavras reservadas
 PROGRAM: 'program';
 BEGIN: 'begin';
 END: 'end';
+VAR: 'var';
 PROCEDURE: 'procedure';
+INT_LITERAL: 'int';
+FLOAT_LITERAL: 'float';
+BOOL_CONST: 'boolean';
+READ: 'read';
+WRITE: 'write';
+BOOLEAN_LITERAL: 'true' | 'false';
 IF: 'if';
 THEN: 'then';
 ELSE: 'else';
 WHILE: 'while';
 DO: 'do';
-TRUE: 'true';
-FALSE: 'false';
-INT: 'int';
-BOOLEAN: 'boolean';
-READ: 'read';
-WRITE: 'write';
 NOT: 'not';
-VAR: 'var';
+
+// Terminais
+ATRIBUICAO: ':=';
+MAIS: '+';
+MENOS: '-';
+MULT: '*';
+DIV: '/';
+RELACAO: '<' | '>' | '<=' | '>=' | '=' | '<>';
+ABRE_PARENTESES: '(';
+FECHA_PARENTESES: ')';
+VIRGULA: ',';
+PONTO_VIRGULA: ';';
+DOIS_PONTOS: ':';
+
 
 // Identificadores
-ASSIGN: ':=';
-SEMICOLON: ';';
-COMMA: ',';
-DOT: '.';
-COLON: ':';
-LPAREN: '(';
-RPAREN: ')';
-LBRACKET: '[';
-RBRACKET: ']';
-LETRA: [a-zA-Z_];
-
-// Símbolos
-PLUS: '+';
-MINUS: '-';
-TIMES: '*';
-DIV: '/';
-EQUAL: '=';
-DIFF: '<>';
-LESS_THEN: '<';
-GREATER_THEN: '>';
-LESS_TTHEN_EQUAL: '<=';
-GREATER_THEN_EQUAL: '>=';
-
-// Comentátios
-COMMENT: '//' ~[\r\n]* -> skip;
-MULTILINE_COMMENT: '{' .*? '}' -> skip;
+fragment LETRA: [a-zA-Z_];
+fragment DIGITO: [0-9];
+ID: LETRA (LETRA | DIGITO)*;
+INT: DIGITO+;
+FLOAT: DIGITO+ '.' DIGITO+;
