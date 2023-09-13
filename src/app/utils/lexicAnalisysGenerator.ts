@@ -46,7 +46,6 @@ export function formatTokens(rawLexems: GeneratorToken[], input: string) : Lexic
         charMap.push(1)
     }
 
-
     return {
         error: false,
         charMap: charMap,

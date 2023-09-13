@@ -36,6 +36,7 @@ FECHA_PARENTESES: ')';
 VIRGULA: ',';
 PONTO_VIRGULA: ';';
 DOIS_PONTOS: ':';
+PONTO: '.';
 
 
 // Identificadores
@@ -44,3 +45,6 @@ fragment DIGITO: [0-9];
 ID: LETRA (LETRA | DIGITO)*;
 INT: DIGITO+;
 FLOAT: DIGITO+ '.' DIGITO+;
+
+// Erro
+ERRO: .;
