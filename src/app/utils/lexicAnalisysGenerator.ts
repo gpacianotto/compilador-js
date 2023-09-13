@@ -20,10 +20,8 @@ export default function lexicAnalisysGenerator(input: string) : GeneratorToken[]
         const type = token.type;
         const text = token.text;
         const line = token.line;
-        const column = token.column;
+        const column = token.column + 1;
         const symbolicName = lexer.symbolicNames[type];
-
-        
 
         return {'Token': symbolicName, 'Lexema': text, 'Linha': line, 'Coluna': column}
     });
@@ -45,11 +43,8 @@ export function formatTokens(rawLexems: GeneratorToken[], input: string) : Lexic
 
     for (let i = 0; i < input.length; i++) {
         const char = input[i];
-
         charMap.push(1)
-        
     }
-
 
 
     return {
