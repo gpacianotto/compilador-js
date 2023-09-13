@@ -1,3 +1,8 @@
+//Código LEGADO e DEPRECIADO
+
+import { LexicReturn, Token } from "./Interfaces";
+
+
 const a_z = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 const A_Z = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 const digit = ['0','1','2','3','4','5','6','7','8','9'];
@@ -19,30 +24,6 @@ let regexFloatNumber = new RegExp('^[0-9]+.?[0-9]*$');
 */
 
 let charMap : number[] = [];
-
-export interface errorPosition { //deprecated
-    line: number,
-    col: number
-}
-
-export interface Position {
-    line: number,
-    colStart: number,
-    colEnd: number
-}
-export interface LexicReturn {
-    error: boolean,
-    tokens: Token[] | null,
-    errorChar: string[] | null,
-    erroPos?: errorPosition[],
-    charMap: number[]
-}
-
-export interface Token {
-    lexem: string,
-    token: string,
-    position: Position
-}
 
 const addToCharMap = ( value: number, times:number) => {
 
