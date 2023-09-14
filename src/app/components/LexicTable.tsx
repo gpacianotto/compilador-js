@@ -1,5 +1,5 @@
 import { Table } from "reactstrap";
-import { LexicReturn } from "../utils/lexicAnalisys";
+import { LexicReturn } from "../utils/Interfaces";
 
 interface LexicTableProps {
     lexic: LexicReturn

@@ -1,5 +1,5 @@
 import colorSchemes from "../utils/ColorSchemes";
-import { LexicReturn } from "../utils/lexicAnalisys";
+import { LexicReturn } from "../utils/Interfaces";
 import { useEffect} from "react"
 
 interface HighlighterProps {
