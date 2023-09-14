@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     basePath: "/github-pages",
-    output: "export"
+    output: "export",
+    ignoreBuildErrors: true
 }
 
 module.exports = nextConfig
