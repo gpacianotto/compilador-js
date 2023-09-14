@@ -2,7 +2,9 @@
 const nextConfig = {
     basePath: "/github-pages",
     output: "export",
-    ignoreBuildErrors: true
+    typescript: {
+        ignoreBuildErrors: true
+    }
 }
 
 module.exports = nextConfig
