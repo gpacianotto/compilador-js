@@ -11,7 +11,7 @@ export default function lexicAnalisysGenerator(input: string) : GeneratorToken[]
     tokens.fill();
 
     // Formantando o resultado
-    const result : GeneratorToken[] = tokens.tokens.map((token) => {
+    const result : GeneratorToken[] = tokens.tokens.map((token : any) => {
         const type = token.type;
         const text = token.text;
         const line = token.line;

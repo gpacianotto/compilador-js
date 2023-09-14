@@ -4,8 +4,10 @@ import styles from './page.module.css'
 import { Button, Row, Col, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import lexicAnalysis, { LexicReturn } from './utils/lexicAnalisys';
-import lexicAnalisysGenerator, { GeneratorToken, formatTokens } from './utils/lexicAnalisysGenerator';
+import lexicAnalysis from './utils/lexicAnalisys';
+import { LexicReturn } from './utils/Interfaces';
+import { GeneratorToken } from './utils/Interfaces';
+import lexicAnalisysGenerator, { formatTokens } from './utils/lexicAnalisysGenerator';
 import TextAreaWithLineNumber from 'text-area-with-line-number';
 import Highlighter from './components/Highlighter';
 import { SaveButton } from './components/SaveButton';
