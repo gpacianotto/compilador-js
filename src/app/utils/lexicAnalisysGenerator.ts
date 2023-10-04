@@ -1,14 +1,14 @@
-import { CharStream, CommonTokenStream } from 'antlr4';
-import LALG from '../../../antlr/LALG';
+import { InputStream, CommonTokenStream } from 'antlr4';
+import LALGLexer from '../../../antlr/LALGLexer';
 import { LexicReturn, Token, GeneratorToken } from './Interfaces';
 
 
 export default function lexicAnalisysGenerator(input: string): GeneratorToken[] {
     // vide doc: https://github.com/antlr/antlr4/blob/master/doc/typescript-target.md
-    const chars = new CharStream(input);
-    const lexer = new LALG(chars);
+    const chars = new InputStream(input);
+    const lexer = new LALGLexer(chars);
     const tokens = new CommonTokenStream(lexer);
-    tokens.fill();
+    tokens.fill(); //não apagar, é necessário para o funcionamento do lexer
 
     // Formantando o resultado
     const result: GeneratorToken[] = tokens.tokens.map((token: any) => {
@@ -22,7 +22,7 @@ export default function lexicAnalisysGenerator(input: string): GeneratorToken[] 
     });
 
     // console.log(formatTokens(result, input));
-    console.log(result);
+    // console.log(result);
     return result;
 }
 

@@ -1,4 +1,4 @@
-lexer grammar LALG;
+lexer grammar LALGLexer;
 
 // Comentátios
 COMENTARIO: '//' ~[\r\n]* -> skip;
@@ -11,12 +11,13 @@ BEGIN: 'begin';
 END: 'end';
 VAR: 'var';
 PROCEDURE: 'procedure';
-INT_LITERAL: 'int';
-FLOAT_LITERAL: 'float';
-BOOL_CONST: 'boolean';
+fragment INT_LITERAL: 'int';
+fragment FLOAT_LITERAL: 'float';
+fragment BOOL_LITERAL: 'boolean';
+TIPO: INT_LITERAL | FLOAT_LITERAL | BOOL_LITERAL;
 READ: 'read';
 WRITE: 'write';
-BOOLEAN_LITERAL: 'true' | 'false';
+BOOL_CONST: 'true' | 'false';
 IF: 'if';
 THEN: 'then';
 ELSE: 'else';
@@ -33,11 +34,16 @@ DIV: '/';
 RELACAO: '<' | '>' | '<=' | '>=' | '=' | '<>';
 ABRE_PARENTESES: '(';
 FECHA_PARENTESES: ')';
+ABRE_COLCHETES: '[';
+FECHA_COLCHETES: ']';
 VIRGULA: ',';
 PONTO_VIRGULA: ';';
 DOIS_PONTOS: ':';
 PONTO: '.';
 
+// operações lógicas
+AND: 'and';
+OR: 'or';
 
 // Identificadores
 fragment LETRA: [a-zA-Z_];

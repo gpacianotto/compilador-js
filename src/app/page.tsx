@@ -12,6 +12,7 @@ import TextAreaWithLineNumber from 'text-area-with-line-number';
 import Highlighter from './components/Highlighter';
 import { SaveButton } from './components/SaveButton';
 import LexicTable from './components/LexicTable';
+import sintaticAnalisysGenerator from './utils/sintaticAnalisysGenerator';
 
 export default function Home() {
   
@@ -104,9 +105,8 @@ export default function Home() {
             // console.log(fileContentRaw.length)
 
             const lexicAux = lexicAnalisysGenerator(fileContentRaw);
-            
-
             setLexic(formatTokens(lexicAux, fileContentRaw));
+            sintaticAnalisysGenerator(fileContentRaw);
 
             // setLexic(lexicAux);
 
