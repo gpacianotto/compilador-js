@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
-import { Button, Row, Col, Input} from 'reactstrap';
+import { Button, Row, Col, Input, Alert} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import lexicAnalysis from './utils/lexicAnalisys';
@@ -18,6 +18,7 @@ export default function Home() {
   
   const [fileContentRaw, setFileContentRaw] = useState<string>("")
   const [lexic, setLexic] = useState<LexicReturn>({} as LexicReturn)
+  const [errors, setErrors] = useState<Array<string>>([]);
 
     function handleFilePickerClick() {
         // Create an input element of type 'file'
@@ -64,6 +65,25 @@ export default function Home() {
           </Button>
         </Col>
         <Col className='text-center mt-4'>
+          <Button onClick={() => {
+            
+            // const lexicAux : LexicReturn = lexicAnalysis(fileContentRaw);
+            // console.log(lexicAux);
+            // console.log(fileContentRaw.length)
+
+            const lexicAux = lexicAnalisysGenerator(fileContentRaw);
+            setLexic(formatTokens(lexicAux, fileContentRaw));
+            setErrors(sintaticAnalisysGenerator(fileContentRaw));
+
+            // setLexic(lexicAux);
+
+            // console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)
+
+          }}>
+            Analise Lexica
+          </Button>
+        </Col>
+        <Col className='text-center mt-4'>
           <SaveButton content={fileContentRaw}/>
         </Col>
       </Row>
@@ -93,29 +113,23 @@ export default function Home() {
       </Row>
       <Row>
         <Col>
+        {
+          errors.map((er) => <>
+            <Alert color="danger">
+              {er}
+            </Alert>
+          </>)
+        }
+        
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <LexicTable lexic={lexic}/>
         </Col>
       </Row>
       <Row className='text-center mb-4'>
-        <Col>
-          <Button onClick={() => {
-            
-            // const lexicAux : LexicReturn = lexicAnalysis(fileContentRaw);
-            // console.log(lexicAux);
-            // console.log(fileContentRaw.length)
-
-            const lexicAux = lexicAnalisysGenerator(fileContentRaw);
-            setLexic(formatTokens(lexicAux, fileContentRaw));
-            sintaticAnalisysGenerator(fileContentRaw);
-
-            // setLexic(lexicAux);
-
-            // console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)
-
-          }}>
-            Analise Lexica
-          </Button>
-        </Col>
+        
       </Row>
       
     </main>

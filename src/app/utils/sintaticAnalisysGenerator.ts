@@ -6,7 +6,7 @@ import CustomErrorListener from './CustomErrorListener';
 import CustomErrorStrategy from './CustomErrorStrategy';
 
 
-export default function sintaticAnalisysGenerator(input: string) {
+export default function sintaticAnalisysGenerator(input: string) : string[] {
     const errorListener = new CustomErrorListener();
 
     const chars = new InputStream(input);
@@ -23,7 +23,6 @@ export default function sintaticAnalisysGenerator(input: string) {
     antlr4.Lexer.prototype.addErrorListener.call(lexer, errorListener);
 
     parser.declaracoesVariaveis();
-    const errors = errorListener.getErrors();
-    console.log(errors);
+    return errorListener.getErrors();
 }
     
