@@ -1,18 +1,15 @@
 'use client'
-import Image from 'next/image'
-import styles from './page.module.css'
 import { Button, Row, Col, Input, Alert} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import lexicAnalysis from './utils/lexicAnalisys';
 import { LexicReturn } from './utils/Interfaces';
-import { GeneratorToken } from './utils/Interfaces';
 import lexicAnalisysGenerator, { formatTokens } from './utils/lexicAnalisysGenerator';
 import TextAreaWithLineNumber from 'text-area-with-line-number';
 import Highlighter from './components/Highlighter';
 import { SaveButton } from './components/SaveButton';
 import LexicTable from './components/LexicTable';
 import sintaticAnalisysGenerator from './utils/sintaticAnalisysGenerator';
+import Editor from './components/Editor';
 
 export default function Home() {
   
@@ -56,6 +53,7 @@ export default function Home() {
         // Click the file input element programmatically
         fileInput.click();
       };
+
   return (
     <main >
       <Row style={{backgroundColor: "white"}}>
@@ -76,7 +74,6 @@ export default function Home() {
             setErrors(sintaticAnalisysGenerator(fileContentRaw));
 
             // setLexic(lexicAux);
-
             // console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)
 
           }}>
@@ -127,6 +124,9 @@ export default function Home() {
         <Col>
           <LexicTable lexic={lexic}/>
         </Col>
+      </Row>
+      <Row className='mb-4'>
+        <Editor/>
       </Row>
       <Row className='text-center mb-4'>
         

@@ -15,6 +15,8 @@
     "@types/react-dom": "18.2.7",
     "antlr4": "^4.13.0",
     "bootstrap": "^5.3.1",
+    "html-webpack-plugin": "^5.5.3",
+    "monaco-editor-core": "^0.43.0",
     "next": "13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -22,5 +24,9 @@
     "text-area-with-line-number": "^1.1.0",
     "typescript": "5.1.6",
     "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
   }
 }
