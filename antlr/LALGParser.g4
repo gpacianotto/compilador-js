@@ -5,7 +5,7 @@ programa: PROGRAM ID PONTO_VIRGULA bloco PONTO;
 
 bloco: declaracoesVariaveis? declaracoesSubrotinas? comandoComposto;
 
-declaracoesVariaveis: declaracaoVariaveis (PONTO_VIRGULA declaracaoVariaveis)*;
+declaracoesVariaveis: declaracaoVariaveis (PONTO_VIRGULA declaracaoVariaveis)* PONTO_VIRGULA;
 
 declaracaoVariaveis: TIPO listaIdentificadores;
 
