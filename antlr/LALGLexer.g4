@@ -11,13 +11,13 @@ BEGIN: 'begin';
 END: 'end';
 VAR: 'var';
 PROCEDURE: 'procedure';
-fragment INT_LITERAL: 'int';
-fragment FLOAT_LITERAL: 'float';
-fragment BOOL_LITERAL: 'boolean';
-TIPO: INT_LITERAL | FLOAT_LITERAL | BOOL_LITERAL;
+INT_TIPO: 'int';
+FLOAT_TIPO: 'float';
+BOOL_TIPO: 'boolean';
 READ: 'read';
 WRITE: 'write';
-BOOL_CONST: 'true' | 'false';
+TRUE_CONST: 'true';
+FALSE_CONST: 'false';
 IF: 'if';
 THEN: 'then';
 ELSE: 'else';
@@ -53,4 +53,5 @@ INT: DIGITO+;
 FLOAT: DIGITO+ '.' DIGITO+;
 
 // Erro
-ERRO: .;
+INVALID_TOKEN: INVALID+? ;
+INVALID: . ;

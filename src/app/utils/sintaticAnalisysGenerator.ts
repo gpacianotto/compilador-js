@@ -22,7 +22,7 @@ export default function sintaticAnalisysGenerator(input: string) : string[] {
     antlr4.Lexer.prototype.removeErrorListeners.call(lexer);
     antlr4.Lexer.prototype.addErrorListener.call(lexer, errorListener);
 
-    parser.declaracoesVariaveis();
+    parser.programa();
     return errorListener.getErrors();
 }
     

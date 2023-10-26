@@ -80,7 +80,7 @@ export default function Home() {
             // console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)
 
           }}>
-            Analise Lexica
+            Analise
           </Button>
         </Col>
         <Col className='text-center mt-4'>
