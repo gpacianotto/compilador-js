@@ -131,6 +131,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_numero; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterNumero(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitNumero(this);
+		}
 	}
 
 	public final NumeroContext numero() throws RecognitionException {
@@ -175,6 +183,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termo; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterTermo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitTermo(this);
+		}
 	}
 
 	public final TermoContext termo() throws RecognitionException {
@@ -214,6 +230,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termo_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterTermo_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitTermo_aux(this);
+		}
 	}
 
 	public final Termo_auxContext termo_aux() throws RecognitionException {
@@ -272,6 +296,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressaoSimples; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressaoSimples(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressaoSimples(this);
+		}
 	}
 
 	public final ExpressaoSimplesContext expressaoSimples() throws RecognitionException {
@@ -331,6 +363,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressaoSimples_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressaoSimples_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressaoSimples_aux(this);
+		}
 	}
 
 	public final ExpressaoSimples_auxContext expressaoSimples_aux() throws RecognitionException {
@@ -387,6 +427,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressao(this);
+		}
 	}
 
 	public final ExpressaoContext expressao() throws RecognitionException {
@@ -422,6 +470,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao1; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressao1(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressao1(this);
+		}
 	}
 
 	public final Expressao1Context expressao1() throws RecognitionException {
@@ -478,6 +534,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fator; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterFator(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitFator(this);
+		}
 	}
 
 	public final FatorContext fator() throws RecognitionException {
@@ -562,6 +626,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variavel; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterVariavel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitVariavel(this);
+		}
 	}
 
 	public final VariavelContext variavel() throws RecognitionException {
@@ -596,6 +668,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variavel1; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterVariavel1(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitVariavel1(this);
+		}
 	}
 
 	public final Variavel1Context variavel1() throws RecognitionException {
@@ -639,6 +719,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracaoVariavel; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterDeclaracaoVariavel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitDeclaracaoVariavel(this);
+		}
 	}
 
 	public final DeclaracaoVariavelContext declaracaoVariavel() throws RecognitionException {
@@ -674,6 +762,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaID; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaID(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaID(this);
+		}
 	}
 
 	public final ListaIDContext listaID() throws RecognitionException {
@@ -710,6 +806,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaID_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaID_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaID_aux(this);
+		}
 	}
 
 	public final ListaID_auxContext listaID_aux() throws RecognitionException {
@@ -759,6 +863,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoVariavel; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoVariavel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoVariavel(this);
+		}
 	}
 
 	public final ParteDeclaracaoVariavelContext parteDeclaracaoVariavel() throws RecognitionException {
@@ -799,6 +911,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoVariavel_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoVariavel_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoVariavel_aux(this);
+		}
 	}
 
 	public final ParteDeclaracaoVariavel_auxContext parteDeclaracaoVariavel_aux() throws RecognitionException {
@@ -843,6 +963,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tipo; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterTipo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitTipo(this);
+		}
 	}
 
 	public final TipoContext tipo() throws RecognitionException {
@@ -892,6 +1020,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_programa; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterPrograma(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitPrograma(this);
+		}
 	}
 
 	public final ProgramaContext programa() throws RecognitionException {
@@ -953,6 +1089,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bloco; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterBloco(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitBloco(this);
+		}
 	}
 
 	public final BlocoContext bloco() throws RecognitionException {
@@ -1010,6 +1154,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoSubRotina; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoSubRotina(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoSubRotina(this);
+		}
 	}
 
 	public final ParteDeclaracaoSubRotinaContext parteDeclaracaoSubRotina() throws RecognitionException {
@@ -1050,6 +1202,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoSubRotina_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoSubRotina_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoSubRotina_aux(this);
+		}
 	}
 
 	public final ParteDeclaracaoSubRotina_auxContext parteDeclaracaoSubRotina_aux() throws RecognitionException {
@@ -1101,6 +1261,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracaoProcedimento; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterDeclaracaoProcedimento(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitDeclaracaoProcedimento(this);
+		}
 	}
 
 	public final DeclaracaoProcedimentoContext declaracaoProcedimento() throws RecognitionException {
@@ -1141,6 +1309,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracaoProcedimento_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterDeclaracaoProcedimento_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitDeclaracaoProcedimento_aux(this);
+		}
 	}
 
 	public final DeclaracaoProcedimento_auxContext declaracaoProcedimento_aux() throws RecognitionException {
@@ -1187,6 +1363,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParametros(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParametros(this);
+		}
 	}
 
 	public final ParametrosContext parametros() throws RecognitionException {
@@ -1229,6 +1413,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParametros_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParametros_aux(this);
+		}
 	}
 
 	public final Parametros_auxContext parametros_aux() throws RecognitionException {
@@ -1279,6 +1471,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_secaoParametros; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterSecaoParametros(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitSecaoParametros(this);
+		}
 	}
 
 	public final SecaoParametrosContext secaoParametros() throws RecognitionException {
@@ -1327,6 +1527,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_secaoParametrosFormais_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterSecaoParametrosFormais_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitSecaoParametrosFormais_aux(this);
+		}
 	}
 
 	public final SecaoParametrosFormais_auxContext secaoParametrosFormais_aux() throws RecognitionException {
@@ -1381,6 +1589,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoComposto; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoComposto(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoComposto(this);
+		}
 	}
 
 	public final ComandoCompostoContext comandoComposto() throws RecognitionException {
@@ -1423,6 +1639,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoComposto_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoComposto_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoComposto_aux(this);
+		}
 	}
 
 	public final ComandoComposto_auxContext comandoComposto_aux() throws RecognitionException {
@@ -1480,6 +1704,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComando(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComando(this);
+		}
 	}
 
 	public final ComandoContext comando() throws RecognitionException {
@@ -1548,6 +1780,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_atribuicao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterAtribuicao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitAtribuicao(this);
+		}
 	}
 
 	public final AtribuicaoContext atribuicao() throws RecognitionException {
@@ -1587,6 +1827,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chamadaProcedimento; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterChamadaProcedimento(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitChamadaProcedimento(this);
+		}
 	}
 
 	public final ChamadaProcedimentoContext chamadaProcedimento() throws RecognitionException {
@@ -1632,6 +1880,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chamadaProcedimento_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterChamadaProcedimento_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitChamadaProcedimento_aux(this);
+		}
 	}
 
 	public final ChamadaProcedimento_auxContext chamadaProcedimento_aux() throws RecognitionException {
@@ -1685,6 +1941,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoCondicional; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoCondicional(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoCondicional(this);
+		}
 	}
 
 	public final ComandoCondicionalContext comandoCondicional() throws RecognitionException {
@@ -1726,6 +1990,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoCondicional_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoCondicional_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoCondicional_aux(this);
+		}
 	}
 
 	public final ComandoCondicional_auxContext comandoCondicional_aux() throws RecognitionException {
@@ -1773,6 +2045,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoRepetitivo; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoRepetitivo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoRepetitivo(this);
+		}
 	}
 
 	public final ComandoRepetitivoContext comandoRepetitivo() throws RecognitionException {
@@ -1814,6 +2094,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaExpressao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaExpressao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaExpressao(this);
+		}
 	}
 
 	public final ListaExpressaoContext listaExpressao() throws RecognitionException {
@@ -1852,6 +2140,14 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaExpressao_aux; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaExpressao_aux(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaExpressao_aux(this);
+		}
 	}
 
 	public final ListaExpressao_auxContext listaExpressao_aux() throws RecognitionException {
