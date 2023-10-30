@@ -1,51 +1,81 @@
 parser grammar LALGParser;
 options { tokenVocab = LALGLexer; }
 
-programa: PROGRAM ID PONTO_VIRGULA bloco PONTO;
+numero: (INT | FLOAT);
 
-bloco: declaracoesVariaveis? declaracoesSubrotinas? comandoComposto;
+termo: fator termo_aux ;
 
-declaracoesVariaveis: declaracaoVariaveis (PONTO_VIRGULA declaracaoVariaveis)*;
+termo_aux: ( ( MULT | AND ) fator termo_aux )? ;
 
-declaracaoVariaveis: TIPO listaIdentificadores;
+expressaoSimples:
+    ( MAIS | MENOS )? termo expressaoSimples_aux ;
 
-listaIdentificadores: ID (VIRGULA ID)*;
+expressaoSimples_aux:
+    ( ( MAIS | MENOS | OR ) termo expressaoSimples_aux )? ;
 
-declaracoesSubrotinas: declaracaoProcedimento (PONTO_VIRGULA declaracaoProcedimento)*;
+expressao:
+    expressaoSimples expressao1;
 
-declaracaoProcedimento:	PROCEDURE ID parametrosFormais PONTO_VIRGULA bloco;
+expressao1:
+    (RELACAO expressaoSimples)? ;
 
-parametrosFormais: ABRE_PARENTESES secaoParametrosFormais ( PONTO_VIRGULA secaoParametrosFormais )* FECHA_PARENTESES;
+fator:
+    ( variavel | numero | ( ABRE_PARENTESES expressao FECHA_PARENTESES ) | ( NOT fator ) | TRUE_CONST | FALSE_CONST ) ;
 
-secaoParametrosFormais: VAR? listaIdentificadores DOIS_PONTOS ID;
+variavel:
+    ID variavel1 ;
 
-comandoComposto: BEGIN comando (PONTO_VIRGULA comando)* END;
+variavel1:
+    expressao? ;
 
-comando: atribuicao
-	| chamadaProcedimento
-	| comandoComposto
-	| comandoCondicional
-	| comandoRepetitivo;
+declaracaoVariavel: tipo listaID ;
 
-atribuicao: variavel ATRIBUICAO expressao;
+listaID: ID listaID_aux;
+listaID_aux: ( VIRGULA ID listaID_aux )?;
 
-chamadaProcedimento: ID ABRE_PARENTESES listaExpressoes? FECHA_PARENTESES;
+parteDeclaracaoVariavel: declaracaoVariavel parteDeclaracaoVariavel_aux PONTO_VIRGULA;
 
-comandoCondicional: IF expressao THEN comando (ELSE comando)?;
+parteDeclaracaoVariavel_aux: ( PONTO_VIRGULA declaracaoVariavel parteDeclaracaoVariavel_aux )? ;
 
-comandoRepetitivo: WHILE expressao DO comando;
+tipo: ( BOOL_TIPO | INT_TIPO | FLOAT_TIPO ) ;
 
-expressao: expressaoSimples (RELACAO expressaoSimples)?;
+programa:
+    PROGRAM ID PONTO_VIRGULA
+    	bloco 
+	PONTO + EOF;
 
-expressaoSimples: (MAIS | MENOS)? termo ( (MAIS | MENOS | OR) termo )*;
+bloco: ( parteDeclaracaoVariavel )? 
+       ( parteDeclaracaoSubRotina )? 
+    	comandoComposto ;
 
-termo: fator ((MULT | DIV | AND) fator)*;
+parteDeclaracaoSubRotina: declaracaoProcedimento PONTO_VIRGULA parteDeclaracaoSubRotina_aux  ;
 
-fator: variavel
-	| TIPO
-	| ABRE_PARENTESES expressao FECHA_PARENTESES
-	| NOT fator;
+parteDeclaracaoSubRotina_aux: ( declaracaoProcedimento parteDeclaracaoSubRotina_aux PONTO_VIRGULA ) ? ; 
 
-variavel: ID | ID ABRE_COLCHETES expressao FECHA_COLCHETES;
+declaracaoProcedimento: PROCEDURE ID declaracaoProcedimento_aux PONTO_VIRGULA bloco ;
 
-listaExpressoes: expressao (VIRGULA expressao)*;
+declaracaoProcedimento_aux: ( parametros )? ;
+
+parametros: ABRE_PARENTESES secaoParametros parametros_aux FECHA_PARENTESES ;
+parametros_aux: (PONTO_VIRGULA secaoParametros parametros_aux) ? ; 
+
+secaoParametros: ( VAR )? listaID DOIS_PONTOS secaoParametrosFormais_aux ;
+secaoParametrosFormais_aux: ID | tipo ;
+
+comandoComposto: BEGIN comando comandoComposto_aux END ;
+comandoComposto_aux: ( PONTO_VIRGULA comando comandoComposto_aux ) ? ;
+
+comando: ( atribuicao | chamadaProcedimento | comandoComposto | comandoCondicional | comandoRepetitivo ) ;
+
+atribuicao: variavel ATRIBUICAO expressao ;
+
+chamadaProcedimento: (ID | READ | WRITE) chamadaProcedimento_aux ;
+chamadaProcedimento_aux: ( ABRE_PARENTESES listaExpressao FECHA_PARENTESES )? ;
+
+comandoCondicional: IF expressao THEN comando comandoCondicional_aux ;
+comandoCondicional_aux: (ELSE comando)? ;
+
+comandoRepetitivo: WHILE expressao DO comando ;
+
+listaExpressao: expressao listaExpressao_aux ;
+listaExpressao_aux: ( VIRGULA expressao listaExpressao_aux ) ? ;
