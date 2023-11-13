@@ -107,9 +107,9 @@ export default function Home() {
           />
           
         </Col>
-        <Col>
+        {/* <Col>
           <Highlighter lexic={lexic} code={fileContentRaw}/>
-        </Col>
+        </Col> */}
       </Row>
       <Row>
         <Col>
