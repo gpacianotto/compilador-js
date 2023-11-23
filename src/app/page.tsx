@@ -1,61 +1,58 @@
 'use client'
-import Image from 'next/image'
-import styles from './page.module.css'
 import { Button, Row, Col, Input, Alert} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
-import lexicAnalysis from './utils/lexicAnalisys';
+import { use, useEffect, useState } from 'react';
 import { LexicReturn } from './utils/Interfaces';
-import { GeneratorToken } from './utils/Interfaces';
-import lexicAnalisysGenerator, { formatTokens } from './utils/lexicAnalisysGenerator';
 import TextAreaWithLineNumber from 'text-area-with-line-number';
-import Highlighter from './components/Highlighter';
 import { SaveButton } from './components/SaveButton';
 import LexicTable from './components/LexicTable';
-import sintaticAnalisysGenerator from './utils/sintaticAnalisysGenerator';
+import Analisys from './utils/Analisys';
 
 export default function Home() {
   
   const [fileContentRaw, setFileContentRaw] = useState<string>("")
-  const [lexic, setLexic] = useState<LexicReturn>({} as LexicReturn)
-  const [errors, setErrors] = useState<Array<string>>([]);
+  const [lexic, setLexicResult] = useState<LexicReturn>({} as LexicReturn)
+  const [errors, setErrorsResult] = useState<Array<string>>([]);
+  const [analisys, setAnalisys] = useState<Analisys>({} as Analisys);
 
-    function handleFilePickerClick() {
-        // Create an input element of type 'file'
-        const fileInput = document.createElement('input');
-        fileInput.type = "file";
-        
+  function handleFilePickerClick() {
+    // Create an input element of type 'file'
+    const fileInput = document.createElement('input');
+    fileInput.type = "file";
     
-        // Add an event listener to handle file selection
-        fileInput.addEventListener('change', (event) => {
-          
-          const target = event.target as HTMLInputElement;
-           const files = target.files as FileList;
 
-          const selectedFile = files[0];
-          // Do something with the selected file, e.g., upload or process it
-          console.log('Selected file:', selectedFile);
-          console.log("extension: ", selectedFile.type);
+    // Add an event listener to handle file selection
+    fileInput.addEventListener('change', (event) => {
+      
+      const target = event.target as HTMLInputElement;
+        const files = target.files as FileList;
 
-          if(selectedFile.type !== "text/plain"){
-            alert("precisa ser um arquivo .txt");
-            return;
-          }
+      const selectedFile = files[0];
+      // Do something with the selected file, e.g., upload or process it
+      console.log('Selected file:', selectedFile);
+      console.log("extension: ", selectedFile.type);
 
-          const reader = new FileReader();
+      if(selectedFile.type !== "text/plain"){
+        alert("precisa ser um arquivo .txt");
+        return;
+      }
 
-          reader.onload = (event) => {
-            const fileContents = event?.target ? event.target.result : null;
-            console.log(fileContents);
-            setFileContentRaw(fileContents as string);
-          };
+      const reader = new FileReader();
 
-          reader.readAsText(selectedFile);
-        });
-    
-        // Click the file input element programmatically
-        fileInput.click();
+      reader.onload = (event) => {
+        const fileContents = event?.target ? event.target.result : null;
+        console.log(fileContents);
+        setFileContentRaw(fileContents as string);
       };
+
+      reader.readAsText(selectedFile);
+    });
+
+    // Click the file input element programmatically
+    fileInput.click();
+  };
+
+
   return (
     <main >
       <Row style={{backgroundColor: "white"}}>
@@ -65,27 +62,32 @@ export default function Home() {
           </Button>
         </Col>
         <Col className='text-center mt-4'>
+          <SaveButton content={fileContentRaw}/>
+        </Col>
+        
+        <Col className='text-center mt-4'>
           <Button onClick={() => {
-            
-            // const lexicAux : LexicReturn = lexicAnalysis(fileContentRaw);
-            // console.log(lexicAux);
-            // console.log(fileContentRaw.length)
 
-            const lexicAux = lexicAnalisysGenerator(fileContentRaw);
-            setLexic(formatTokens(lexicAux, fileContentRaw));
-            setErrors(sintaticAnalisysGenerator(fileContentRaw));
+            const analisys = new Analisys(fileContentRaw);
+            setAnalisys(analisys);
+            setLexicResult(analisys.formatTokens(analisys.lexicAnalisys(), fileContentRaw));
+            setErrorsResult(analisys.sintatic());
+            setErrorsResult(analisys.semantic());
 
-            // setLexic(lexicAux);
-
-            // console.log(fileContentRaw !== "" ? lexicAnalysis(fileContentRaw) : null)
+            // const lexicAux = lexicAnalisysGenerator(fileContentRaw);
+            // setLexicResult(formatTokens(lexicAux, fileContentRaw));
+            // setErrorsResult(sintaticAnalisysGenerator(fileContentRaw));
 
           }}>
-            Analise
+            Analise(léxica/sintática/semântica)
           </Button>
         </Col>
         <Col className='text-center mt-4'>
-          <SaveButton content={fileContentRaw}/>
+          <Button >
+            Gerar código
+          </Button>
         </Col>
+        
       </Row>
       
       <Row className='mt-5'>

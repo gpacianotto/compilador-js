@@ -1,14 +1,12 @@
-import InputStream from "antlr4/InputStream";
 import LALGLexer from "../../../antlr/LALGLexer";
-import CommonTokenStream from "antlr4/CommonTokenStream";
 import LALGParser from "../../../antlr/LALGParser";
 import antlr4 from "antlr4";
-import { GeneratorToken } from "./Interfaces";
+import { GeneratorToken, LexicReturn, Token } from "./Interfaces";
 import CustomErrorListener from "./CustomErrorListener";
 import CustomErrorStrategy from "./CustomErrorStrategy";
 import semanticAnalysis from "./SemanticAnalysis";
 
-class Analisys{
+export default class Analisys{
 
     public char: any;
     public lexer: any;
@@ -18,13 +16,13 @@ class Analisys{
 
 
     constructor(input: string){
-        this.char = new InputStream(input);
+        this.char = new antlr4.InputStream(input);
         this.lexer = new LALGLexer(this.char);
-        this.tokens = new CommonTokenStream(this.lexer);
+        this.tokens = new antlr4.CommonTokenStream(this.lexer);
         this.parser = new LALGParser(this.tokens);
     }
 
-    lexic() {
+    public lexicAnalisys() : GeneratorToken[] {
         this.tokens.fill(); //não apagar, é necessário para o funcionamento do lexer
 
         // Formantando o resultado
@@ -41,7 +39,7 @@ class Analisys{
         return result;
     }
 
-    sintatic(){
+    public sintatic() {
         const errorListener = new CustomErrorListener();
 
         const parser = new LALGParser(this.tokens);
@@ -58,10 +56,34 @@ class Analisys{
         return errorListener.getErrors();
     }
     
-    semantic(){
+    public semantic(){
         let errorListener = new CustomErrorListener();
         let semanticAnalys = new semanticAnalysis(errorListener);
         semanticAnalys.visit(this.tree);
         return errorListener.getErrors();
+    }
+
+    public formatTokens(rawLexems: GeneratorToken[], input: string): LexicReturn {
+        // formatando os tokens para retorno na forma da tabela
+        const tokens: Token[] = [];
+        const charMap: number[] = [];
+    
+        rawLexems.map((lexem: GeneratorToken) => {
+            tokens?.push({ lexem: lexem.Lexema, token: lexem.Token, position: { line: lexem.Linha, colStart: lexem.Coluna, colEnd: lexem.Coluna + lexem.Lexema.length } })
+        })
+    
+        console.log(tokens);
+    
+        for (let i = 0; i < input.length; i++) {
+            const char = input[i];
+            charMap.push(1)
+        }
+    
+        return {
+            error: false,
+            charMap: charMap,
+            tokens: tokens,
+            errorChar: null
+        };
     }
 }

@@ -1,4 +1,4 @@
-import colorSchemes from "../utils/ColorSchemes";
+import colorSchemes from "../utils/deprecated/ColorSchemes";
 import { LexicReturn } from "../utils/Interfaces";
 import { useEffect} from "react"
 

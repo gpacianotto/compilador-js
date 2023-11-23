@@ -1,6 +1,6 @@
 import { InputStream, CommonTokenStream } from 'antlr4';
-import LALGLexer from '../../../antlr/LALGLexer';
-import { LexicReturn, Token, GeneratorToken } from './Interfaces';
+import LALGLexer from '../../../../antlr/LALGLexer';
+import { LexicReturn, Token, GeneratorToken } from '../Interfaces';
 
 
 export default function lexicAnalisysGenerator(input: string): GeneratorToken[] {

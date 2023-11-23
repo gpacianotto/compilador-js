@@ -1,9 +1,9 @@
 import antlr4, { InputStream, CommonTokenStream } from 'antlr4';
-import LALGLexer from '../../../antlr/LALGLexer';
-import LALGParser from '../../../antlr/LALGParser';
-import { LexicReturn, Token, GeneratorToken } from './Interfaces';
-import CustomErrorListener from './CustomErrorListener';
-import CustomErrorStrategy from './CustomErrorStrategy';
+import LALGLexer from '../../../../antlr/LALGLexer';
+import LALGParser from '../../../../antlr/LALGParser';
+import { LexicReturn, Token, GeneratorToken } from '../Interfaces';
+import CustomErrorListener from '../CustomErrorListener';
+import CustomErrorStrategy from '../CustomErrorStrategy';
 
 
 export default function sintaticAnalisysGenerator(input: string) : string[] {
