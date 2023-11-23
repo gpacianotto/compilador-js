@@ -12,6 +12,8 @@ import {
 	Interval, IntervalSet
 } from 'antlr4';
 import LALGParserListener from "./LALGParserListener.js";
+import LALGParserVisitor from "./LALGParserVisitor.js";
+
 // for running tests with parameters, TODO: discuss strategy for typed parameters in CI
 // eslint-disable-next-line no-unused-vars
 type int = number;
@@ -1647,6 +1649,14 @@ export class NumeroContext extends ParserRuleContext {
 	 		listener.exitNumero(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitNumero) {
+			return visitor.visitNumero(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1672,6 +1682,14 @@ export class TermoContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitTermo) {
 	 		listener.exitTermo(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitTermo) {
+			return visitor.visitTermo(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -1707,6 +1725,14 @@ export class Termo_auxContext extends ParserRuleContext {
 	 		listener.exitTermo_aux(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitTermo_aux) {
+			return visitor.visitTermo_aux(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1738,6 +1764,14 @@ export class ExpressaoSimplesContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitExpressaoSimples) {
 	 		listener.exitExpressaoSimples(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitExpressaoSimples) {
+			return visitor.visitExpressaoSimples(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -1776,6 +1810,14 @@ export class ExpressaoSimples_auxContext extends ParserRuleContext {
 	 		listener.exitExpressaoSimples_aux(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitExpressaoSimples_aux) {
+			return visitor.visitExpressaoSimples_aux(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1803,6 +1845,14 @@ export class ExpressaoContext extends ParserRuleContext {
 	 		listener.exitExpressao(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitExpressao) {
+			return visitor.visitExpressao(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1828,6 +1878,14 @@ export class Expressao1Context extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitExpressao1) {
 	 		listener.exitExpressao1(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitExpressao1) {
+			return visitor.visitExpressao1(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -1878,6 +1936,14 @@ export class FatorContext extends ParserRuleContext {
 	 		listener.exitFator(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitFator) {
+			return visitor.visitFator(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1905,6 +1971,14 @@ export class VariavelContext extends ParserRuleContext {
 	 		listener.exitVariavel(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitVariavel) {
+			return visitor.visitVariavel(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1927,6 +2001,14 @@ export class Variavel1Context extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitVariavel1) {
 	 		listener.exitVariavel1(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitVariavel1) {
+			return visitor.visitVariavel1(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -1956,6 +2038,14 @@ export class DeclaracaoVariavelContext extends ParserRuleContext {
 	 		listener.exitDeclaracaoVariavel(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitDeclaracaoVariavel) {
+			return visitor.visitDeclaracaoVariavel(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -1981,6 +2071,14 @@ export class ListaIDContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitListaID) {
 	 		listener.exitListaID(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitListaID) {
+			return visitor.visitListaID(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2013,6 +2111,14 @@ export class ListaID_auxContext extends ParserRuleContext {
 	 		listener.exitListaID_aux(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitListaID_aux) {
+			return visitor.visitListaID_aux(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2041,6 +2147,14 @@ export class ParteDeclaracaoVariavelContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitParteDeclaracaoVariavel) {
 	 		listener.exitParteDeclaracaoVariavel(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitParteDeclaracaoVariavel) {
+			return visitor.visitParteDeclaracaoVariavel(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2073,6 +2187,14 @@ export class ParteDeclaracaoVariavel_auxContext extends ParserRuleContext {
 	 		listener.exitParteDeclaracaoVariavel_aux(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitParteDeclaracaoVariavel_aux) {
+			return visitor.visitParteDeclaracaoVariavel_aux(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2101,6 +2223,14 @@ export class TipoContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitTipo) {
 	 		listener.exitTipo(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitTipo) {
+			return visitor.visitTipo(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2145,6 +2275,14 @@ export class ProgramaContext extends ParserRuleContext {
 	 		listener.exitPrograma(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitPrograma) {
+			return visitor.visitPrograma(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2173,6 +2311,14 @@ export class BlocoContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitBloco) {
 	 		listener.exitBloco(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitBloco) {
+			return visitor.visitBloco(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2205,6 +2351,14 @@ export class ParteDeclaracaoSubRotinaContext extends ParserRuleContext {
 	 		listener.exitParteDeclaracaoSubRotina(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitParteDeclaracaoSubRotina) {
+			return visitor.visitParteDeclaracaoSubRotina(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2233,6 +2387,14 @@ export class ParteDeclaracaoSubRotina_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitParteDeclaracaoSubRotina_aux) {
 	 		listener.exitParteDeclaracaoSubRotina_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitParteDeclaracaoSubRotina_aux) {
+			return visitor.visitParteDeclaracaoSubRotina_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2271,6 +2433,14 @@ export class DeclaracaoProcedimentoContext extends ParserRuleContext {
 	 		listener.exitDeclaracaoProcedimento(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitDeclaracaoProcedimento) {
+			return visitor.visitDeclaracaoProcedimento(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2293,6 +2463,14 @@ export class DeclaracaoProcedimento_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitDeclaracaoProcedimento_aux) {
 	 		listener.exitDeclaracaoProcedimento_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitDeclaracaoProcedimento_aux) {
+			return visitor.visitDeclaracaoProcedimento_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2328,6 +2506,14 @@ export class ParametrosContext extends ParserRuleContext {
 	 		listener.exitParametros(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitParametros) {
+			return visitor.visitParametros(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2356,6 +2542,14 @@ export class Parametros_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitParametros_aux) {
 	 		listener.exitParametros_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitParametros_aux) {
+			return visitor.visitParametros_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2391,6 +2585,14 @@ export class SecaoParametrosContext extends ParserRuleContext {
 	 		listener.exitSecaoParametros(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitSecaoParametros) {
+			return visitor.visitSecaoParametros(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2416,6 +2618,14 @@ export class SecaoParametrosFormais_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitSecaoParametrosFormais_aux) {
 	 		listener.exitSecaoParametrosFormais_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitSecaoParametrosFormais_aux) {
+			return visitor.visitSecaoParametrosFormais_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2451,6 +2661,14 @@ export class ComandoCompostoContext extends ParserRuleContext {
 	 		listener.exitComandoComposto(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitComandoComposto) {
+			return visitor.visitComandoComposto(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2479,6 +2697,14 @@ export class ComandoComposto_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitComandoComposto_aux) {
 	 		listener.exitComandoComposto_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitComandoComposto_aux) {
+			return visitor.visitComandoComposto_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2517,6 +2743,14 @@ export class ComandoContext extends ParserRuleContext {
 	 		listener.exitComando(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitComando) {
+			return visitor.visitComando(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2545,6 +2779,14 @@ export class AtribuicaoContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitAtribuicao) {
 	 		listener.exitAtribuicao(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitAtribuicao) {
+			return visitor.visitAtribuicao(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2580,6 +2822,14 @@ export class ChamadaProcedimentoContext extends ParserRuleContext {
 	 		listener.exitChamadaProcedimento(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitChamadaProcedimento) {
+			return visitor.visitChamadaProcedimento(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2608,6 +2858,14 @@ export class ChamadaProcedimento_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitChamadaProcedimento_aux) {
 	 		listener.exitChamadaProcedimento_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitChamadaProcedimento_aux) {
+			return visitor.visitChamadaProcedimento_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2646,6 +2904,14 @@ export class ComandoCondicionalContext extends ParserRuleContext {
 	 		listener.exitComandoCondicional(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitComandoCondicional) {
+			return visitor.visitComandoCondicional(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2671,6 +2937,14 @@ export class ComandoCondicional_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitComandoCondicional_aux) {
 	 		listener.exitComandoCondicional_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitComandoCondicional_aux) {
+			return visitor.visitComandoCondicional_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2706,6 +2980,14 @@ export class ComandoRepetitivoContext extends ParserRuleContext {
 	 		listener.exitComandoRepetitivo(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitComandoRepetitivo) {
+			return visitor.visitComandoRepetitivo(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -2731,6 +3013,14 @@ export class ListaExpressaoContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitListaExpressao) {
 	 		listener.exitListaExpressao(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitListaExpressao) {
+			return visitor.visitListaExpressao(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -2761,6 +3051,14 @@ export class ListaExpressao_auxContext extends ParserRuleContext {
 	public exitRule(listener: LALGParserListener): void {
 	    if(listener.exitListaExpressao_aux) {
 	 		listener.exitListaExpressao_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+		if (visitor.visitListaExpressao_aux) {
+			return visitor.visitListaExpressao_aux(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }

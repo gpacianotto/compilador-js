@@ -1,5 +1,4 @@
 import antlr4 from "antlr4";
-const { Token } = antlr4;
 const { BailErrorStrategy, DefaultErrorStrategy, FailedPredicateException } = antlr4.error;
 
 const DES = new DefaultErrorStrategy();
@@ -38,6 +37,13 @@ export default class CustomErrorStrategy extends BailErrorStrategy {
         let ruleName = recognizer.ruleNames[recognizer._ctx.ruleIndex];
         let msg = `Regra ${ruleName} não satisfeita.`;
         recognizer.notifyErrorListeners(msg, e.offendingToken, e);
+    }
+
+    reportUnwatedToken(recognizer: antlr4.Parser) {
+        let t = recognizer.getCurrentToken();
+        let expected = recognizer.getExpectedTokens().toString();
+        let msg = `Entrada não esperada ${t.text}; esperado: ${expected}.`;
+        recognizer.notifyErrorListeners(msg, t, undefined);
     }
 
     reportError(recognizer: antlr4.Parser, e: antlr4.error.RecognitionException) {

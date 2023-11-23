@@ -14,6 +14,12 @@ export default class CustomErrorListener extends antlr4.error.ErrorListener {
         this.errors.push(error);
     }
 
+    semanticError(line: number, column: number, msg: string) {
+        const error = `Erro na linha ${line}, coluna ${column + 1}: ${msg}`;
+        console.log(error);
+        this.errors.push(error);
+    }
+
     getErrors() {
         return this.errors;
     }

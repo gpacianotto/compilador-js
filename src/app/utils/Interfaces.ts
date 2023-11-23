@@ -29,3 +29,8 @@ export interface GeneratorToken {
     Linha: number;
     Coluna: number;
 }
+
+export interface Symbol {
+    name: string,
+    type: string,
+}
