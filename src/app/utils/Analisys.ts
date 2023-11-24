@@ -4,7 +4,7 @@ import antlr4 from "antlr4";
 import { GeneratorToken, LexicReturn, Token } from "./Interfaces";
 import CustomErrorListener from "./CustomErrorListener";
 import CustomErrorStrategy from "./CustomErrorStrategy";
-import semanticAnalysis from "./SemanticAnalysis";
+import semanticAnalyzer from "./SemanticAnalysis";
 
 export default class Analisys{
 
@@ -58,7 +58,7 @@ export default class Analisys{
     
     public semantic(){
         let errorListener = new CustomErrorListener();
-        let semanticAnalys = new semanticAnalysis(errorListener);
+        let semanticAnalys = new semanticAnalyzer(errorListener);
         semanticAnalys.visit(this.tree);
         return errorListener.getErrors();
     }

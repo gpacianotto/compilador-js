@@ -32,5 +32,20 @@ export interface GeneratorToken {
 
 export interface Symbol {
     name: string,
+    position: Position,
+}
+
+export interface Variable extends Symbol {
     type: string,
+    isUsed: boolean,
+}
+
+export interface ProcedureParam extends Symbol {
+    type: string,
+    isUsed: boolean,
+}
+
+export interface Procedure extends Symbol {
+    params: ProcedureParam[],
+    isUsed: boolean,
 }

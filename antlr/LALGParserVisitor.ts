@@ -9,7 +9,7 @@ import { Termo_auxContext } from "./LALGParser";
 import { ExpressaoSimplesContext } from "./LALGParser";
 import { ExpressaoSimples_auxContext } from "./LALGParser";
 import { ExpressaoContext } from "./LALGParser";
-import { Expressao1Context } from "./LALGParser";
+import { Expressao_auxContext } from "./LALGParser";
 import { FatorContext } from "./LALGParser";
 import { VariavelContext } from "./LALGParser";
 import { Variavel1Context } from "./LALGParser";
@@ -87,11 +87,11 @@ export default class LALGParserVisitor<Result> extends ParseTreeVisitor<Result> 
 	 */
 	visitExpressao?: (ctx: ExpressaoContext) => Result;
 	/**
-	 * Visit a parse tree produced by `LALGParser.expressao1`.
+	 * Visit a parse tree produced by `LALGParser.expressao_aux`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitExpressao1?: (ctx: Expressao1Context) => Result;
+	visitExpressao_aux?: (ctx: Expressao_auxContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGParser.fator`.
 	 * @param ctx the parse tree

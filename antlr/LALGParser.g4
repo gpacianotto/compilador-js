@@ -14,9 +14,9 @@ expressaoSimples_aux:
     ( ( MAIS | MENOS | OR ) termo expressaoSimples_aux )? ;
 
 expressao:
-    expressaoSimples expressao1;
+    expressaoSimples expressao_aux;
 
-expressao1:
+expressao_aux:
     (RELACAO expressaoSimples)? ;
 
 fator:

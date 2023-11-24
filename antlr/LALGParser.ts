@@ -68,7 +68,7 @@ export default class LALGParser extends Parser {
 	public static readonly RULE_expressaoSimples = 3;
 	public static readonly RULE_expressaoSimples_aux = 4;
 	public static readonly RULE_expressao = 5;
-	public static readonly RULE_expressao1 = 6;
+	public static readonly RULE_expressao_aux = 6;
 	public static readonly RULE_fator = 7;
 	public static readonly RULE_variavel = 8;
 	public static readonly RULE_variavel1 = 9;
@@ -152,7 +152,7 @@ export default class LALGParser extends Parser {
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
 		"numero", "termo", "termo_aux", "expressaoSimples", "expressaoSimples_aux", 
-		"expressao", "expressao1", "fator", "variavel", "variavel1", "declaracaoVariavel", 
+		"expressao", "expressao_aux", "fator", "variavel", "variavel1", "declaracaoVariavel", 
 		"listaID", "listaID_aux", "parteDeclaracaoVariavel", "parteDeclaracaoVariavel_aux", 
 		"tipo", "programa", "bloco", "parteDeclaracaoSubRotina", "parteDeclaracaoSubRotina_aux", 
 		"declaracaoProcedimento", "declaracaoProcedimento_aux", "parametros", 
@@ -380,7 +380,7 @@ export default class LALGParser extends Parser {
 			this.state = 97;
 			this.expressaoSimples();
 			this.state = 98;
-			this.expressao1();
+			this.expressao_aux();
 			}
 		}
 		catch (re) {
@@ -398,9 +398,9 @@ export default class LALGParser extends Parser {
 		return localctx;
 	}
 	// @RuleVersion(0)
-	public expressao1(): Expressao1Context {
-		let localctx: Expressao1Context = new Expressao1Context(this, this._ctx, this.state);
-		this.enterRule(localctx, 12, LALGParser.RULE_expressao1);
+	public expressao_aux(): Expressao_auxContext {
+		let localctx: Expressao_auxContext = new Expressao_auxContext(this, this._ctx, this.state);
+		this.enterRule(localctx, 12, LALGParser.RULE_expressao_aux);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -1829,8 +1829,8 @@ export class ExpressaoContext extends ParserRuleContext {
 	public expressaoSimples(): ExpressaoSimplesContext {
 		return this.getTypedRuleContext(ExpressaoSimplesContext, 0) as ExpressaoSimplesContext;
 	}
-	public expressao1(): Expressao1Context {
-		return this.getTypedRuleContext(Expressao1Context, 0) as Expressao1Context;
+	public expressao_aux(): Expressao_auxContext {
+		return this.getTypedRuleContext(Expressao_auxContext, 0) as Expressao_auxContext;
 	}
     public get ruleIndex(): number {
     	return LALGParser.RULE_expressao;
@@ -1856,7 +1856,7 @@ export class ExpressaoContext extends ParserRuleContext {
 }
 
 
-export class Expressao1Context extends ParserRuleContext {
+export class Expressao_auxContext extends ParserRuleContext {
 	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
@@ -1868,22 +1868,22 @@ export class Expressao1Context extends ParserRuleContext {
 		return this.getTypedRuleContext(ExpressaoSimplesContext, 0) as ExpressaoSimplesContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_expressao1;
+    	return LALGParser.RULE_expressao_aux;
 	}
 	public enterRule(listener: LALGParserListener): void {
-	    if(listener.enterExpressao1) {
-	 		listener.enterExpressao1(this);
+	    if(listener.enterExpressao_aux) {
+	 		listener.enterExpressao_aux(this);
 		}
 	}
 	public exitRule(listener: LALGParserListener): void {
-	    if(listener.exitExpressao1) {
-	 		listener.exitExpressao1(this);
+	    if(listener.exitExpressao_aux) {
+	 		listener.exitExpressao_aux(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
-		if (visitor.visitExpressao1) {
-			return visitor.visitExpressao1(this);
+		if (visitor.visitExpressao_aux) {
+			return visitor.visitExpressao_aux(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
