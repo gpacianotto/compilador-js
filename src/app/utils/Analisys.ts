@@ -1,5 +1,5 @@
 import LALGLexer from "../../../antlr/LALGLexer";
-import LALGParser from "../../../antlr/LALGParser";
+import LALGParser from "../../../antlr/LALGGrammar";
 import antlr4 from "antlr4";
 import { GeneratorToken, LexicReturn, Token } from "./Interfaces";
 import CustomErrorListener from "./CustomErrorListener";

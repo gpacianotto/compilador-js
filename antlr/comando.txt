@@ -1,1 +1,1 @@
-java -jar ./antlr/antlr-4.13.0-complete.jar -Dlanguage=TypeScript -visitor ./antlr/LALGParser.g4 ./antlr/LALGLexer.g4
+java -jar ./antlr/antlr-4.13.0-complete.jar -Dlanguage=TypeScript -visitor -listener ./antlr/LALGGrammar.g4 ./antlr/LALGLexer.g4

@@ -1,4 +1,4 @@
-// Generated from ./antlr/LALGParser.g4 by ANTLR 4.13.0
+// Generated from ./antlr/LALGGrammar.g4 by ANTLR 4.13.0
 // noinspection ES6UnusedImports,JSUnusedGlobalSymbols,JSUnusedLocalSymbols
 
 import {
@@ -11,14 +11,14 @@ import {
 	Token, TokenStream,
 	Interval, IntervalSet
 } from 'antlr4';
-import LALGParserListener from "./LALGParserListener.js";
-import LALGParserVisitor from "./LALGParserVisitor.js";
+import LALGGrammarListener from "./LALGGrammarListener.js";
+import LALGGrammarVisitor from "./LALGGrammarVisitor.js";
 
 // for running tests with parameters, TODO: discuss strategy for typed parameters in CI
 // eslint-disable-next-line no-unused-vars
 type int = number;
 
-export default class LALGParser extends Parser {
+export default class LALGGrammar extends Parser {
 	public static readonly COMENTARIO = 1;
 	public static readonly COMENTARIO_MULTI = 2;
 	public static readonly WS = 3;
@@ -161,11 +161,11 @@ export default class LALGParser extends Parser {
 		"chamadaProcedimento_aux", "comandoCondicional", "comandoCondicional_aux", 
 		"comandoRepetitivo", "listaExpressao", "listaExpressao_aux",
 	];
-	public get grammarFileName(): string { return "LALGParser.g4"; }
-	public get literalNames(): (string | null)[] { return LALGParser.literalNames; }
-	public get symbolicNames(): (string | null)[] { return LALGParser.symbolicNames; }
-	public get ruleNames(): string[] { return LALGParser.ruleNames; }
-	public get serializedATN(): number[] { return LALGParser._serializedATN; }
+	public get grammarFileName(): string { return "LALGGrammar.g4"; }
+	public get literalNames(): (string | null)[] { return LALGGrammar.literalNames; }
+	public get symbolicNames(): (string | null)[] { return LALGGrammar.symbolicNames; }
+	public get ruleNames(): string[] { return LALGGrammar.ruleNames; }
+	public get serializedATN(): number[] { return LALGGrammar._serializedATN; }
 
 	protected createFailedPredicateException(predicate?: string, message?: string): FailedPredicateException {
 		return new FailedPredicateException(this, predicate, message);
@@ -173,12 +173,12 @@ export default class LALGParser extends Parser {
 
 	constructor(input: TokenStream) {
 		super(input);
-		this._interp = new ParserATNSimulator(this, LALGParser._ATN, LALGParser.DecisionsToDFA, new PredictionContextCache());
+		this._interp = new ParserATNSimulator(this, LALGGrammar._ATN, LALGGrammar.DecisionsToDFA, new PredictionContextCache());
 	}
 	// @RuleVersion(0)
 	public numero(): NumeroContext {
 		let localctx: NumeroContext = new NumeroContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 0, LALGParser.RULE_numero);
+		this.enterRule(localctx, 0, LALGGrammar.RULE_numero);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -211,7 +211,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public termo(): TermoContext {
 		let localctx: TermoContext = new TermoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 2, LALGParser.RULE_termo);
+		this.enterRule(localctx, 2, LALGGrammar.RULE_termo);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -238,7 +238,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public termo_aux(): Termo_auxContext {
 		let localctx: Termo_auxContext = new Termo_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 4, LALGParser.RULE_termo_aux);
+		this.enterRule(localctx, 4, LALGGrammar.RULE_termo_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -283,7 +283,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public expressaoSimples(): ExpressaoSimplesContext {
 		let localctx: ExpressaoSimplesContext = new ExpressaoSimplesContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 6, LALGParser.RULE_expressaoSimples);
+		this.enterRule(localctx, 6, LALGGrammar.RULE_expressaoSimples);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -328,7 +328,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public expressaoSimples_aux(): ExpressaoSimples_auxContext {
 		let localctx: ExpressaoSimples_auxContext = new ExpressaoSimples_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 8, LALGParser.RULE_expressaoSimples_aux);
+		this.enterRule(localctx, 8, LALGGrammar.RULE_expressaoSimples_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -373,7 +373,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public expressao(): ExpressaoContext {
 		let localctx: ExpressaoContext = new ExpressaoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 10, LALGParser.RULE_expressao);
+		this.enterRule(localctx, 10, LALGGrammar.RULE_expressao);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -400,7 +400,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public expressao_aux(): Expressao_auxContext {
 		let localctx: Expressao_auxContext = new Expressao_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 12, LALGParser.RULE_expressao_aux);
+		this.enterRule(localctx, 12, LALGGrammar.RULE_expressao_aux);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -410,7 +410,7 @@ export default class LALGParser extends Parser {
 			case 1:
 				{
 				this.state = 100;
-				this.match(LALGParser.RELACAO);
+				this.match(LALGGrammar.RELACAO);
 				this.state = 101;
 				this.expressaoSimples();
 				}
@@ -435,7 +435,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public fator(): FatorContext {
 		let localctx: FatorContext = new FatorContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 14, LALGParser.RULE_fator);
+		this.enterRule(localctx, 14, LALGGrammar.RULE_fator);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -459,11 +459,11 @@ export default class LALGParser extends Parser {
 				{
 				{
 				this.state = 106;
-				this.match(LALGParser.ABRE_PARENTESES);
+				this.match(LALGGrammar.ABRE_PARENTESES);
 				this.state = 107;
 				this.expressao();
 				this.state = 108;
-				this.match(LALGParser.FECHA_PARENTESES);
+				this.match(LALGGrammar.FECHA_PARENTESES);
 				}
 				}
 				break;
@@ -471,7 +471,7 @@ export default class LALGParser extends Parser {
 				{
 				{
 				this.state = 110;
-				this.match(LALGParser.NOT);
+				this.match(LALGGrammar.NOT);
 				this.state = 111;
 				this.fator();
 				}
@@ -480,13 +480,13 @@ export default class LALGParser extends Parser {
 			case 14:
 				{
 				this.state = 112;
-				this.match(LALGParser.TRUE_CONST);
+				this.match(LALGGrammar.TRUE_CONST);
 				}
 				break;
 			case 15:
 				{
 				this.state = 113;
-				this.match(LALGParser.FALSE_CONST);
+				this.match(LALGGrammar.FALSE_CONST);
 				}
 				break;
 			default:
@@ -511,12 +511,12 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public variavel(): VariavelContext {
 		let localctx: VariavelContext = new VariavelContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 16, LALGParser.RULE_variavel);
+		this.enterRule(localctx, 16, LALGGrammar.RULE_variavel);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 116;
-			this.match(LALGParser.ID);
+			this.match(LALGGrammar.ID);
 			this.state = 117;
 			this.variavel1();
 			}
@@ -538,7 +538,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public variavel1(): Variavel1Context {
 		let localctx: Variavel1Context = new Variavel1Context(this, this._ctx, this.state);
-		this.enterRule(localctx, 18, LALGParser.RULE_variavel1);
+		this.enterRule(localctx, 18, LALGGrammar.RULE_variavel1);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -571,7 +571,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public declaracaoVariavel(): DeclaracaoVariavelContext {
 		let localctx: DeclaracaoVariavelContext = new DeclaracaoVariavelContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 20, LALGParser.RULE_declaracaoVariavel);
+		this.enterRule(localctx, 20, LALGGrammar.RULE_declaracaoVariavel);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -598,12 +598,12 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public listaID(): ListaIDContext {
 		let localctx: ListaIDContext = new ListaIDContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 22, LALGParser.RULE_listaID);
+		this.enterRule(localctx, 22, LALGGrammar.RULE_listaID);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 125;
-			this.match(LALGParser.ID);
+			this.match(LALGGrammar.ID);
 			this.state = 126;
 			this.listaID_aux();
 			}
@@ -625,7 +625,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public listaID_aux(): ListaID_auxContext {
 		let localctx: ListaID_auxContext = new ListaID_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 24, LALGParser.RULE_listaID_aux);
+		this.enterRule(localctx, 24, LALGGrammar.RULE_listaID_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -636,9 +636,9 @@ export default class LALGParser extends Parser {
 			if (_la===32) {
 				{
 				this.state = 128;
-				this.match(LALGParser.VIRGULA);
+				this.match(LALGGrammar.VIRGULA);
 				this.state = 129;
-				this.match(LALGParser.ID);
+				this.match(LALGGrammar.ID);
 				this.state = 130;
 				this.listaID_aux();
 				}
@@ -663,7 +663,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public parteDeclaracaoVariavel(): ParteDeclaracaoVariavelContext {
 		let localctx: ParteDeclaracaoVariavelContext = new ParteDeclaracaoVariavelContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 26, LALGParser.RULE_parteDeclaracaoVariavel);
+		this.enterRule(localctx, 26, LALGGrammar.RULE_parteDeclaracaoVariavel);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -672,7 +672,7 @@ export default class LALGParser extends Parser {
 			this.state = 134;
 			this.parteDeclaracaoVariavel_aux();
 			this.state = 135;
-			this.match(LALGParser.PONTO_VIRGULA);
+			this.match(LALGGrammar.PONTO_VIRGULA);
 			}
 		}
 		catch (re) {
@@ -692,7 +692,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public parteDeclaracaoVariavel_aux(): ParteDeclaracaoVariavel_auxContext {
 		let localctx: ParteDeclaracaoVariavel_auxContext = new ParteDeclaracaoVariavel_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 28, LALGParser.RULE_parteDeclaracaoVariavel_aux);
+		this.enterRule(localctx, 28, LALGGrammar.RULE_parteDeclaracaoVariavel_aux);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -702,7 +702,7 @@ export default class LALGParser extends Parser {
 			case 1:
 				{
 				this.state = 137;
-				this.match(LALGParser.PONTO_VIRGULA);
+				this.match(LALGGrammar.PONTO_VIRGULA);
 				this.state = 138;
 				this.declaracaoVariavel();
 				this.state = 139;
@@ -729,7 +729,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public tipo(): TipoContext {
 		let localctx: TipoContext = new TipoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 30, LALGParser.RULE_tipo);
+		this.enterRule(localctx, 30, LALGGrammar.RULE_tipo);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -762,17 +762,17 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public programa(): ProgramaContext {
 		let localctx: ProgramaContext = new ProgramaContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 32, LALGParser.RULE_programa);
+		this.enterRule(localctx, 32, LALGGrammar.RULE_programa);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 145;
-			this.match(LALGParser.PROGRAM);
+			this.match(LALGGrammar.PROGRAM);
 			this.state = 146;
-			this.match(LALGParser.ID);
+			this.match(LALGGrammar.ID);
 			this.state = 147;
-			this.match(LALGParser.PONTO_VIRGULA);
+			this.match(LALGGrammar.PONTO_VIRGULA);
 			this.state = 148;
 			this.bloco();
 			this.state = 150;
@@ -782,7 +782,7 @@ export default class LALGParser extends Parser {
 				{
 				{
 				this.state = 149;
-				this.match(LALGParser.PONTO);
+				this.match(LALGGrammar.PONTO);
 				}
 				}
 				this.state = 152;
@@ -790,7 +790,7 @@ export default class LALGParser extends Parser {
 				_la = this._input.LA(1);
 			} while (_la===35);
 			this.state = 154;
-			this.match(LALGParser.EOF);
+			this.match(LALGGrammar.EOF);
 			}
 		}
 		catch (re) {
@@ -810,7 +810,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public bloco(): BlocoContext {
 		let localctx: BlocoContext = new BlocoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 34, LALGParser.RULE_bloco);
+		this.enterRule(localctx, 34, LALGGrammar.RULE_bloco);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -856,14 +856,14 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public parteDeclaracaoSubRotina(): ParteDeclaracaoSubRotinaContext {
 		let localctx: ParteDeclaracaoSubRotinaContext = new ParteDeclaracaoSubRotinaContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 36, LALGParser.RULE_parteDeclaracaoSubRotina);
+		this.enterRule(localctx, 36, LALGGrammar.RULE_parteDeclaracaoSubRotina);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 164;
 			this.declaracaoProcedimento();
 			this.state = 165;
-			this.match(LALGParser.PONTO_VIRGULA);
+			this.match(LALGGrammar.PONTO_VIRGULA);
 			this.state = 166;
 			this.parteDeclaracaoSubRotina_aux();
 			}
@@ -885,7 +885,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public parteDeclaracaoSubRotina_aux(): ParteDeclaracaoSubRotina_auxContext {
 		let localctx: ParteDeclaracaoSubRotina_auxContext = new ParteDeclaracaoSubRotina_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 38, LALGParser.RULE_parteDeclaracaoSubRotina_aux);
+		this.enterRule(localctx, 38, LALGGrammar.RULE_parteDeclaracaoSubRotina_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -900,7 +900,7 @@ export default class LALGParser extends Parser {
 				this.state = 169;
 				this.parteDeclaracaoSubRotina_aux();
 				this.state = 170;
-				this.match(LALGParser.PONTO_VIRGULA);
+				this.match(LALGGrammar.PONTO_VIRGULA);
 				}
 			}
 
@@ -923,18 +923,18 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public declaracaoProcedimento(): DeclaracaoProcedimentoContext {
 		let localctx: DeclaracaoProcedimentoContext = new DeclaracaoProcedimentoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 40, LALGParser.RULE_declaracaoProcedimento);
+		this.enterRule(localctx, 40, LALGGrammar.RULE_declaracaoProcedimento);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 174;
-			this.match(LALGParser.PROCEDURE);
+			this.match(LALGGrammar.PROCEDURE);
 			this.state = 175;
-			this.match(LALGParser.ID);
+			this.match(LALGGrammar.ID);
 			this.state = 176;
 			this.declaracaoProcedimento_aux();
 			this.state = 177;
-			this.match(LALGParser.PONTO_VIRGULA);
+			this.match(LALGGrammar.PONTO_VIRGULA);
 			this.state = 178;
 			this.bloco();
 			}
@@ -956,7 +956,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public declaracaoProcedimento_aux(): DeclaracaoProcedimento_auxContext {
 		let localctx: DeclaracaoProcedimento_auxContext = new DeclaracaoProcedimento_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 42, LALGParser.RULE_declaracaoProcedimento_aux);
+		this.enterRule(localctx, 42, LALGGrammar.RULE_declaracaoProcedimento_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -990,18 +990,18 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public parametros(): ParametrosContext {
 		let localctx: ParametrosContext = new ParametrosContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 44, LALGParser.RULE_parametros);
+		this.enterRule(localctx, 44, LALGGrammar.RULE_parametros);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 183;
-			this.match(LALGParser.ABRE_PARENTESES);
+			this.match(LALGGrammar.ABRE_PARENTESES);
 			this.state = 184;
 			this.secaoParametros();
 			this.state = 185;
 			this.parametros_aux();
 			this.state = 186;
-			this.match(LALGParser.FECHA_PARENTESES);
+			this.match(LALGGrammar.FECHA_PARENTESES);
 			}
 		}
 		catch (re) {
@@ -1021,7 +1021,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public parametros_aux(): Parametros_auxContext {
 		let localctx: Parametros_auxContext = new Parametros_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 46, LALGParser.RULE_parametros_aux);
+		this.enterRule(localctx, 46, LALGGrammar.RULE_parametros_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -1032,7 +1032,7 @@ export default class LALGParser extends Parser {
 			if (_la===33) {
 				{
 				this.state = 188;
-				this.match(LALGParser.PONTO_VIRGULA);
+				this.match(LALGGrammar.PONTO_VIRGULA);
 				this.state = 189;
 				this.secaoParametros();
 				this.state = 190;
@@ -1059,7 +1059,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public secaoParametros(): SecaoParametrosContext {
 		let localctx: SecaoParametrosContext = new SecaoParametrosContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 48, LALGParser.RULE_secaoParametros);
+		this.enterRule(localctx, 48, LALGGrammar.RULE_secaoParametros);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -1070,14 +1070,14 @@ export default class LALGParser extends Parser {
 			if (_la===7) {
 				{
 				this.state = 194;
-				this.match(LALGParser.VAR);
+				this.match(LALGGrammar.VAR);
 				}
 			}
 
 			this.state = 197;
 			this.listaID();
 			this.state = 198;
-			this.match(LALGParser.DOIS_PONTOS);
+			this.match(LALGGrammar.DOIS_PONTOS);
 			this.state = 199;
 			this.secaoParametrosFormais_aux();
 			}
@@ -1099,7 +1099,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public secaoParametrosFormais_aux(): SecaoParametrosFormais_auxContext {
 		let localctx: SecaoParametrosFormais_auxContext = new SecaoParametrosFormais_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 50, LALGParser.RULE_secaoParametrosFormais_aux);
+		this.enterRule(localctx, 50, LALGGrammar.RULE_secaoParametrosFormais_aux);
 		try {
 			this.state = 203;
 			this._errHandler.sync(this);
@@ -1108,7 +1108,7 @@ export default class LALGParser extends Parser {
 				this.enterOuterAlt(localctx, 1);
 				{
 				this.state = 201;
-				this.match(LALGParser.ID);
+				this.match(LALGGrammar.ID);
 				}
 				break;
 			case 9:
@@ -1141,18 +1141,18 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public comandoComposto(): ComandoCompostoContext {
 		let localctx: ComandoCompostoContext = new ComandoCompostoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 52, LALGParser.RULE_comandoComposto);
+		this.enterRule(localctx, 52, LALGGrammar.RULE_comandoComposto);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 205;
-			this.match(LALGParser.BEGIN);
+			this.match(LALGGrammar.BEGIN);
 			this.state = 206;
 			this.comando();
 			this.state = 207;
 			this.comandoComposto_aux();
 			this.state = 208;
-			this.match(LALGParser.END);
+			this.match(LALGGrammar.END);
 			}
 		}
 		catch (re) {
@@ -1172,7 +1172,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public comandoComposto_aux(): ComandoComposto_auxContext {
 		let localctx: ComandoComposto_auxContext = new ComandoComposto_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 54, LALGParser.RULE_comandoComposto_aux);
+		this.enterRule(localctx, 54, LALGGrammar.RULE_comandoComposto_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -1183,7 +1183,7 @@ export default class LALGParser extends Parser {
 			if (_la===33) {
 				{
 				this.state = 210;
-				this.match(LALGParser.PONTO_VIRGULA);
+				this.match(LALGGrammar.PONTO_VIRGULA);
 				this.state = 211;
 				this.comando();
 				this.state = 212;
@@ -1210,7 +1210,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public comando(): ComandoContext {
 		let localctx: ComandoContext = new ComandoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 56, LALGParser.RULE_comando);
+		this.enterRule(localctx, 56, LALGGrammar.RULE_comando);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -1267,14 +1267,14 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public atribuicao(): AtribuicaoContext {
 		let localctx: AtribuicaoContext = new AtribuicaoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 58, LALGParser.RULE_atribuicao);
+		this.enterRule(localctx, 58, LALGGrammar.RULE_atribuicao);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 223;
 			this.variavel();
 			this.state = 224;
-			this.match(LALGParser.ATRIBUICAO);
+			this.match(LALGGrammar.ATRIBUICAO);
 			this.state = 225;
 			this.expressao();
 			}
@@ -1296,7 +1296,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public chamadaProcedimento(): ChamadaProcedimentoContext {
 		let localctx: ChamadaProcedimentoContext = new ChamadaProcedimentoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 60, LALGParser.RULE_chamadaProcedimento);
+		this.enterRule(localctx, 60, LALGGrammar.RULE_chamadaProcedimento);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -1331,7 +1331,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public chamadaProcedimento_aux(): ChamadaProcedimento_auxContext {
 		let localctx: ChamadaProcedimento_auxContext = new ChamadaProcedimento_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 62, LALGParser.RULE_chamadaProcedimento_aux);
+		this.enterRule(localctx, 62, LALGGrammar.RULE_chamadaProcedimento_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -1342,11 +1342,11 @@ export default class LALGParser extends Parser {
 			if (_la===28) {
 				{
 				this.state = 230;
-				this.match(LALGParser.ABRE_PARENTESES);
+				this.match(LALGGrammar.ABRE_PARENTESES);
 				this.state = 231;
 				this.listaExpressao();
 				this.state = 232;
-				this.match(LALGParser.FECHA_PARENTESES);
+				this.match(LALGGrammar.FECHA_PARENTESES);
 				}
 			}
 
@@ -1369,16 +1369,16 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public comandoCondicional(): ComandoCondicionalContext {
 		let localctx: ComandoCondicionalContext = new ComandoCondicionalContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 64, LALGParser.RULE_comandoCondicional);
+		this.enterRule(localctx, 64, LALGGrammar.RULE_comandoCondicional);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 236;
-			this.match(LALGParser.IF);
+			this.match(LALGGrammar.IF);
 			this.state = 237;
 			this.expressao();
 			this.state = 238;
-			this.match(LALGParser.THEN);
+			this.match(LALGGrammar.THEN);
 			this.state = 239;
 			this.comando();
 			this.state = 240;
@@ -1402,7 +1402,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public comandoCondicional_aux(): ComandoCondicional_auxContext {
 		let localctx: ComandoCondicional_auxContext = new ComandoCondicional_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 66, LALGParser.RULE_comandoCondicional_aux);
+		this.enterRule(localctx, 66, LALGGrammar.RULE_comandoCondicional_aux);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -1412,7 +1412,7 @@ export default class LALGParser extends Parser {
 			case 1:
 				{
 				this.state = 242;
-				this.match(LALGParser.ELSE);
+				this.match(LALGGrammar.ELSE);
 				this.state = 243;
 				this.comando();
 				}
@@ -1437,16 +1437,16 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public comandoRepetitivo(): ComandoRepetitivoContext {
 		let localctx: ComandoRepetitivoContext = new ComandoRepetitivoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 68, LALGParser.RULE_comandoRepetitivo);
+		this.enterRule(localctx, 68, LALGGrammar.RULE_comandoRepetitivo);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 246;
-			this.match(LALGParser.WHILE);
+			this.match(LALGGrammar.WHILE);
 			this.state = 247;
 			this.expressao();
 			this.state = 248;
-			this.match(LALGParser.DO);
+			this.match(LALGGrammar.DO);
 			this.state = 249;
 			this.comando();
 			}
@@ -1468,7 +1468,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public listaExpressao(): ListaExpressaoContext {
 		let localctx: ListaExpressaoContext = new ListaExpressaoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 70, LALGParser.RULE_listaExpressao);
+		this.enterRule(localctx, 70, LALGGrammar.RULE_listaExpressao);
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
@@ -1495,7 +1495,7 @@ export default class LALGParser extends Parser {
 	// @RuleVersion(0)
 	public listaExpressao_aux(): ListaExpressao_auxContext {
 		let localctx: ListaExpressao_auxContext = new ListaExpressao_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 72, LALGParser.RULE_listaExpressao_aux);
+		this.enterRule(localctx, 72, LALGGrammar.RULE_listaExpressao_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
@@ -1506,7 +1506,7 @@ export default class LALGParser extends Parser {
 			if (_la===32) {
 				{
 				this.state = 254;
-				this.match(LALGParser.VIRGULA);
+				this.match(LALGGrammar.VIRGULA);
 				this.state = 255;
 				this.expressao();
 				this.state = 256;
@@ -1613,44 +1613,44 @@ export default class LALGParser extends Parser {
 
 	private static __ATN: ATN;
 	public static get _ATN(): ATN {
-		if (!LALGParser.__ATN) {
-			LALGParser.__ATN = new ATNDeserializer().deserialize(LALGParser._serializedATN);
+		if (!LALGGrammar.__ATN) {
+			LALGGrammar.__ATN = new ATNDeserializer().deserialize(LALGGrammar._serializedATN);
 		}
 
-		return LALGParser.__ATN;
+		return LALGGrammar.__ATN;
 	}
 
 
-	static DecisionsToDFA = LALGParser._ATN.decisionToState.map( (ds: DecisionState, index: number) => new DFA(ds, index) );
+	static DecisionsToDFA = LALGGrammar._ATN.decisionToState.map( (ds: DecisionState, index: number) => new DFA(ds, index) );
 
 }
 
 export class NumeroContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public INT(): TerminalNode {
-		return this.getToken(LALGParser.INT, 0);
+		return this.getToken(LALGGrammar.INT, 0);
 	}
 	public FLOAT(): TerminalNode {
-		return this.getToken(LALGParser.FLOAT, 0);
+		return this.getToken(LALGGrammar.FLOAT, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_numero;
+    	return LALGGrammar.RULE_numero;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterNumero) {
 	 		listener.enterNumero(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitNumero) {
 	 		listener.exitNumero(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitNumero) {
 			return visitor.visitNumero(this);
 		} else {
@@ -1661,7 +1661,7 @@ export class NumeroContext extends ParserRuleContext {
 
 
 export class TermoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1672,20 +1672,20 @@ export class TermoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(Termo_auxContext, 0) as Termo_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_termo;
+    	return LALGGrammar.RULE_termo;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterTermo) {
 	 		listener.enterTermo(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitTermo) {
 	 		listener.exitTermo(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitTermo) {
 			return visitor.visitTermo(this);
 		} else {
@@ -1696,7 +1696,7 @@ export class TermoContext extends ParserRuleContext {
 
 
 export class Termo_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1707,26 +1707,26 @@ export class Termo_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(Termo_auxContext, 0) as Termo_auxContext;
 	}
 	public MULT(): TerminalNode {
-		return this.getToken(LALGParser.MULT, 0);
+		return this.getToken(LALGGrammar.MULT, 0);
 	}
 	public AND(): TerminalNode {
-		return this.getToken(LALGParser.AND, 0);
+		return this.getToken(LALGGrammar.AND, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_termo_aux;
+    	return LALGGrammar.RULE_termo_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterTermo_aux) {
 	 		listener.enterTermo_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitTermo_aux) {
 	 		listener.exitTermo_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitTermo_aux) {
 			return visitor.visitTermo_aux(this);
 		} else {
@@ -1737,7 +1737,7 @@ export class Termo_auxContext extends ParserRuleContext {
 
 
 export class ExpressaoSimplesContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1748,26 +1748,26 @@ export class ExpressaoSimplesContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ExpressaoSimples_auxContext, 0) as ExpressaoSimples_auxContext;
 	}
 	public MAIS(): TerminalNode {
-		return this.getToken(LALGParser.MAIS, 0);
+		return this.getToken(LALGGrammar.MAIS, 0);
 	}
 	public MENOS(): TerminalNode {
-		return this.getToken(LALGParser.MENOS, 0);
+		return this.getToken(LALGGrammar.MENOS, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_expressaoSimples;
+    	return LALGGrammar.RULE_expressaoSimples;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterExpressaoSimples) {
 	 		listener.enterExpressaoSimples(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitExpressaoSimples) {
 	 		listener.exitExpressaoSimples(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitExpressaoSimples) {
 			return visitor.visitExpressaoSimples(this);
 		} else {
@@ -1778,7 +1778,7 @@ export class ExpressaoSimplesContext extends ParserRuleContext {
 
 
 export class ExpressaoSimples_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1789,29 +1789,29 @@ export class ExpressaoSimples_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ExpressaoSimples_auxContext, 0) as ExpressaoSimples_auxContext;
 	}
 	public MAIS(): TerminalNode {
-		return this.getToken(LALGParser.MAIS, 0);
+		return this.getToken(LALGGrammar.MAIS, 0);
 	}
 	public MENOS(): TerminalNode {
-		return this.getToken(LALGParser.MENOS, 0);
+		return this.getToken(LALGGrammar.MENOS, 0);
 	}
 	public OR(): TerminalNode {
-		return this.getToken(LALGParser.OR, 0);
+		return this.getToken(LALGGrammar.OR, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_expressaoSimples_aux;
+    	return LALGGrammar.RULE_expressaoSimples_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterExpressaoSimples_aux) {
 	 		listener.enterExpressaoSimples_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitExpressaoSimples_aux) {
 	 		listener.exitExpressaoSimples_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitExpressaoSimples_aux) {
 			return visitor.visitExpressaoSimples_aux(this);
 		} else {
@@ -1822,7 +1822,7 @@ export class ExpressaoSimples_auxContext extends ParserRuleContext {
 
 
 export class ExpressaoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1833,20 +1833,20 @@ export class ExpressaoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(Expressao_auxContext, 0) as Expressao_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_expressao;
+    	return LALGGrammar.RULE_expressao;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterExpressao) {
 	 		listener.enterExpressao(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitExpressao) {
 	 		listener.exitExpressao(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitExpressao) {
 			return visitor.visitExpressao(this);
 		} else {
@@ -1857,31 +1857,31 @@ export class ExpressaoContext extends ParserRuleContext {
 
 
 export class Expressao_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public RELACAO(): TerminalNode {
-		return this.getToken(LALGParser.RELACAO, 0);
+		return this.getToken(LALGGrammar.RELACAO, 0);
 	}
 	public expressaoSimples(): ExpressaoSimplesContext {
 		return this.getTypedRuleContext(ExpressaoSimplesContext, 0) as ExpressaoSimplesContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_expressao_aux;
+    	return LALGGrammar.RULE_expressao_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterExpressao_aux) {
 	 		listener.enterExpressao_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitExpressao_aux) {
 	 		listener.exitExpressao_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitExpressao_aux) {
 			return visitor.visitExpressao_aux(this);
 		} else {
@@ -1892,7 +1892,7 @@ export class Expressao_auxContext extends ParserRuleContext {
 
 
 export class FatorContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1903,41 +1903,41 @@ export class FatorContext extends ParserRuleContext {
 		return this.getTypedRuleContext(NumeroContext, 0) as NumeroContext;
 	}
 	public TRUE_CONST(): TerminalNode {
-		return this.getToken(LALGParser.TRUE_CONST, 0);
+		return this.getToken(LALGGrammar.TRUE_CONST, 0);
 	}
 	public FALSE_CONST(): TerminalNode {
-		return this.getToken(LALGParser.FALSE_CONST, 0);
+		return this.getToken(LALGGrammar.FALSE_CONST, 0);
 	}
 	public ABRE_PARENTESES(): TerminalNode {
-		return this.getToken(LALGParser.ABRE_PARENTESES, 0);
+		return this.getToken(LALGGrammar.ABRE_PARENTESES, 0);
 	}
 	public expressao(): ExpressaoContext {
 		return this.getTypedRuleContext(ExpressaoContext, 0) as ExpressaoContext;
 	}
 	public FECHA_PARENTESES(): TerminalNode {
-		return this.getToken(LALGParser.FECHA_PARENTESES, 0);
+		return this.getToken(LALGGrammar.FECHA_PARENTESES, 0);
 	}
 	public NOT(): TerminalNode {
-		return this.getToken(LALGParser.NOT, 0);
+		return this.getToken(LALGGrammar.NOT, 0);
 	}
 	public fator(): FatorContext {
 		return this.getTypedRuleContext(FatorContext, 0) as FatorContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_fator;
+    	return LALGGrammar.RULE_fator;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterFator) {
 	 		listener.enterFator(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitFator) {
 	 		listener.exitFator(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitFator) {
 			return visitor.visitFator(this);
 		} else {
@@ -1948,31 +1948,31 @@ export class FatorContext extends ParserRuleContext {
 
 
 export class VariavelContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public variavel1(): Variavel1Context {
 		return this.getTypedRuleContext(Variavel1Context, 0) as Variavel1Context;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_variavel;
+    	return LALGGrammar.RULE_variavel;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterVariavel) {
 	 		listener.enterVariavel(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitVariavel) {
 	 		listener.exitVariavel(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitVariavel) {
 			return visitor.visitVariavel(this);
 		} else {
@@ -1983,7 +1983,7 @@ export class VariavelContext extends ParserRuleContext {
 
 
 export class Variavel1Context extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -1991,20 +1991,20 @@ export class Variavel1Context extends ParserRuleContext {
 		return this.getTypedRuleContext(ExpressaoContext, 0) as ExpressaoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_variavel1;
+    	return LALGGrammar.RULE_variavel1;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterVariavel1) {
 	 		listener.enterVariavel1(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitVariavel1) {
 	 		listener.exitVariavel1(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitVariavel1) {
 			return visitor.visitVariavel1(this);
 		} else {
@@ -2015,7 +2015,7 @@ export class Variavel1Context extends ParserRuleContext {
 
 
 export class DeclaracaoVariavelContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2026,20 +2026,20 @@ export class DeclaracaoVariavelContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ListaIDContext, 0) as ListaIDContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_declaracaoVariavel;
+    	return LALGGrammar.RULE_declaracaoVariavel;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterDeclaracaoVariavel) {
 	 		listener.enterDeclaracaoVariavel(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitDeclaracaoVariavel) {
 	 		listener.exitDeclaracaoVariavel(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitDeclaracaoVariavel) {
 			return visitor.visitDeclaracaoVariavel(this);
 		} else {
@@ -2050,31 +2050,31 @@ export class DeclaracaoVariavelContext extends ParserRuleContext {
 
 
 export class ListaIDContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public listaID_aux(): ListaID_auxContext {
 		return this.getTypedRuleContext(ListaID_auxContext, 0) as ListaID_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_listaID;
+    	return LALGGrammar.RULE_listaID;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterListaID) {
 	 		listener.enterListaID(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitListaID) {
 	 		listener.exitListaID(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitListaID) {
 			return visitor.visitListaID(this);
 		} else {
@@ -2085,34 +2085,34 @@ export class ListaIDContext extends ParserRuleContext {
 
 
 export class ListaID_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.VIRGULA, 0);
+		return this.getToken(LALGGrammar.VIRGULA, 0);
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public listaID_aux(): ListaID_auxContext {
 		return this.getTypedRuleContext(ListaID_auxContext, 0) as ListaID_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_listaID_aux;
+    	return LALGGrammar.RULE_listaID_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterListaID_aux) {
 	 		listener.enterListaID_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitListaID_aux) {
 	 		listener.exitListaID_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitListaID_aux) {
 			return visitor.visitListaID_aux(this);
 		} else {
@@ -2123,7 +2123,7 @@ export class ListaID_auxContext extends ParserRuleContext {
 
 
 export class ParteDeclaracaoVariavelContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2134,23 +2134,23 @@ export class ParteDeclaracaoVariavelContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ParteDeclaracaoVariavel_auxContext, 0) as ParteDeclaracaoVariavel_auxContext;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_parteDeclaracaoVariavel;
+    	return LALGGrammar.RULE_parteDeclaracaoVariavel;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterParteDeclaracaoVariavel) {
 	 		listener.enterParteDeclaracaoVariavel(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitParteDeclaracaoVariavel) {
 	 		listener.exitParteDeclaracaoVariavel(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitParteDeclaracaoVariavel) {
 			return visitor.visitParteDeclaracaoVariavel(this);
 		} else {
@@ -2161,12 +2161,12 @@ export class ParteDeclaracaoVariavelContext extends ParserRuleContext {
 
 
 export class ParteDeclaracaoVariavel_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
 	public declaracaoVariavel(): DeclaracaoVariavelContext {
 		return this.getTypedRuleContext(DeclaracaoVariavelContext, 0) as DeclaracaoVariavelContext;
@@ -2175,20 +2175,20 @@ export class ParteDeclaracaoVariavel_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ParteDeclaracaoVariavel_auxContext, 0) as ParteDeclaracaoVariavel_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_parteDeclaracaoVariavel_aux;
+    	return LALGGrammar.RULE_parteDeclaracaoVariavel_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterParteDeclaracaoVariavel_aux) {
 	 		listener.enterParteDeclaracaoVariavel_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitParteDeclaracaoVariavel_aux) {
 	 		listener.exitParteDeclaracaoVariavel_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitParteDeclaracaoVariavel_aux) {
 			return visitor.visitParteDeclaracaoVariavel_aux(this);
 		} else {
@@ -2199,34 +2199,34 @@ export class ParteDeclaracaoVariavel_auxContext extends ParserRuleContext {
 
 
 export class TipoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public BOOL_TIPO(): TerminalNode {
-		return this.getToken(LALGParser.BOOL_TIPO, 0);
+		return this.getToken(LALGGrammar.BOOL_TIPO, 0);
 	}
 	public INT_TIPO(): TerminalNode {
-		return this.getToken(LALGParser.INT_TIPO, 0);
+		return this.getToken(LALGGrammar.INT_TIPO, 0);
 	}
 	public FLOAT_TIPO(): TerminalNode {
-		return this.getToken(LALGParser.FLOAT_TIPO, 0);
+		return this.getToken(LALGGrammar.FLOAT_TIPO, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_tipo;
+    	return LALGGrammar.RULE_tipo;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterTipo) {
 	 		listener.enterTipo(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitTipo) {
 	 		listener.exitTipo(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitTipo) {
 			return visitor.visitTipo(this);
 		} else {
@@ -2237,46 +2237,46 @@ export class TipoContext extends ParserRuleContext {
 
 
 export class ProgramaContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public PROGRAM(): TerminalNode {
-		return this.getToken(LALGParser.PROGRAM, 0);
+		return this.getToken(LALGGrammar.PROGRAM, 0);
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
 	public bloco(): BlocoContext {
 		return this.getTypedRuleContext(BlocoContext, 0) as BlocoContext;
 	}
 	public EOF(): TerminalNode {
-		return this.getToken(LALGParser.EOF, 0);
+		return this.getToken(LALGGrammar.EOF, 0);
 	}
 	public PONTO_list(): TerminalNode[] {
-	    	return this.getTokens(LALGParser.PONTO);
+	    	return this.getTokens(LALGGrammar.PONTO);
 	}
 	public PONTO(i: number): TerminalNode {
-		return this.getToken(LALGParser.PONTO, i);
+		return this.getToken(LALGGrammar.PONTO, i);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_programa;
+    	return LALGGrammar.RULE_programa;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterPrograma) {
 	 		listener.enterPrograma(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitPrograma) {
 	 		listener.exitPrograma(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitPrograma) {
 			return visitor.visitPrograma(this);
 		} else {
@@ -2287,7 +2287,7 @@ export class ProgramaContext extends ParserRuleContext {
 
 
 export class BlocoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2301,20 +2301,20 @@ export class BlocoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ParteDeclaracaoSubRotinaContext, 0) as ParteDeclaracaoSubRotinaContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_bloco;
+    	return LALGGrammar.RULE_bloco;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterBloco) {
 	 		listener.enterBloco(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitBloco) {
 	 		listener.exitBloco(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitBloco) {
 			return visitor.visitBloco(this);
 		} else {
@@ -2325,7 +2325,7 @@ export class BlocoContext extends ParserRuleContext {
 
 
 export class ParteDeclaracaoSubRotinaContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2333,26 +2333,26 @@ export class ParteDeclaracaoSubRotinaContext extends ParserRuleContext {
 		return this.getTypedRuleContext(DeclaracaoProcedimentoContext, 0) as DeclaracaoProcedimentoContext;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
 	public parteDeclaracaoSubRotina_aux(): ParteDeclaracaoSubRotina_auxContext {
 		return this.getTypedRuleContext(ParteDeclaracaoSubRotina_auxContext, 0) as ParteDeclaracaoSubRotina_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_parteDeclaracaoSubRotina;
+    	return LALGGrammar.RULE_parteDeclaracaoSubRotina;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterParteDeclaracaoSubRotina) {
 	 		listener.enterParteDeclaracaoSubRotina(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitParteDeclaracaoSubRotina) {
 	 		listener.exitParteDeclaracaoSubRotina(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitParteDeclaracaoSubRotina) {
 			return visitor.visitParteDeclaracaoSubRotina(this);
 		} else {
@@ -2363,7 +2363,7 @@ export class ParteDeclaracaoSubRotinaContext extends ParserRuleContext {
 
 
 export class ParteDeclaracaoSubRotina_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2374,23 +2374,23 @@ export class ParteDeclaracaoSubRotina_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ParteDeclaracaoSubRotina_auxContext, 0) as ParteDeclaracaoSubRotina_auxContext;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_parteDeclaracaoSubRotina_aux;
+    	return LALGGrammar.RULE_parteDeclaracaoSubRotina_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterParteDeclaracaoSubRotina_aux) {
 	 		listener.enterParteDeclaracaoSubRotina_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitParteDeclaracaoSubRotina_aux) {
 	 		listener.exitParteDeclaracaoSubRotina_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitParteDeclaracaoSubRotina_aux) {
 			return visitor.visitParteDeclaracaoSubRotina_aux(this);
 		} else {
@@ -2401,40 +2401,40 @@ export class ParteDeclaracaoSubRotina_auxContext extends ParserRuleContext {
 
 
 export class DeclaracaoProcedimentoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public PROCEDURE(): TerminalNode {
-		return this.getToken(LALGParser.PROCEDURE, 0);
+		return this.getToken(LALGGrammar.PROCEDURE, 0);
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public declaracaoProcedimento_aux(): DeclaracaoProcedimento_auxContext {
 		return this.getTypedRuleContext(DeclaracaoProcedimento_auxContext, 0) as DeclaracaoProcedimento_auxContext;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
 	public bloco(): BlocoContext {
 		return this.getTypedRuleContext(BlocoContext, 0) as BlocoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_declaracaoProcedimento;
+    	return LALGGrammar.RULE_declaracaoProcedimento;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterDeclaracaoProcedimento) {
 	 		listener.enterDeclaracaoProcedimento(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitDeclaracaoProcedimento) {
 	 		listener.exitDeclaracaoProcedimento(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitDeclaracaoProcedimento) {
 			return visitor.visitDeclaracaoProcedimento(this);
 		} else {
@@ -2445,7 +2445,7 @@ export class DeclaracaoProcedimentoContext extends ParserRuleContext {
 
 
 export class DeclaracaoProcedimento_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2453,20 +2453,20 @@ export class DeclaracaoProcedimento_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ParametrosContext, 0) as ParametrosContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_declaracaoProcedimento_aux;
+    	return LALGGrammar.RULE_declaracaoProcedimento_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterDeclaracaoProcedimento_aux) {
 	 		listener.enterDeclaracaoProcedimento_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitDeclaracaoProcedimento_aux) {
 	 		listener.exitDeclaracaoProcedimento_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitDeclaracaoProcedimento_aux) {
 			return visitor.visitDeclaracaoProcedimento_aux(this);
 		} else {
@@ -2477,12 +2477,12 @@ export class DeclaracaoProcedimento_auxContext extends ParserRuleContext {
 
 
 export class ParametrosContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public ABRE_PARENTESES(): TerminalNode {
-		return this.getToken(LALGParser.ABRE_PARENTESES, 0);
+		return this.getToken(LALGGrammar.ABRE_PARENTESES, 0);
 	}
 	public secaoParametros(): SecaoParametrosContext {
 		return this.getTypedRuleContext(SecaoParametrosContext, 0) as SecaoParametrosContext;
@@ -2491,23 +2491,23 @@ export class ParametrosContext extends ParserRuleContext {
 		return this.getTypedRuleContext(Parametros_auxContext, 0) as Parametros_auxContext;
 	}
 	public FECHA_PARENTESES(): TerminalNode {
-		return this.getToken(LALGParser.FECHA_PARENTESES, 0);
+		return this.getToken(LALGGrammar.FECHA_PARENTESES, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_parametros;
+    	return LALGGrammar.RULE_parametros;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterParametros) {
 	 		listener.enterParametros(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitParametros) {
 	 		listener.exitParametros(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitParametros) {
 			return visitor.visitParametros(this);
 		} else {
@@ -2518,12 +2518,12 @@ export class ParametrosContext extends ParserRuleContext {
 
 
 export class Parametros_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
 	public secaoParametros(): SecaoParametrosContext {
 		return this.getTypedRuleContext(SecaoParametrosContext, 0) as SecaoParametrosContext;
@@ -2532,20 +2532,20 @@ export class Parametros_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(Parametros_auxContext, 0) as Parametros_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_parametros_aux;
+    	return LALGGrammar.RULE_parametros_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterParametros_aux) {
 	 		listener.enterParametros_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitParametros_aux) {
 	 		listener.exitParametros_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitParametros_aux) {
 			return visitor.visitParametros_aux(this);
 		} else {
@@ -2556,7 +2556,7 @@ export class Parametros_auxContext extends ParserRuleContext {
 
 
 export class SecaoParametrosContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2564,29 +2564,29 @@ export class SecaoParametrosContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ListaIDContext, 0) as ListaIDContext;
 	}
 	public DOIS_PONTOS(): TerminalNode {
-		return this.getToken(LALGParser.DOIS_PONTOS, 0);
+		return this.getToken(LALGGrammar.DOIS_PONTOS, 0);
 	}
 	public secaoParametrosFormais_aux(): SecaoParametrosFormais_auxContext {
 		return this.getTypedRuleContext(SecaoParametrosFormais_auxContext, 0) as SecaoParametrosFormais_auxContext;
 	}
 	public VAR(): TerminalNode {
-		return this.getToken(LALGParser.VAR, 0);
+		return this.getToken(LALGGrammar.VAR, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_secaoParametros;
+    	return LALGGrammar.RULE_secaoParametros;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterSecaoParametros) {
 	 		listener.enterSecaoParametros(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitSecaoParametros) {
 	 		listener.exitSecaoParametros(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitSecaoParametros) {
 			return visitor.visitSecaoParametros(this);
 		} else {
@@ -2597,31 +2597,31 @@ export class SecaoParametrosContext extends ParserRuleContext {
 
 
 export class SecaoParametrosFormais_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public tipo(): TipoContext {
 		return this.getTypedRuleContext(TipoContext, 0) as TipoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_secaoParametrosFormais_aux;
+    	return LALGGrammar.RULE_secaoParametrosFormais_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterSecaoParametrosFormais_aux) {
 	 		listener.enterSecaoParametrosFormais_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitSecaoParametrosFormais_aux) {
 	 		listener.exitSecaoParametrosFormais_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitSecaoParametrosFormais_aux) {
 			return visitor.visitSecaoParametrosFormais_aux(this);
 		} else {
@@ -2632,12 +2632,12 @@ export class SecaoParametrosFormais_auxContext extends ParserRuleContext {
 
 
 export class ComandoCompostoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public BEGIN(): TerminalNode {
-		return this.getToken(LALGParser.BEGIN, 0);
+		return this.getToken(LALGGrammar.BEGIN, 0);
 	}
 	public comando(): ComandoContext {
 		return this.getTypedRuleContext(ComandoContext, 0) as ComandoContext;
@@ -2646,23 +2646,23 @@ export class ComandoCompostoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ComandoComposto_auxContext, 0) as ComandoComposto_auxContext;
 	}
 	public END(): TerminalNode {
-		return this.getToken(LALGParser.END, 0);
+		return this.getToken(LALGGrammar.END, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_comandoComposto;
+    	return LALGGrammar.RULE_comandoComposto;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterComandoComposto) {
 	 		listener.enterComandoComposto(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitComandoComposto) {
 	 		listener.exitComandoComposto(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitComandoComposto) {
 			return visitor.visitComandoComposto(this);
 		} else {
@@ -2673,12 +2673,12 @@ export class ComandoCompostoContext extends ParserRuleContext {
 
 
 export class ComandoComposto_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public PONTO_VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.PONTO_VIRGULA, 0);
+		return this.getToken(LALGGrammar.PONTO_VIRGULA, 0);
 	}
 	public comando(): ComandoContext {
 		return this.getTypedRuleContext(ComandoContext, 0) as ComandoContext;
@@ -2687,20 +2687,20 @@ export class ComandoComposto_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ComandoComposto_auxContext, 0) as ComandoComposto_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_comandoComposto_aux;
+    	return LALGGrammar.RULE_comandoComposto_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterComandoComposto_aux) {
 	 		listener.enterComandoComposto_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitComandoComposto_aux) {
 	 		listener.exitComandoComposto_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitComandoComposto_aux) {
 			return visitor.visitComandoComposto_aux(this);
 		} else {
@@ -2711,7 +2711,7 @@ export class ComandoComposto_auxContext extends ParserRuleContext {
 
 
 export class ComandoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2731,20 +2731,20 @@ export class ComandoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ComandoRepetitivoContext, 0) as ComandoRepetitivoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_comando;
+    	return LALGGrammar.RULE_comando;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterComando) {
 	 		listener.enterComando(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitComando) {
 	 		listener.exitComando(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitComando) {
 			return visitor.visitComando(this);
 		} else {
@@ -2755,7 +2755,7 @@ export class ComandoContext extends ParserRuleContext {
 
 
 export class AtribuicaoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2763,26 +2763,26 @@ export class AtribuicaoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(VariavelContext, 0) as VariavelContext;
 	}
 	public ATRIBUICAO(): TerminalNode {
-		return this.getToken(LALGParser.ATRIBUICAO, 0);
+		return this.getToken(LALGGrammar.ATRIBUICAO, 0);
 	}
 	public expressao(): ExpressaoContext {
 		return this.getTypedRuleContext(ExpressaoContext, 0) as ExpressaoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_atribuicao;
+    	return LALGGrammar.RULE_atribuicao;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterAtribuicao) {
 	 		listener.enterAtribuicao(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitAtribuicao) {
 	 		listener.exitAtribuicao(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitAtribuicao) {
 			return visitor.visitAtribuicao(this);
 		} else {
@@ -2793,7 +2793,7 @@ export class AtribuicaoContext extends ParserRuleContext {
 
 
 export class ChamadaProcedimentoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -2801,29 +2801,29 @@ export class ChamadaProcedimentoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ChamadaProcedimento_auxContext, 0) as ChamadaProcedimento_auxContext;
 	}
 	public ID(): TerminalNode {
-		return this.getToken(LALGParser.ID, 0);
+		return this.getToken(LALGGrammar.ID, 0);
 	}
 	public READ(): TerminalNode {
-		return this.getToken(LALGParser.READ, 0);
+		return this.getToken(LALGGrammar.READ, 0);
 	}
 	public WRITE(): TerminalNode {
-		return this.getToken(LALGParser.WRITE, 0);
+		return this.getToken(LALGGrammar.WRITE, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_chamadaProcedimento;
+    	return LALGGrammar.RULE_chamadaProcedimento;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterChamadaProcedimento) {
 	 		listener.enterChamadaProcedimento(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitChamadaProcedimento) {
 	 		listener.exitChamadaProcedimento(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitChamadaProcedimento) {
 			return visitor.visitChamadaProcedimento(this);
 		} else {
@@ -2834,34 +2834,34 @@ export class ChamadaProcedimentoContext extends ParserRuleContext {
 
 
 export class ChamadaProcedimento_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public ABRE_PARENTESES(): TerminalNode {
-		return this.getToken(LALGParser.ABRE_PARENTESES, 0);
+		return this.getToken(LALGGrammar.ABRE_PARENTESES, 0);
 	}
 	public listaExpressao(): ListaExpressaoContext {
 		return this.getTypedRuleContext(ListaExpressaoContext, 0) as ListaExpressaoContext;
 	}
 	public FECHA_PARENTESES(): TerminalNode {
-		return this.getToken(LALGParser.FECHA_PARENTESES, 0);
+		return this.getToken(LALGGrammar.FECHA_PARENTESES, 0);
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_chamadaProcedimento_aux;
+    	return LALGGrammar.RULE_chamadaProcedimento_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterChamadaProcedimento_aux) {
 	 		listener.enterChamadaProcedimento_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitChamadaProcedimento_aux) {
 	 		listener.exitChamadaProcedimento_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitChamadaProcedimento_aux) {
 			return visitor.visitChamadaProcedimento_aux(this);
 		} else {
@@ -2872,18 +2872,18 @@ export class ChamadaProcedimento_auxContext extends ParserRuleContext {
 
 
 export class ComandoCondicionalContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public IF(): TerminalNode {
-		return this.getToken(LALGParser.IF, 0);
+		return this.getToken(LALGGrammar.IF, 0);
 	}
 	public expressao(): ExpressaoContext {
 		return this.getTypedRuleContext(ExpressaoContext, 0) as ExpressaoContext;
 	}
 	public THEN(): TerminalNode {
-		return this.getToken(LALGParser.THEN, 0);
+		return this.getToken(LALGGrammar.THEN, 0);
 	}
 	public comando(): ComandoContext {
 		return this.getTypedRuleContext(ComandoContext, 0) as ComandoContext;
@@ -2892,20 +2892,20 @@ export class ComandoCondicionalContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ComandoCondicional_auxContext, 0) as ComandoCondicional_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_comandoCondicional;
+    	return LALGGrammar.RULE_comandoCondicional;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterComandoCondicional) {
 	 		listener.enterComandoCondicional(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitComandoCondicional) {
 	 		listener.exitComandoCondicional(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitComandoCondicional) {
 			return visitor.visitComandoCondicional(this);
 		} else {
@@ -2916,31 +2916,31 @@ export class ComandoCondicionalContext extends ParserRuleContext {
 
 
 export class ComandoCondicional_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public ELSE(): TerminalNode {
-		return this.getToken(LALGParser.ELSE, 0);
+		return this.getToken(LALGGrammar.ELSE, 0);
 	}
 	public comando(): ComandoContext {
 		return this.getTypedRuleContext(ComandoContext, 0) as ComandoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_comandoCondicional_aux;
+    	return LALGGrammar.RULE_comandoCondicional_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterComandoCondicional_aux) {
 	 		listener.enterComandoCondicional_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitComandoCondicional_aux) {
 	 		listener.exitComandoCondicional_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitComandoCondicional_aux) {
 			return visitor.visitComandoCondicional_aux(this);
 		} else {
@@ -2951,37 +2951,37 @@ export class ComandoCondicional_auxContext extends ParserRuleContext {
 
 
 export class ComandoRepetitivoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public WHILE(): TerminalNode {
-		return this.getToken(LALGParser.WHILE, 0);
+		return this.getToken(LALGGrammar.WHILE, 0);
 	}
 	public expressao(): ExpressaoContext {
 		return this.getTypedRuleContext(ExpressaoContext, 0) as ExpressaoContext;
 	}
 	public DO(): TerminalNode {
-		return this.getToken(LALGParser.DO, 0);
+		return this.getToken(LALGGrammar.DO, 0);
 	}
 	public comando(): ComandoContext {
 		return this.getTypedRuleContext(ComandoContext, 0) as ComandoContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_comandoRepetitivo;
+    	return LALGGrammar.RULE_comandoRepetitivo;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterComandoRepetitivo) {
 	 		listener.enterComandoRepetitivo(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitComandoRepetitivo) {
 	 		listener.exitComandoRepetitivo(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitComandoRepetitivo) {
 			return visitor.visitComandoRepetitivo(this);
 		} else {
@@ -2992,7 +2992,7 @@ export class ComandoRepetitivoContext extends ParserRuleContext {
 
 
 export class ListaExpressaoContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
@@ -3003,20 +3003,20 @@ export class ListaExpressaoContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ListaExpressao_auxContext, 0) as ListaExpressao_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_listaExpressao;
+    	return LALGGrammar.RULE_listaExpressao;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterListaExpressao) {
 	 		listener.enterListaExpressao(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitListaExpressao) {
 	 		listener.exitListaExpressao(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitListaExpressao) {
 			return visitor.visitListaExpressao(this);
 		} else {
@@ -3027,12 +3027,12 @@ export class ListaExpressaoContext extends ParserRuleContext {
 
 
 export class ListaExpressao_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGParser, parent?: ParserRuleContext, invokingState?: number) {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
 	}
 	public VIRGULA(): TerminalNode {
-		return this.getToken(LALGParser.VIRGULA, 0);
+		return this.getToken(LALGGrammar.VIRGULA, 0);
 	}
 	public expressao(): ExpressaoContext {
 		return this.getTypedRuleContext(ExpressaoContext, 0) as ExpressaoContext;
@@ -3041,20 +3041,20 @@ export class ListaExpressao_auxContext extends ParserRuleContext {
 		return this.getTypedRuleContext(ListaExpressao_auxContext, 0) as ListaExpressao_auxContext;
 	}
     public get ruleIndex(): number {
-    	return LALGParser.RULE_listaExpressao_aux;
+    	return LALGGrammar.RULE_listaExpressao_aux;
 	}
-	public enterRule(listener: LALGParserListener): void {
+	public enterRule(listener: LALGGrammarListener): void {
 	    if(listener.enterListaExpressao_aux) {
 	 		listener.enterListaExpressao_aux(this);
 		}
 	}
-	public exitRule(listener: LALGParserListener): void {
+	public exitRule(listener: LALGGrammarListener): void {
 	    if(listener.exitListaExpressao_aux) {
 	 		listener.exitListaExpressao_aux(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: LALGParserVisitor<Result>): Result {
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitListaExpressao_aux) {
 			return visitor.visitListaExpressao_aux(this);
 		} else {

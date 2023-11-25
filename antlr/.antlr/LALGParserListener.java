@@ -67,15 +67,15 @@ public interface LALGParserListener extends ParseTreeListener {
 	 */
 	void exitExpressao(LALGParser.ExpressaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LALGParser#expressao1}.
+	 * Enter a parse tree produced by {@link LALGParser#expressao_aux}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressao1(LALGParser.Expressao1Context ctx);
+	void enterExpressao_aux(LALGParser.Expressao_auxContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LALGParser#expressao1}.
+	 * Exit a parse tree produced by {@link LALGParser#expressao_aux}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressao1(LALGParser.Expressao1Context ctx);
+	void exitExpressao_aux(LALGParser.Expressao_auxContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LALGParser#fator}.
 	 * @param ctx the parse tree

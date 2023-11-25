@@ -1,4 +1,4 @@
-// Generated from /home/guilherme/LocalOneDrive/Faculdade/2023/Compiladores/compilador-js/antlr/LALGParser.g4 by ANTLR 4.13.1
+// Generated from /home/guilherme/LocalOneDrive/Faculdade/2023/Compiladores/compilador-js/antlr/LALGGrammar.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
-public class LALGParser extends Parser {
+public class LALGGrammar extends Parser {
 	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -107,7 +107,7 @@ public class LALGParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LALGParser.g4"; }
+	public String getGrammarFileName() { return "LALGGrammar.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -118,27 +118,19 @@ public class LALGParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public LALGParser(TokenStream input) {
+	public LALGGrammar(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class NumeroContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(LALGParser.INT, 0); }
-		public TerminalNode FLOAT() { return getToken(LALGParser.FLOAT, 0); }
+		public TerminalNode INT() { return getToken(LALGGrammar.INT, 0); }
+		public TerminalNode FLOAT() { return getToken(LALGGrammar.FLOAT, 0); }
 		public NumeroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_numero; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterNumero(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitNumero(this);
-		}
 	}
 
 	public final NumeroContext numero() throws RecognitionException {
@@ -183,14 +175,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termo; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterTermo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitTermo(this);
-		}
 	}
 
 	public final TermoContext termo() throws RecognitionException {
@@ -224,20 +208,12 @@ public class LALGParser extends Parser {
 		public Termo_auxContext termo_aux() {
 			return getRuleContext(Termo_auxContext.class,0);
 		}
-		public TerminalNode MULT() { return getToken(LALGParser.MULT, 0); }
-		public TerminalNode AND() { return getToken(LALGParser.AND, 0); }
+		public TerminalNode MULT() { return getToken(LALGGrammar.MULT, 0); }
+		public TerminalNode AND() { return getToken(LALGGrammar.AND, 0); }
 		public Termo_auxContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termo_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterTermo_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitTermo_aux(this);
-		}
 	}
 
 	public final Termo_auxContext termo_aux() throws RecognitionException {
@@ -290,20 +266,12 @@ public class LALGParser extends Parser {
 		public ExpressaoSimples_auxContext expressaoSimples_aux() {
 			return getRuleContext(ExpressaoSimples_auxContext.class,0);
 		}
-		public TerminalNode MAIS() { return getToken(LALGParser.MAIS, 0); }
-		public TerminalNode MENOS() { return getToken(LALGParser.MENOS, 0); }
+		public TerminalNode MAIS() { return getToken(LALGGrammar.MAIS, 0); }
+		public TerminalNode MENOS() { return getToken(LALGGrammar.MENOS, 0); }
 		public ExpressaoSimplesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressaoSimples; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressaoSimples(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressaoSimples(this);
-		}
 	}
 
 	public final ExpressaoSimplesContext expressaoSimples() throws RecognitionException {
@@ -356,21 +324,13 @@ public class LALGParser extends Parser {
 		public ExpressaoSimples_auxContext expressaoSimples_aux() {
 			return getRuleContext(ExpressaoSimples_auxContext.class,0);
 		}
-		public TerminalNode MAIS() { return getToken(LALGParser.MAIS, 0); }
-		public TerminalNode MENOS() { return getToken(LALGParser.MENOS, 0); }
-		public TerminalNode OR() { return getToken(LALGParser.OR, 0); }
+		public TerminalNode MAIS() { return getToken(LALGGrammar.MAIS, 0); }
+		public TerminalNode MENOS() { return getToken(LALGGrammar.MENOS, 0); }
+		public TerminalNode OR() { return getToken(LALGGrammar.OR, 0); }
 		public ExpressaoSimples_auxContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressaoSimples_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressaoSimples_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressaoSimples_aux(this);
-		}
 	}
 
 	public final ExpressaoSimples_auxContext expressaoSimples_aux() throws RecognitionException {
@@ -427,14 +387,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressao(this);
-		}
 	}
 
 	public final ExpressaoContext expressao() throws RecognitionException {
@@ -462,7 +414,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Expressao_auxContext extends ParserRuleContext {
-		public TerminalNode RELACAO() { return getToken(LALGParser.RELACAO, 0); }
+		public TerminalNode RELACAO() { return getToken(LALGGrammar.RELACAO, 0); }
 		public ExpressaoSimplesContext expressaoSimples() {
 			return getRuleContext(ExpressaoSimplesContext.class,0);
 		}
@@ -470,14 +422,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterExpressao_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitExpressao_aux(this);
-		}
 	}
 
 	public final Expressao_auxContext expressao_aux() throws RecognitionException {
@@ -519,14 +463,14 @@ public class LALGParser extends Parser {
 		public NumeroContext numero() {
 			return getRuleContext(NumeroContext.class,0);
 		}
-		public TerminalNode TRUE_CONST() { return getToken(LALGParser.TRUE_CONST, 0); }
-		public TerminalNode FALSE_CONST() { return getToken(LALGParser.FALSE_CONST, 0); }
-		public TerminalNode ABRE_PARENTESES() { return getToken(LALGParser.ABRE_PARENTESES, 0); }
+		public TerminalNode TRUE_CONST() { return getToken(LALGGrammar.TRUE_CONST, 0); }
+		public TerminalNode FALSE_CONST() { return getToken(LALGGrammar.FALSE_CONST, 0); }
+		public TerminalNode ABRE_PARENTESES() { return getToken(LALGGrammar.ABRE_PARENTESES, 0); }
 		public ExpressaoContext expressao() {
 			return getRuleContext(ExpressaoContext.class,0);
 		}
-		public TerminalNode FECHA_PARENTESES() { return getToken(LALGParser.FECHA_PARENTESES, 0); }
-		public TerminalNode NOT() { return getToken(LALGParser.NOT, 0); }
+		public TerminalNode FECHA_PARENTESES() { return getToken(LALGGrammar.FECHA_PARENTESES, 0); }
+		public TerminalNode NOT() { return getToken(LALGGrammar.NOT, 0); }
 		public FatorContext fator() {
 			return getRuleContext(FatorContext.class,0);
 		}
@@ -534,14 +478,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fator; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterFator(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitFator(this);
-		}
 	}
 
 	public final FatorContext fator() throws RecognitionException {
@@ -618,7 +554,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class VariavelContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
 		public Variavel1Context variavel1() {
 			return getRuleContext(Variavel1Context.class,0);
 		}
@@ -626,14 +562,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variavel; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterVariavel(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitVariavel(this);
-		}
 	}
 
 	public final VariavelContext variavel() throws RecognitionException {
@@ -668,14 +596,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variavel1; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterVariavel1(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitVariavel1(this);
-		}
 	}
 
 	public final Variavel1Context variavel1() throws RecognitionException {
@@ -719,14 +639,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracaoVariavel; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterDeclaracaoVariavel(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitDeclaracaoVariavel(this);
-		}
 	}
 
 	public final DeclaracaoVariavelContext declaracaoVariavel() throws RecognitionException {
@@ -754,7 +666,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ListaIDContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
 		public ListaID_auxContext listaID_aux() {
 			return getRuleContext(ListaID_auxContext.class,0);
 		}
@@ -762,14 +674,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaID; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaID(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaID(this);
-		}
 	}
 
 	public final ListaIDContext listaID() throws RecognitionException {
@@ -797,8 +701,8 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ListaID_auxContext extends ParserRuleContext {
-		public TerminalNode VIRGULA() { return getToken(LALGParser.VIRGULA, 0); }
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
+		public TerminalNode VIRGULA() { return getToken(LALGGrammar.VIRGULA, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
 		public ListaID_auxContext listaID_aux() {
 			return getRuleContext(ListaID_auxContext.class,0);
 		}
@@ -806,14 +710,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaID_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaID_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaID_aux(this);
-		}
 	}
 
 	public final ListaID_auxContext listaID_aux() throws RecognitionException {
@@ -858,19 +754,11 @@ public class LALGParser extends Parser {
 		public ParteDeclaracaoVariavel_auxContext parteDeclaracaoVariavel_aux() {
 			return getRuleContext(ParteDeclaracaoVariavel_auxContext.class,0);
 		}
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public ParteDeclaracaoVariavelContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoVariavel; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoVariavel(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoVariavel(this);
-		}
 	}
 
 	public final ParteDeclaracaoVariavelContext parteDeclaracaoVariavel() throws RecognitionException {
@@ -900,7 +788,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParteDeclaracaoVariavel_auxContext extends ParserRuleContext {
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public DeclaracaoVariavelContext declaracaoVariavel() {
 			return getRuleContext(DeclaracaoVariavelContext.class,0);
 		}
@@ -911,14 +799,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoVariavel_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoVariavel_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoVariavel_aux(this);
-		}
 	}
 
 	public final ParteDeclaracaoVariavel_auxContext parteDeclaracaoVariavel_aux() throws RecognitionException {
@@ -956,21 +836,13 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class TipoContext extends ParserRuleContext {
-		public TerminalNode BOOL_TIPO() { return getToken(LALGParser.BOOL_TIPO, 0); }
-		public TerminalNode INT_TIPO() { return getToken(LALGParser.INT_TIPO, 0); }
-		public TerminalNode FLOAT_TIPO() { return getToken(LALGParser.FLOAT_TIPO, 0); }
+		public TerminalNode BOOL_TIPO() { return getToken(LALGGrammar.BOOL_TIPO, 0); }
+		public TerminalNode INT_TIPO() { return getToken(LALGGrammar.INT_TIPO, 0); }
+		public TerminalNode FLOAT_TIPO() { return getToken(LALGGrammar.FLOAT_TIPO, 0); }
 		public TipoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tipo; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterTipo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitTipo(this);
-		}
 	}
 
 	public final TipoContext tipo() throws RecognitionException {
@@ -1005,29 +877,21 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramaContext extends ParserRuleContext {
-		public TerminalNode PROGRAM() { return getToken(LALGParser.PROGRAM, 0); }
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PROGRAM() { return getToken(LALGGrammar.PROGRAM, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public BlocoContext bloco() {
 			return getRuleContext(BlocoContext.class,0);
 		}
-		public TerminalNode EOF() { return getToken(LALGParser.EOF, 0); }
-		public List<TerminalNode> PONTO() { return getTokens(LALGParser.PONTO); }
+		public TerminalNode EOF() { return getToken(LALGGrammar.EOF, 0); }
+		public List<TerminalNode> PONTO() { return getTokens(LALGGrammar.PONTO); }
 		public TerminalNode PONTO(int i) {
-			return getToken(LALGParser.PONTO, i);
+			return getToken(LALGGrammar.PONTO, i);
 		}
 		public ProgramaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_programa; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterPrograma(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitPrograma(this);
-		}
 	}
 
 	public final ProgramaContext programa() throws RecognitionException {
@@ -1089,14 +953,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bloco; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterBloco(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitBloco(this);
-		}
 	}
 
 	public final BlocoContext bloco() throws RecognitionException {
@@ -1146,7 +1002,7 @@ public class LALGParser extends Parser {
 		public DeclaracaoProcedimentoContext declaracaoProcedimento() {
 			return getRuleContext(DeclaracaoProcedimentoContext.class,0);
 		}
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public ParteDeclaracaoSubRotina_auxContext parteDeclaracaoSubRotina_aux() {
 			return getRuleContext(ParteDeclaracaoSubRotina_auxContext.class,0);
 		}
@@ -1154,14 +1010,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoSubRotina; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoSubRotina(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoSubRotina(this);
-		}
 	}
 
 	public final ParteDeclaracaoSubRotinaContext parteDeclaracaoSubRotina() throws RecognitionException {
@@ -1197,19 +1045,11 @@ public class LALGParser extends Parser {
 		public ParteDeclaracaoSubRotina_auxContext parteDeclaracaoSubRotina_aux() {
 			return getRuleContext(ParteDeclaracaoSubRotina_auxContext.class,0);
 		}
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public ParteDeclaracaoSubRotina_auxContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parteDeclaracaoSubRotina_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParteDeclaracaoSubRotina_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParteDeclaracaoSubRotina_aux(this);
-		}
 	}
 
 	public final ParteDeclaracaoSubRotina_auxContext parteDeclaracaoSubRotina_aux() throws RecognitionException {
@@ -1248,12 +1088,12 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclaracaoProcedimentoContext extends ParserRuleContext {
-		public TerminalNode PROCEDURE() { return getToken(LALGParser.PROCEDURE, 0); }
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
+		public TerminalNode PROCEDURE() { return getToken(LALGGrammar.PROCEDURE, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
 		public DeclaracaoProcedimento_auxContext declaracaoProcedimento_aux() {
 			return getRuleContext(DeclaracaoProcedimento_auxContext.class,0);
 		}
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public BlocoContext bloco() {
 			return getRuleContext(BlocoContext.class,0);
 		}
@@ -1261,14 +1101,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracaoProcedimento; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterDeclaracaoProcedimento(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitDeclaracaoProcedimento(this);
-		}
 	}
 
 	public final DeclaracaoProcedimentoContext declaracaoProcedimento() throws RecognitionException {
@@ -1309,14 +1141,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaracaoProcedimento_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterDeclaracaoProcedimento_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitDeclaracaoProcedimento_aux(this);
-		}
 	}
 
 	public final DeclaracaoProcedimento_auxContext declaracaoProcedimento_aux() throws RecognitionException {
@@ -1351,26 +1175,18 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParametrosContext extends ParserRuleContext {
-		public TerminalNode ABRE_PARENTESES() { return getToken(LALGParser.ABRE_PARENTESES, 0); }
+		public TerminalNode ABRE_PARENTESES() { return getToken(LALGGrammar.ABRE_PARENTESES, 0); }
 		public SecaoParametrosContext secaoParametros() {
 			return getRuleContext(SecaoParametrosContext.class,0);
 		}
 		public Parametros_auxContext parametros_aux() {
 			return getRuleContext(Parametros_auxContext.class,0);
 		}
-		public TerminalNode FECHA_PARENTESES() { return getToken(LALGParser.FECHA_PARENTESES, 0); }
+		public TerminalNode FECHA_PARENTESES() { return getToken(LALGGrammar.FECHA_PARENTESES, 0); }
 		public ParametrosContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParametros(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParametros(this);
-		}
 	}
 
 	public final ParametrosContext parametros() throws RecognitionException {
@@ -1402,7 +1218,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Parametros_auxContext extends ParserRuleContext {
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public SecaoParametrosContext secaoParametros() {
 			return getRuleContext(SecaoParametrosContext.class,0);
 		}
@@ -1413,14 +1229,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametros_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterParametros_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitParametros_aux(this);
-		}
 	}
 
 	public final Parametros_auxContext parametros_aux() throws RecognitionException {
@@ -1462,23 +1270,15 @@ public class LALGParser extends Parser {
 		public ListaIDContext listaID() {
 			return getRuleContext(ListaIDContext.class,0);
 		}
-		public TerminalNode DOIS_PONTOS() { return getToken(LALGParser.DOIS_PONTOS, 0); }
+		public TerminalNode DOIS_PONTOS() { return getToken(LALGGrammar.DOIS_PONTOS, 0); }
 		public SecaoParametrosFormais_auxContext secaoParametrosFormais_aux() {
 			return getRuleContext(SecaoParametrosFormais_auxContext.class,0);
 		}
-		public TerminalNode VAR() { return getToken(LALGParser.VAR, 0); }
+		public TerminalNode VAR() { return getToken(LALGGrammar.VAR, 0); }
 		public SecaoParametrosContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_secaoParametros; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterSecaoParametros(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitSecaoParametros(this);
-		}
 	}
 
 	public final SecaoParametrosContext secaoParametros() throws RecognitionException {
@@ -1519,7 +1319,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class SecaoParametrosFormais_auxContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
 		public TipoContext tipo() {
 			return getRuleContext(TipoContext.class,0);
 		}
@@ -1527,14 +1327,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_secaoParametrosFormais_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterSecaoParametrosFormais_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitSecaoParametrosFormais_aux(this);
-		}
 	}
 
 	public final SecaoParametrosFormais_auxContext secaoParametrosFormais_aux() throws RecognitionException {
@@ -1577,26 +1369,18 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ComandoCompostoContext extends ParserRuleContext {
-		public TerminalNode BEGIN() { return getToken(LALGParser.BEGIN, 0); }
+		public TerminalNode BEGIN() { return getToken(LALGGrammar.BEGIN, 0); }
 		public ComandoContext comando() {
 			return getRuleContext(ComandoContext.class,0);
 		}
 		public ComandoComposto_auxContext comandoComposto_aux() {
 			return getRuleContext(ComandoComposto_auxContext.class,0);
 		}
-		public TerminalNode END() { return getToken(LALGParser.END, 0); }
+		public TerminalNode END() { return getToken(LALGGrammar.END, 0); }
 		public ComandoCompostoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoComposto; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoComposto(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoComposto(this);
-		}
 	}
 
 	public final ComandoCompostoContext comandoComposto() throws RecognitionException {
@@ -1628,7 +1412,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ComandoComposto_auxContext extends ParserRuleContext {
-		public TerminalNode PONTO_VIRGULA() { return getToken(LALGParser.PONTO_VIRGULA, 0); }
+		public TerminalNode PONTO_VIRGULA() { return getToken(LALGGrammar.PONTO_VIRGULA, 0); }
 		public ComandoContext comando() {
 			return getRuleContext(ComandoContext.class,0);
 		}
@@ -1639,14 +1423,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoComposto_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoComposto_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoComposto_aux(this);
-		}
 	}
 
 	public final ComandoComposto_auxContext comandoComposto_aux() throws RecognitionException {
@@ -1704,14 +1480,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComando(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComando(this);
-		}
 	}
 
 	public final ComandoContext comando() throws RecognitionException {
@@ -1772,7 +1540,7 @@ public class LALGParser extends Parser {
 		public VariavelContext variavel() {
 			return getRuleContext(VariavelContext.class,0);
 		}
-		public TerminalNode ATRIBUICAO() { return getToken(LALGParser.ATRIBUICAO, 0); }
+		public TerminalNode ATRIBUICAO() { return getToken(LALGGrammar.ATRIBUICAO, 0); }
 		public ExpressaoContext expressao() {
 			return getRuleContext(ExpressaoContext.class,0);
 		}
@@ -1780,14 +1548,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_atribuicao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterAtribuicao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitAtribuicao(this);
-		}
 	}
 
 	public final AtribuicaoContext atribuicao() throws RecognitionException {
@@ -1820,21 +1580,13 @@ public class LALGParser extends Parser {
 		public ChamadaProcedimento_auxContext chamadaProcedimento_aux() {
 			return getRuleContext(ChamadaProcedimento_auxContext.class,0);
 		}
-		public TerminalNode ID() { return getToken(LALGParser.ID, 0); }
-		public TerminalNode READ() { return getToken(LALGParser.READ, 0); }
-		public TerminalNode WRITE() { return getToken(LALGParser.WRITE, 0); }
+		public TerminalNode ID() { return getToken(LALGGrammar.ID, 0); }
+		public TerminalNode READ() { return getToken(LALGGrammar.READ, 0); }
+		public TerminalNode WRITE() { return getToken(LALGGrammar.WRITE, 0); }
 		public ChamadaProcedimentoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chamadaProcedimento; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterChamadaProcedimento(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitChamadaProcedimento(this);
-		}
 	}
 
 	public final ChamadaProcedimentoContext chamadaProcedimento() throws RecognitionException {
@@ -1871,23 +1623,15 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ChamadaProcedimento_auxContext extends ParserRuleContext {
-		public TerminalNode ABRE_PARENTESES() { return getToken(LALGParser.ABRE_PARENTESES, 0); }
+		public TerminalNode ABRE_PARENTESES() { return getToken(LALGGrammar.ABRE_PARENTESES, 0); }
 		public ListaExpressaoContext listaExpressao() {
 			return getRuleContext(ListaExpressaoContext.class,0);
 		}
-		public TerminalNode FECHA_PARENTESES() { return getToken(LALGParser.FECHA_PARENTESES, 0); }
+		public TerminalNode FECHA_PARENTESES() { return getToken(LALGGrammar.FECHA_PARENTESES, 0); }
 		public ChamadaProcedimento_auxContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chamadaProcedimento_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterChamadaProcedimento_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitChamadaProcedimento_aux(this);
-		}
 	}
 
 	public final ChamadaProcedimento_auxContext chamadaProcedimento_aux() throws RecognitionException {
@@ -1926,11 +1670,11 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ComandoCondicionalContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(LALGParser.IF, 0); }
+		public TerminalNode IF() { return getToken(LALGGrammar.IF, 0); }
 		public ExpressaoContext expressao() {
 			return getRuleContext(ExpressaoContext.class,0);
 		}
-		public TerminalNode THEN() { return getToken(LALGParser.THEN, 0); }
+		public TerminalNode THEN() { return getToken(LALGGrammar.THEN, 0); }
 		public ComandoContext comando() {
 			return getRuleContext(ComandoContext.class,0);
 		}
@@ -1941,14 +1685,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoCondicional; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoCondicional(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoCondicional(this);
-		}
 	}
 
 	public final ComandoCondicionalContext comandoCondicional() throws RecognitionException {
@@ -1982,7 +1718,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ComandoCondicional_auxContext extends ParserRuleContext {
-		public TerminalNode ELSE() { return getToken(LALGParser.ELSE, 0); }
+		public TerminalNode ELSE() { return getToken(LALGGrammar.ELSE, 0); }
 		public ComandoContext comando() {
 			return getRuleContext(ComandoContext.class,0);
 		}
@@ -1990,14 +1726,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoCondicional_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoCondicional_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoCondicional_aux(this);
-		}
 	}
 
 	public final ComandoCondicional_auxContext comandoCondicional_aux() throws RecognitionException {
@@ -2033,11 +1761,11 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ComandoRepetitivoContext extends ParserRuleContext {
-		public TerminalNode WHILE() { return getToken(LALGParser.WHILE, 0); }
+		public TerminalNode WHILE() { return getToken(LALGGrammar.WHILE, 0); }
 		public ExpressaoContext expressao() {
 			return getRuleContext(ExpressaoContext.class,0);
 		}
-		public TerminalNode DO() { return getToken(LALGParser.DO, 0); }
+		public TerminalNode DO() { return getToken(LALGGrammar.DO, 0); }
 		public ComandoContext comando() {
 			return getRuleContext(ComandoContext.class,0);
 		}
@@ -2045,14 +1773,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandoRepetitivo; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterComandoRepetitivo(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitComandoRepetitivo(this);
-		}
 	}
 
 	public final ComandoRepetitivoContext comandoRepetitivo() throws RecognitionException {
@@ -2094,14 +1814,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaExpressao; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaExpressao(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaExpressao(this);
-		}
 	}
 
 	public final ListaExpressaoContext listaExpressao() throws RecognitionException {
@@ -2129,7 +1841,7 @@ public class LALGParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ListaExpressao_auxContext extends ParserRuleContext {
-		public TerminalNode VIRGULA() { return getToken(LALGParser.VIRGULA, 0); }
+		public TerminalNode VIRGULA() { return getToken(LALGGrammar.VIRGULA, 0); }
 		public ExpressaoContext expressao() {
 			return getRuleContext(ExpressaoContext.class,0);
 		}
@@ -2140,14 +1852,6 @@ public class LALGParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_listaExpressao_aux; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).enterListaExpressao_aux(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LALGParserListener ) ((LALGParserListener)listener).exitListaExpressao_aux(this);
-		}
 	}
 
 	public final ListaExpressao_auxContext listaExpressao_aux() throws RecognitionException {

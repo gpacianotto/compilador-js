@@ -88,13 +88,13 @@ public class LALGParserBaseListener implements LALGParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpressao1(LALGParser.Expressao1Context ctx) { }
+	@Override public void enterExpressao_aux(LALGParser.Expressao_auxContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpressao1(LALGParser.Expressao1Context ctx) { }
+	@Override public void exitExpressao_aux(LALGParser.Expressao_auxContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

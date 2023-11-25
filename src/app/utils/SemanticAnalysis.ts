@@ -2,8 +2,9 @@ import CustomErrorListener from "./CustomErrorListener";
 import { Symbol, Variable, Procedure, ProcedureParam } from "./Interfaces";
 import { LALGParser } from "../antlr/LALGParser";
 
+const VariableTypes = ["int", "real", "boolean"];
 
-class Scope {
+export class Scope {
 
     public scopeName: string;
     public enclosingScope: Scope | null;

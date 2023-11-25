@@ -1,4 +1,4 @@
-parser grammar LALGParser;
+parser grammar LALGGrammar;
 options { tokenVocab = LALGLexer; }
 
 numero: (INT | FLOAT);

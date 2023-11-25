@@ -1,419 +1,419 @@
-// Generated from ./antlr/LALGParser.g4 by ANTLR 4.13.0
+// Generated from ./antlr/LALGGrammar.g4 by ANTLR 4.13.0
 
 import {ParseTreeListener} from "antlr4";
 
 
-import { NumeroContext } from "./LALGParser";
-import { TermoContext } from "./LALGParser";
-import { Termo_auxContext } from "./LALGParser";
-import { ExpressaoSimplesContext } from "./LALGParser";
-import { ExpressaoSimples_auxContext } from "./LALGParser";
-import { ExpressaoContext } from "./LALGParser";
-import { Expressao_auxContext } from "./LALGParser";
-import { FatorContext } from "./LALGParser";
-import { VariavelContext } from "./LALGParser";
-import { Variavel1Context } from "./LALGParser";
-import { DeclaracaoVariavelContext } from "./LALGParser";
-import { ListaIDContext } from "./LALGParser";
-import { ListaID_auxContext } from "./LALGParser";
-import { ParteDeclaracaoVariavelContext } from "./LALGParser";
-import { ParteDeclaracaoVariavel_auxContext } from "./LALGParser";
-import { TipoContext } from "./LALGParser";
-import { ProgramaContext } from "./LALGParser";
-import { BlocoContext } from "./LALGParser";
-import { ParteDeclaracaoSubRotinaContext } from "./LALGParser";
-import { ParteDeclaracaoSubRotina_auxContext } from "./LALGParser";
-import { DeclaracaoProcedimentoContext } from "./LALGParser";
-import { DeclaracaoProcedimento_auxContext } from "./LALGParser";
-import { ParametrosContext } from "./LALGParser";
-import { Parametros_auxContext } from "./LALGParser";
-import { SecaoParametrosContext } from "./LALGParser";
-import { SecaoParametrosFormais_auxContext } from "./LALGParser";
-import { ComandoCompostoContext } from "./LALGParser";
-import { ComandoComposto_auxContext } from "./LALGParser";
-import { ComandoContext } from "./LALGParser";
-import { AtribuicaoContext } from "./LALGParser";
-import { ChamadaProcedimentoContext } from "./LALGParser";
-import { ChamadaProcedimento_auxContext } from "./LALGParser";
-import { ComandoCondicionalContext } from "./LALGParser";
-import { ComandoCondicional_auxContext } from "./LALGParser";
-import { ComandoRepetitivoContext } from "./LALGParser";
-import { ListaExpressaoContext } from "./LALGParser";
-import { ListaExpressao_auxContext } from "./LALGParser";
+import { NumeroContext } from "./LALGGrammar";
+import { TermoContext } from "./LALGGrammar";
+import { Termo_auxContext } from "./LALGGrammar";
+import { ExpressaoSimplesContext } from "./LALGGrammar";
+import { ExpressaoSimples_auxContext } from "./LALGGrammar";
+import { ExpressaoContext } from "./LALGGrammar";
+import { Expressao_auxContext } from "./LALGGrammar";
+import { FatorContext } from "./LALGGrammar";
+import { VariavelContext } from "./LALGGrammar";
+import { Variavel1Context } from "./LALGGrammar";
+import { DeclaracaoVariavelContext } from "./LALGGrammar";
+import { ListaIDContext } from "./LALGGrammar";
+import { ListaID_auxContext } from "./LALGGrammar";
+import { ParteDeclaracaoVariavelContext } from "./LALGGrammar";
+import { ParteDeclaracaoVariavel_auxContext } from "./LALGGrammar";
+import { TipoContext } from "./LALGGrammar";
+import { ProgramaContext } from "./LALGGrammar";
+import { BlocoContext } from "./LALGGrammar";
+import { ParteDeclaracaoSubRotinaContext } from "./LALGGrammar";
+import { ParteDeclaracaoSubRotina_auxContext } from "./LALGGrammar";
+import { DeclaracaoProcedimentoContext } from "./LALGGrammar";
+import { DeclaracaoProcedimento_auxContext } from "./LALGGrammar";
+import { ParametrosContext } from "./LALGGrammar";
+import { Parametros_auxContext } from "./LALGGrammar";
+import { SecaoParametrosContext } from "./LALGGrammar";
+import { SecaoParametrosFormais_auxContext } from "./LALGGrammar";
+import { ComandoCompostoContext } from "./LALGGrammar";
+import { ComandoComposto_auxContext } from "./LALGGrammar";
+import { ComandoContext } from "./LALGGrammar";
+import { AtribuicaoContext } from "./LALGGrammar";
+import { ChamadaProcedimentoContext } from "./LALGGrammar";
+import { ChamadaProcedimento_auxContext } from "./LALGGrammar";
+import { ComandoCondicionalContext } from "./LALGGrammar";
+import { ComandoCondicional_auxContext } from "./LALGGrammar";
+import { ComandoRepetitivoContext } from "./LALGGrammar";
+import { ListaExpressaoContext } from "./LALGGrammar";
+import { ListaExpressao_auxContext } from "./LALGGrammar";
 
 
 /**
  * This interface defines a complete listener for a parse tree produced by
- * `LALGParser`.
+ * `LALGGrammar`.
  */
-export default class LALGParserListener extends ParseTreeListener {
+export default class LALGGrammarListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by `LALGParser.numero`.
+	 * Enter a parse tree produced by `LALGGrammar.numero`.
 	 * @param ctx the parse tree
 	 */
 	enterNumero?: (ctx: NumeroContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.numero`.
+	 * Exit a parse tree produced by `LALGGrammar.numero`.
 	 * @param ctx the parse tree
 	 */
 	exitNumero?: (ctx: NumeroContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.termo`.
+	 * Enter a parse tree produced by `LALGGrammar.termo`.
 	 * @param ctx the parse tree
 	 */
 	enterTermo?: (ctx: TermoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.termo`.
+	 * Exit a parse tree produced by `LALGGrammar.termo`.
 	 * @param ctx the parse tree
 	 */
 	exitTermo?: (ctx: TermoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.termo_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.termo_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterTermo_aux?: (ctx: Termo_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.termo_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.termo_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitTermo_aux?: (ctx: Termo_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.expressaoSimples`.
+	 * Enter a parse tree produced by `LALGGrammar.expressaoSimples`.
 	 * @param ctx the parse tree
 	 */
 	enterExpressaoSimples?: (ctx: ExpressaoSimplesContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.expressaoSimples`.
+	 * Exit a parse tree produced by `LALGGrammar.expressaoSimples`.
 	 * @param ctx the parse tree
 	 */
 	exitExpressaoSimples?: (ctx: ExpressaoSimplesContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.expressaoSimples_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.expressaoSimples_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterExpressaoSimples_aux?: (ctx: ExpressaoSimples_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.expressaoSimples_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.expressaoSimples_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitExpressaoSimples_aux?: (ctx: ExpressaoSimples_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.expressao`.
+	 * Enter a parse tree produced by `LALGGrammar.expressao`.
 	 * @param ctx the parse tree
 	 */
 	enterExpressao?: (ctx: ExpressaoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.expressao`.
+	 * Exit a parse tree produced by `LALGGrammar.expressao`.
 	 * @param ctx the parse tree
 	 */
 	exitExpressao?: (ctx: ExpressaoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.expressao_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.expressao_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterExpressao_aux?: (ctx: Expressao_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.expressao_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.expressao_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitExpressao_aux?: (ctx: Expressao_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.fator`.
+	 * Enter a parse tree produced by `LALGGrammar.fator`.
 	 * @param ctx the parse tree
 	 */
 	enterFator?: (ctx: FatorContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.fator`.
+	 * Exit a parse tree produced by `LALGGrammar.fator`.
 	 * @param ctx the parse tree
 	 */
 	exitFator?: (ctx: FatorContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.variavel`.
+	 * Enter a parse tree produced by `LALGGrammar.variavel`.
 	 * @param ctx the parse tree
 	 */
 	enterVariavel?: (ctx: VariavelContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.variavel`.
+	 * Exit a parse tree produced by `LALGGrammar.variavel`.
 	 * @param ctx the parse tree
 	 */
 	exitVariavel?: (ctx: VariavelContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.variavel1`.
+	 * Enter a parse tree produced by `LALGGrammar.variavel1`.
 	 * @param ctx the parse tree
 	 */
 	enterVariavel1?: (ctx: Variavel1Context) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.variavel1`.
+	 * Exit a parse tree produced by `LALGGrammar.variavel1`.
 	 * @param ctx the parse tree
 	 */
 	exitVariavel1?: (ctx: Variavel1Context) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.declaracaoVariavel`.
+	 * Enter a parse tree produced by `LALGGrammar.declaracaoVariavel`.
 	 * @param ctx the parse tree
 	 */
 	enterDeclaracaoVariavel?: (ctx: DeclaracaoVariavelContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.declaracaoVariavel`.
+	 * Exit a parse tree produced by `LALGGrammar.declaracaoVariavel`.
 	 * @param ctx the parse tree
 	 */
 	exitDeclaracaoVariavel?: (ctx: DeclaracaoVariavelContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.listaID`.
+	 * Enter a parse tree produced by `LALGGrammar.listaID`.
 	 * @param ctx the parse tree
 	 */
 	enterListaID?: (ctx: ListaIDContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.listaID`.
+	 * Exit a parse tree produced by `LALGGrammar.listaID`.
 	 * @param ctx the parse tree
 	 */
 	exitListaID?: (ctx: ListaIDContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.listaID_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.listaID_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterListaID_aux?: (ctx: ListaID_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.listaID_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.listaID_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitListaID_aux?: (ctx: ListaID_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.parteDeclaracaoVariavel`.
+	 * Enter a parse tree produced by `LALGGrammar.parteDeclaracaoVariavel`.
 	 * @param ctx the parse tree
 	 */
 	enterParteDeclaracaoVariavel?: (ctx: ParteDeclaracaoVariavelContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.parteDeclaracaoVariavel`.
+	 * Exit a parse tree produced by `LALGGrammar.parteDeclaracaoVariavel`.
 	 * @param ctx the parse tree
 	 */
 	exitParteDeclaracaoVariavel?: (ctx: ParteDeclaracaoVariavelContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.parteDeclaracaoVariavel_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.parteDeclaracaoVariavel_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterParteDeclaracaoVariavel_aux?: (ctx: ParteDeclaracaoVariavel_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.parteDeclaracaoVariavel_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.parteDeclaracaoVariavel_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitParteDeclaracaoVariavel_aux?: (ctx: ParteDeclaracaoVariavel_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.tipo`.
+	 * Enter a parse tree produced by `LALGGrammar.tipo`.
 	 * @param ctx the parse tree
 	 */
 	enterTipo?: (ctx: TipoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.tipo`.
+	 * Exit a parse tree produced by `LALGGrammar.tipo`.
 	 * @param ctx the parse tree
 	 */
 	exitTipo?: (ctx: TipoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.programa`.
+	 * Enter a parse tree produced by `LALGGrammar.programa`.
 	 * @param ctx the parse tree
 	 */
 	enterPrograma?: (ctx: ProgramaContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.programa`.
+	 * Exit a parse tree produced by `LALGGrammar.programa`.
 	 * @param ctx the parse tree
 	 */
 	exitPrograma?: (ctx: ProgramaContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.bloco`.
+	 * Enter a parse tree produced by `LALGGrammar.bloco`.
 	 * @param ctx the parse tree
 	 */
 	enterBloco?: (ctx: BlocoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.bloco`.
+	 * Exit a parse tree produced by `LALGGrammar.bloco`.
 	 * @param ctx the parse tree
 	 */
 	exitBloco?: (ctx: BlocoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.parteDeclaracaoSubRotina`.
+	 * Enter a parse tree produced by `LALGGrammar.parteDeclaracaoSubRotina`.
 	 * @param ctx the parse tree
 	 */
 	enterParteDeclaracaoSubRotina?: (ctx: ParteDeclaracaoSubRotinaContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.parteDeclaracaoSubRotina`.
+	 * Exit a parse tree produced by `LALGGrammar.parteDeclaracaoSubRotina`.
 	 * @param ctx the parse tree
 	 */
 	exitParteDeclaracaoSubRotina?: (ctx: ParteDeclaracaoSubRotinaContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.parteDeclaracaoSubRotina_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.parteDeclaracaoSubRotina_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterParteDeclaracaoSubRotina_aux?: (ctx: ParteDeclaracaoSubRotina_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.parteDeclaracaoSubRotina_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.parteDeclaracaoSubRotina_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitParteDeclaracaoSubRotina_aux?: (ctx: ParteDeclaracaoSubRotina_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.declaracaoProcedimento`.
+	 * Enter a parse tree produced by `LALGGrammar.declaracaoProcedimento`.
 	 * @param ctx the parse tree
 	 */
 	enterDeclaracaoProcedimento?: (ctx: DeclaracaoProcedimentoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.declaracaoProcedimento`.
+	 * Exit a parse tree produced by `LALGGrammar.declaracaoProcedimento`.
 	 * @param ctx the parse tree
 	 */
 	exitDeclaracaoProcedimento?: (ctx: DeclaracaoProcedimentoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.declaracaoProcedimento_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.declaracaoProcedimento_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterDeclaracaoProcedimento_aux?: (ctx: DeclaracaoProcedimento_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.declaracaoProcedimento_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.declaracaoProcedimento_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitDeclaracaoProcedimento_aux?: (ctx: DeclaracaoProcedimento_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.parametros`.
+	 * Enter a parse tree produced by `LALGGrammar.parametros`.
 	 * @param ctx the parse tree
 	 */
 	enterParametros?: (ctx: ParametrosContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.parametros`.
+	 * Exit a parse tree produced by `LALGGrammar.parametros`.
 	 * @param ctx the parse tree
 	 */
 	exitParametros?: (ctx: ParametrosContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.parametros_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.parametros_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterParametros_aux?: (ctx: Parametros_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.parametros_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.parametros_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitParametros_aux?: (ctx: Parametros_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.secaoParametros`.
+	 * Enter a parse tree produced by `LALGGrammar.secaoParametros`.
 	 * @param ctx the parse tree
 	 */
 	enterSecaoParametros?: (ctx: SecaoParametrosContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.secaoParametros`.
+	 * Exit a parse tree produced by `LALGGrammar.secaoParametros`.
 	 * @param ctx the parse tree
 	 */
 	exitSecaoParametros?: (ctx: SecaoParametrosContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.secaoParametrosFormais_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.secaoParametrosFormais_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterSecaoParametrosFormais_aux?: (ctx: SecaoParametrosFormais_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.secaoParametrosFormais_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.secaoParametrosFormais_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitSecaoParametrosFormais_aux?: (ctx: SecaoParametrosFormais_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.comandoComposto`.
+	 * Enter a parse tree produced by `LALGGrammar.comandoComposto`.
 	 * @param ctx the parse tree
 	 */
 	enterComandoComposto?: (ctx: ComandoCompostoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.comandoComposto`.
+	 * Exit a parse tree produced by `LALGGrammar.comandoComposto`.
 	 * @param ctx the parse tree
 	 */
 	exitComandoComposto?: (ctx: ComandoCompostoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.comandoComposto_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.comandoComposto_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterComandoComposto_aux?: (ctx: ComandoComposto_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.comandoComposto_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.comandoComposto_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitComandoComposto_aux?: (ctx: ComandoComposto_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.comando`.
+	 * Enter a parse tree produced by `LALGGrammar.comando`.
 	 * @param ctx the parse tree
 	 */
 	enterComando?: (ctx: ComandoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.comando`.
+	 * Exit a parse tree produced by `LALGGrammar.comando`.
 	 * @param ctx the parse tree
 	 */
 	exitComando?: (ctx: ComandoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.atribuicao`.
+	 * Enter a parse tree produced by `LALGGrammar.atribuicao`.
 	 * @param ctx the parse tree
 	 */
 	enterAtribuicao?: (ctx: AtribuicaoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.atribuicao`.
+	 * Exit a parse tree produced by `LALGGrammar.atribuicao`.
 	 * @param ctx the parse tree
 	 */
 	exitAtribuicao?: (ctx: AtribuicaoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.chamadaProcedimento`.
+	 * Enter a parse tree produced by `LALGGrammar.chamadaProcedimento`.
 	 * @param ctx the parse tree
 	 */
 	enterChamadaProcedimento?: (ctx: ChamadaProcedimentoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.chamadaProcedimento`.
+	 * Exit a parse tree produced by `LALGGrammar.chamadaProcedimento`.
 	 * @param ctx the parse tree
 	 */
 	exitChamadaProcedimento?: (ctx: ChamadaProcedimentoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.chamadaProcedimento_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.chamadaProcedimento_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterChamadaProcedimento_aux?: (ctx: ChamadaProcedimento_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.chamadaProcedimento_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.chamadaProcedimento_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitChamadaProcedimento_aux?: (ctx: ChamadaProcedimento_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.comandoCondicional`.
+	 * Enter a parse tree produced by `LALGGrammar.comandoCondicional`.
 	 * @param ctx the parse tree
 	 */
 	enterComandoCondicional?: (ctx: ComandoCondicionalContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.comandoCondicional`.
+	 * Exit a parse tree produced by `LALGGrammar.comandoCondicional`.
 	 * @param ctx the parse tree
 	 */
 	exitComandoCondicional?: (ctx: ComandoCondicionalContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.comandoCondicional_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.comandoCondicional_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterComandoCondicional_aux?: (ctx: ComandoCondicional_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.comandoCondicional_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.comandoCondicional_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitComandoCondicional_aux?: (ctx: ComandoCondicional_auxContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.comandoRepetitivo`.
+	 * Enter a parse tree produced by `LALGGrammar.comandoRepetitivo`.
 	 * @param ctx the parse tree
 	 */
 	enterComandoRepetitivo?: (ctx: ComandoRepetitivoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.comandoRepetitivo`.
+	 * Exit a parse tree produced by `LALGGrammar.comandoRepetitivo`.
 	 * @param ctx the parse tree
 	 */
 	exitComandoRepetitivo?: (ctx: ComandoRepetitivoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.listaExpressao`.
+	 * Enter a parse tree produced by `LALGGrammar.listaExpressao`.
 	 * @param ctx the parse tree
 	 */
 	enterListaExpressao?: (ctx: ListaExpressaoContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.listaExpressao`.
+	 * Exit a parse tree produced by `LALGGrammar.listaExpressao`.
 	 * @param ctx the parse tree
 	 */
 	exitListaExpressao?: (ctx: ListaExpressaoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGParser.listaExpressao_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.listaExpressao_aux`.
 	 * @param ctx the parse tree
 	 */
 	enterListaExpressao_aux?: (ctx: ListaExpressao_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGParser.listaExpressao_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.listaExpressao_aux`.
 	 * @param ctx the parse tree
 	 */
 	exitListaExpressao_aux?: (ctx: ListaExpressao_auxContext) => void;
