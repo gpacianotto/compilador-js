@@ -36,6 +36,7 @@ export default class Analisys{
             return { 'Token': symbolicName, 'Lexema': text, 'Linha': line, 'Coluna': column }
         });
 
+        console.log("Analise Léxica realizada com SUCESSO!");
         return result;
     }
 
@@ -53,13 +54,16 @@ export default class Analisys{
         antlr4.Lexer.prototype.addErrorListener.call(this.lexer, errorListener);
 
         this.tree = parser.programa();
+        // console.log(this.tree.toStringTree(parser.ruleNames));
+        console.log("Analise Sintática realizada com SUCESSO!");
         return errorListener.getErrors();
     }
     
     public semantic(){
         let errorListener = new CustomErrorListener();
         let semanticAnalys = new semanticAnalyzer(errorListener);
-        semanticAnalys.visit(this.tree);
+        semanticAnalys.visitPrograma(this.tree);
+        console.log("Analise Semântica realizada com SUCESSO!");
         return errorListener.getErrors();
     }
 
@@ -72,7 +76,7 @@ export default class Analisys{
             tokens?.push({ lexem: lexem.Lexema, token: lexem.Token, position: { line: lexem.Linha, colStart: lexem.Coluna, colEnd: lexem.Coluna + lexem.Lexema.length } })
         })
     
-        console.log(tokens);
+        // console.log(tokens);
     
         for (let i = 0; i < input.length; i++) {
             const char = input[i];

@@ -30,22 +30,41 @@ export interface GeneratorToken {
     Coluna: number;
 }
 
-export interface Symbol {
-    name: string,
-    position: Position,
+export class Symbol {
+    name: string;
+    isUsed: boolean;
+    position: Position;
+
+    constructor(name: string, isUsed: boolean, position: Position) {
+        this.name = name;
+        this.isUsed = isUsed;
+        this.position = position;
+    }
 }
 
-export interface Variable extends Symbol {
-    type: string,
-    isUsed: boolean,
+export class VariableSymbol extends Symbol {
+    type: string;
+
+    constructor(name: string, type: string, isUsed: boolean, position: Position) {
+        super(name, isUsed, position);
+        this.type = type;
+    }
 }
 
-export interface ProcedureParam extends Symbol {
-    type: string,
-    isUsed: boolean,
+export class ParameterSymbol extends Symbol {
+    type: string;
+
+    constructor(name: string, type: string, isUsed: boolean, position: Position) {
+        super(name, isUsed, position);
+        this.type = type;
+    }
 }
 
-export interface Procedure extends Symbol {
-    params: ProcedureParam[],
-    isUsed: boolean,
+export class ProcedureSymbol extends Symbol {
+    parameters: ParameterSymbol[];
+
+    constructor(name: string, isUsed: boolean, position: Position, parameters: ParameterSymbol[]) {
+        super(name, isUsed, position);
+        this.parameters = parameters;
+    }
 }
