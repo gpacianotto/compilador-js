@@ -42,7 +42,7 @@ class TypeExtractor {
         this.errorListener = listener;
     }
 
-    fromFator(fator: FatorContext): any {
+    public fromFator(fator: FatorContext): any {
         if (fator.variavel()) {
             const identifier = fator.variavel().ID();
             const variableName = identifier.getText();
@@ -70,7 +70,7 @@ class TypeExtractor {
         return "unknown";
     }
 
-    fromTermo(termo: TermoContext): string {
+    public fromTermo(termo: TermoContext): string {
         const factors: FatorContext[] = termo.fator();
         const typesInTerm = new Set<string>();
 
@@ -98,7 +98,7 @@ class TypeExtractor {
         return typesInTerm.values().next().value;
     }
 
-    fromSimpleExpression(expressaoSimples: ExpressaoSimplesContext): any {
+    public fromExpressaoSimples(expressaoSimples: ExpressaoSimplesContext): any {
         const termos: TermoContext[] = expressaoSimples.termo();
         const typesInExpression = new Set<string>();
 
@@ -126,13 +126,13 @@ class TypeExtractor {
         return typesInExpression.values().next().value;
     }
 
-    fromExpression(expression: ExpressaoContext): any {
+    public fromExpression(expression: ExpressaoContext): any {
         if (expression.expressao_aux().RELACAO() !== null) {
             return "boolean";
         }
 
         const simpleExpression = expression.expressaoSimples();
-        return this.fromSimpleExpression(simpleExpression);
+        return this.fromExpressaoSimples(simpleExpression);
     }
 }
 
@@ -141,11 +141,13 @@ export default class semanticAnalyzer extends LALGGrammarVisitor<void> {
 
     private currentScope: Scope;
     private errorListener: CustomErrorListener;
+    private typeExtractor: TypeExtractor;
 
     constructor(errorListener: CustomErrorListener) {
         super();
         this.currentScope = new Scope("global", null);
         this.errorListener = errorListener;
+        this.typeExtractor = new TypeExtractor(this.currentScope, errorListener);
     }
 
     private enterScope(scopeName: string): void {
@@ -264,7 +266,7 @@ export default class semanticAnalyzer extends LALGGrammarVisitor<void> {
 
         variableSymbol.isUsed = true;
         let expression = ctx.expressao();
-        let expressionType = this.visit(expression);
+        let expressionType = this.typeExtractor.fromExpressaoSimples(expression);
         if (expressionType != variableSymbol.type) {
             this.errorListener.semanticError(variable.ID().symbol.line, variable.ID().symbol.column, `Tipo de atribuição inválido`);
         }
@@ -272,7 +274,7 @@ export default class semanticAnalyzer extends LALGGrammarVisitor<void> {
 
     public visitComandoCondicional = (ctx: ComandoCondicionalContext) => {
         let expression = ctx.expressao();
-        let expressionType = this.visit(expression);
+        let expressionType = this.typeExtractor.fromExpressaoSimples(expression.expressaoSimples());
         if (expressionType != "boolean") {
             this.errorListener.semanticError(expression.start.line ,expression.start.column, `Tipo de expressão inválido`);
         }
@@ -280,7 +282,7 @@ export default class semanticAnalyzer extends LALGGrammarVisitor<void> {
     
     public visitComandoRepetitivo = (ctx: ComandoRepetitivoContext) => {
         let expression = ctx.expressao();
-        let expressionType = this.visit(expression);
+        let expressionType = this.typeExtractor.fromExpression(expression);
         if (expressionType != "boolean") {
             this.errorListener.semanticError(expression.start.line, expression.start.column, `Tipo de expressão inválido`);
         }
@@ -288,10 +290,10 @@ export default class semanticAnalyzer extends LALGGrammarVisitor<void> {
 
     public visitTermo = (ctx: TermoContext) => {
         if (ctx.termo_aux().MULT()) {
-            let leftTerm = ctx.fator().numero();
-            let leftTermType = this.visit(leftTerm);
-            let rightTerm = ctx.termo_aux().fator().numero();
-            let rightTermType = this.visit(rightTerm);
+            let leftTerm = ctx.fator()
+            let leftTermType = this.typeExtractor.fromFator(leftTerm);
+            let rightTerm = ctx.termo_aux().fator();
+            let rightTermType = this.typeExtractor.fromFator(rightTerm);
 
             if (leftTermType != rightTermType) {
                 this.errorListener.semanticError(leftTerm.start.line, leftTerm.start.column, `Tipo de expressão inválido`);
