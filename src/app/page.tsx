@@ -7,6 +7,7 @@ import TextAreaWithLineNumber from 'text-area-with-line-number';
 import { SaveButton } from './components/SaveButton';
 import LexicTable from './components/LexicTable';
 import Analisys from './utils/Analisys';
+import CodeGenerator from './utils/CodeGenerator';
 
 export default function Home() {
   
@@ -83,7 +84,10 @@ export default function Home() {
           </Button>
         </Col>
         <Col className='text-center mt-4'>
-          <Button >
+          <Button onClick={() => {
+            const generator = new CodeGenerator();
+            generator.visitPrograma(analisys.tree);
+          }}>
             Gerar código
           </Button>
         </Col>

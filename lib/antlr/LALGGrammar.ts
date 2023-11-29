@@ -250,7 +250,7 @@ export default class LALGGrammar extends Parser {
 				{
 				this.state = 79;
 				_la = this._input.LA(1);
-				if(!(_la===25 || _la===36)) {
+				if(!(((((_la - 25)) & ~0x1F) === 0 && ((1 << (_la - 25)) & 2051) !== 0))) {
 				this._errHandler.recoverInline(this);
 				}
 				else {
@@ -1552,7 +1552,7 @@ export default class LALGGrammar extends Parser {
 	33,245,8,33,1,34,1,34,1,34,1,34,1,34,1,35,1,35,1,35,1,36,1,36,1,36,1,36,
 	3,36,259,8,36,1,36,0,0,37,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,
 	34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,0,6,1,0,39,
-	40,2,0,25,25,36,36,1,0,23,24,2,0,23,24,37,37,1,0,9,11,2,0,12,13,38,38,251,
+	40,2,0,25,26,36,36,1,0,23,24,2,0,23,24,37,37,1,0,9,11,2,0,12,13,38,38,251,
 	0,74,1,0,0,0,2,76,1,0,0,0,4,83,1,0,0,0,6,86,1,0,0,0,8,95,1,0,0,0,10,97,
 	1,0,0,0,12,102,1,0,0,0,14,114,1,0,0,0,16,116,1,0,0,0,18,120,1,0,0,0,20,
 	122,1,0,0,0,22,125,1,0,0,0,24,131,1,0,0,0,26,133,1,0,0,0,28,141,1,0,0,0,
@@ -1712,6 +1712,9 @@ export class Termo_auxContext extends ParserRuleContext {
 	public AND(): TerminalNode {
 		return this.getToken(LALGGrammar.AND, 0);
 	}
+	public DIV(): TerminalNode {
+		return this.getToken(LALGGrammar.DIV, 0);
+	}
     public get ruleIndex(): number {
     	return LALGGrammar.RULE_termo_aux;
 	}
@@ -1812,8 +1815,8 @@ export class ExpressaoSimples_auxContext extends ParserRuleContext {
 	}
 	// @Override
 	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
-		if (visitor.visitExpressaoSimples) {
-			return visitor.visitExpressaoSimples(this);
+		if (visitor.visitExpressaoSimples_aux) {
+			return visitor.visitExpressaoSimples_aux(this);
 		} else {
 			return visitor.visitChildren(this);
 		}

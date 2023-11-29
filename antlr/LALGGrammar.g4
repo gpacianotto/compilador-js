@@ -5,7 +5,7 @@ numero: (INT | FLOAT);
 
 termo: fator termo_aux ;
 
-termo_aux: ( ( MULT | AND ) fator termo_aux )? ;
+termo_aux: ( ( MULT | AND | DIV ) fator termo_aux )? ;
 
 expressaoSimples:
     ( MAIS | MENOS )? termo expressaoSimples_aux ;

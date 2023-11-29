@@ -79,7 +79,7 @@ export default class LALGGrammarVisitor<Result> extends ParseTreeVisitor<Result>
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitExpressaoSimples?: (ctx: ExpressaoSimples_auxContext) => Result;
+	visitExpressaoSimples_aux?: (ctx: ExpressaoSimples_auxContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGGrammar.expressao`.
 	 * @param ctx the parse tree

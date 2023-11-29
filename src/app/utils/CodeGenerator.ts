@@ -1,51 +1,52 @@
-import { AtribuicaoContext, ComandoCondicionalContext, ComandoRepetitivoContext, ExpressaoSimplesContext, ExpressaoSimples_auxContext, FatorContext, ListaIDContext, ListaID_auxContext, ProgramaContext } from "../../../antlr/LALGGrammar";
+import { AtribuicaoContext, ChamadaProcedimentoContext, ComandoCondicionalContext, ComandoRepetitivoContext, ExpressaoSimplesContext, ExpressaoSimples_auxContext, Expressao_auxContext, FatorContext, ListaExpressaoContext, ListaIDContext, ListaID_auxContext, ProgramaContext, Termo_auxContext, Variavel1Context } from "../../../antlr/LALGGrammar";
 import LALGGrammarVisitor from "../../../antlr/LALGGrammarVisitor";
 import LALGParserVisitor from "../../../antlr/LALGGrammarVisitor";
 import CustomErrorListener from "./CustomErrorListener";
 
-class CodeSymbol {
+class Symbol {
     public name: string;
-    public stackPointer: number;
+    public position: number;
 
-    constructor(name: string, stackPointer: number) {
+    constructor(name: string, position: number) {
         this.name = name;
-        this.stackPointer = stackPointer;
+        this.position = position;
     }
 }
 
-class CodeScope {
+class Scope {
     public scopeName: string;
-    public enclosingScope: CodeScope | null;
-    public symbols: Map<string, CodeSymbol> = new Map();
+    public enclosingScope: Scope | null;
+    public symbols: Map<string, Symbol> = new Map();
 
-    constructor(scopeName: string, enclosingScope: CodeScope | null = null) {
+    constructor(scopeName: string, enclosingScope: Scope | null = null) {
         this.scopeName = scopeName;
         this.enclosingScope = enclosingScope;
     }
 
-    define(symbol: CodeSymbol): void {
+    define(symbol: Symbol): void {
         this.symbols.set(symbol.name, symbol);
     }
 
-    resolve(name: string): CodeSymbol | null {
+    resolve(name: string): Symbol | null {
         let symbol = this.symbols.get(name);
         return symbol || null;
     }
 }
 
-class CodeGenerator extends LALGGrammarVisitor<void> {
+export default class CodeGenerator extends LALGGrammarVisitor<void> {
     
-    public currentScope: CodeScope = new CodeScope("global");
+    public currentScope: Scope = new Scope("global");
     public errorListener: CustomErrorListener;
+    public historicoVariavel: string[] = [];
     public generatedCode: string[] = [];
 
-    constructor(errorListener: CustomErrorListener) {
+    constructor() {
         super();
-        this.errorListener = errorListener;
+        this.errorListener = new CustomErrorListener();
     }
 
     public enterScope(scopeName: string): void {
-        this.currentScope = new CodeScope(scopeName, this.currentScope);
+        this.currentScope = new Scope(scopeName, this.currentScope);
     }
 
     public exitScope(): void {
@@ -54,124 +55,222 @@ class CodeGenerator extends LALGGrammarVisitor<void> {
 
     visitPrograma = (ctx: ProgramaContext) => {
         this.generatedCode.push("INPP\n");
-        super.visitChildren(ctx);
+        //@ts-ignore
+        this.visitChildren(ctx);
         this.generatedCode.push("PARA\n");
-    }
-
-    visitAtribuicao = (ctx: AtribuicaoContext) => {
-        const variave = ctx.variavel();
-        const nome = variave.ID().getText();
-        const symbol = this.currentScope.resolve(nome);
-        return super.visitChildren(ctx);
+        this.salvarPrograma();
     }
 
     visitListaID = (ctx: ListaIDContext) => {
-        this.generatedCode.push("AMEM 1");
-        const variavel = ctx.ID().getText();
-        const symbol = this.currentScope.resolve(variavel);
-        if (symbol) {
-            this.currentScope.define(new CodeSymbol(symbol.name, this.currentScope.symbols.size));
+        let id = ctx.ID();
+        if (id != null) {
+            let nome = id.getText();
+            let posicao = this.currentScope.symbols.size;
+
+            console.log("Variável " + nome + " declarada na posição " + posicao);
+            this.currentScope.define(new Symbol(nome, posicao));
+            this.generatedCode.push("AMEM 1\n");
         }
+        //@ts-ignore
+        this.visitChildren(ctx);
     }
 
     visitListaID_aux = (ctx: ListaID_auxContext) => {
-        this.generatedCode.push("AMEM 1");
-        const variavel = ctx.ID().getText();
-        const symbol = this.currentScope.resolve(variavel);
-        if (symbol) {
-            this.currentScope.define(new CodeSymbol(symbol.name, this.currentScope.symbols.size));
+        let id = ctx.ID();
+        if (id != null) {
+            let nome = id.getText();
+            let posicao = this.currentScope.symbols.size;
+
+            console.log("Variável " + nome + " declarada na posição " + posicao);
+            this.currentScope.define(new Symbol(nome, posicao));
+            this.generatedCode.push("AMEM 1\n");
+        }
+        //@ts-ignore
+        this.visitChildren(ctx);
+    }
+
+    visitExpressao_aux = (ctx: Expressao_auxContext) => {
+        let relacao = ctx.RELACAO();
+        if (relacao != null) {
+            let operador = relacao.getText();
+            //@ts-ignore
+            this.visitChildren(ctx);
+            if (operador == "=") {
+                this.generatedCode.push("CMIG\n");
+            } else if (operador == "<>") {
+                this.generatedCode.push("CMDG\n");
+            } else if (operador == ">") {
+                this.generatedCode.push("CMMA\n");
+            } else if (operador == "<") {
+                this.generatedCode.push("CMME\n");
+            } else if (operador == ">=") {
+                this.generatedCode.push("CMAG\n");
+            } else if (operador == "<=") {
+                this.generatedCode.push("CMEG\n");
+            }
         }
     }
 
     visitExpressaoSimples = (ctx: ExpressaoSimplesContext) => {
-        this.visitChildren(ctx.getChild(0));
-        if (ctx.MENOS() !== null) {
-            this.generatedCode.push("INVR\n");
+        if (ctx.MENOS() != null) {
+            if (ctx.parentCtx.parentCtx instanceof Variavel1Context) {
+                //@ts-ignore
+                this.visitChildren(ctx);
+                this.generatedCode.push("SUBT\n");
+            } else {
+                const intructionReminder = this.generatedCode.length;
+                //@ts-ignore
+                this.visitChildren(ctx.termo());
+                let newGeneratedCode = [
+                    ...this.generatedCode.slice(0, intructionReminder),
+                    "INVR\n",
+                    ...this.generatedCode.slice(intructionReminder)
+                ];
+                this.generatedCode = newGeneratedCode;
+                //@ts-ignore
+                this.visitChildren(ctx.expressaoSimples_aux());
+            }
+        }  else if (ctx.MAIS() != null) {
+            //@ts-ignore
+            this.visitChildren(ctx);
+            this.generatedCode.push("SOMA\n");
+        } else {
+            //@ts-ignore
+            this.visitChildren(ctx);
         }
-        self.visitChildren(ctx.getChild(1));
     }
-
+    
     visitExpressaoSimples_aux = (ctx: ExpressaoSimples_auxContext) => {
-        this.vistChildren(ctx);
-        if (ctx.SUB() !== null) {
-            this.generatedCode.push("SUB\n");
-        }
-        if (ctx.SOMA() !== null) {
-            this.generatedCode.push("SUM\n");
-        }
-        if (ctx.OR() !== null) {
+        if (ctx.MAIS() != null) {
+            //@ts-ignore
+            this.visitChildren(ctx);
+            this.generatedCode.push("SOMA\n");
+        } else if (ctx.MENOS() != null) {
+            //@ts-ignore
+            this.visitChildren(ctx);
+            this.generatedCode.push("SUBT\n");
+        } else if (ctx.OR() != null) {
+            //@ts-ignore
+            this.visitChildren(ctx);
             this.generatedCode.push("DISJ\n");
         }
     }
 
     visitFator = (ctx: FatorContext) => {
-        if (ctx.variavel() !== null) {
-            const nome = ctx.variavel().ID().getText();
-            const symbol = this.currentScope.resolve(nome);
-            this.generatedCode.push(`CRVR ${symbol.stackPointer}\n`);
-        }
-        if (ctx.NUM_INT() !== null) {
-            const value = ctx.NUM_INT().getText();
-            this.generatedCode.push(`CRVL ${value}\n`);
-        }
-        // if (ctx.NUM_REAL() !== null) {
-        //     const value = ctx.NUM_REAL().getText();
-        //     this.generatedCode.push(`CRVL ${value}\n`);
-        // }
-        if (ctx.TRUE_CONST !== null) {
-            this.generatedCode.push(`CRVL 1\n`);
-        }
-        if (ctx.FALSE_CONST !== null) {
-            this.generatedCode.push(`CRVL 0\n`);
-        }
-        if (ctx.NOT() !== null) {
-            this.generatedCode.push(`NEGA\n`);
+        if (ctx.variavel() != null) {
+            let variavel = ctx.variavel();
+            let id = variavel.ID();
+            let nome = id.getText();
+            this.historicoVariavel.push(nome);
+            let stackPosition = this.currentScope.resolve(nome)?.position;
+            this.generatedCode.push("CRVL " + stackPosition + "\n");
+        } else if (ctx.numero() != null) {
+            let numero = ctx.numero().INT().getText();
+            let valor = parseInt(numero);
+            this.generatedCode.push("CRCT " + valor + "\n");
+        } else if (ctx.TRUE_CONST() != null) {
+            this.generatedCode.push("CRCT 1\n");
+        } else if (ctx.FALSE_CONST() != null) {
+            this.generatedCode.push("CRCT 0\n");
+        } else if (ctx.NOT() != null) {
+            this.generatedCode.push("NEGA\n");
         }
     }
 
-    visitFator_aux = (ctx: Fator_auxContext) => {
-        if (ctx.variavel() !== null) {
-            const nome = ctx.variavel().ID().getText();
-            const symbol = this.currentScope.resolve(nome);
-            this.generatedCode.push(`CRVR ${symbol.stackPointer}\n`);
-        }
-        if (ctx.NUM_INT() !== null) {
-            const value = ctx.NUM_INT().getText();
-            this.generatedCode.push(`CRVL ${value}\n`);
-        }
-        // if (ctx.NUM_REAL() !== null) {
-        //     const value = ctx.NUM_REAL().getText();
-        //     this.generatedCode.push(`CRVL ${value}\n`);
-        // }
-        if (ctx.TRUE_CONST !== null) {
-            this.generatedCode.push(`CRVL 1\n`);
-        }
-        if (ctx.FALSE_CONST !== null) {
-            this.generatedCode.push(`CRVL 0\n`);
-        }
-        if (ctx.NOT() !== null) {
-            this.generatedCode.push(`NEGA\n`);
+    visitTermo_aux = (ctx: Termo_auxContext) => {
+        if (ctx.children != null){
+            //@ts-ignore
+            this.visitChildren(ctx);
+            if (ctx.MULT() != null) {
+                this.generatedCode.push("MULT\n");
+            } else if (ctx.DIV() != null) {
+                //@ts-ignore
+                this.visitChildren(ctx);
+                this.generatedCode.push("DIVI\n");
+            } else if (ctx.AND() != null) {
+                //@ts-ignore
+                this.visitChildren(ctx);
+                this.generatedCode.push("CONJ\n");
+            }
         }
     }
 
     visitComandoRepetitivo = (ctx: ComandoRepetitivoContext) => {
-        let loopStart = this.generatedCode.length -1 ;
+        let loopStart = this.generatedCode.length;
         this.generatedCode.push("NADA\n");
-        this.visitChildren(ctx.getChild(0));
+        //@ts-ignore
+        this.visitChildren(ctx.expressao());
         let instructionReminder = this.generatedCode.length;
-        this.generatedCode.push("PLACEHOLDER\n");
-        this.visitChildren(ctx.getChild(1));
-        this.generatedCode.push(`DSVS ${loopStart}\n`);
-        this.generatedCode[instructionReminder] = "DSVF " + instructionReminder + "\n";
+        this.generatedCode.push("NADA\n");
+        //@ts-ignore
+        this.visitChildren(ctx.comando());
+        this.generatedCode.push("DSVS " + loopStart + "\n");
+        this.generatedCode[instructionReminder] = "DSVF " + this.generatedCode.length + "\n";
+        this.generatedCode.push("NADA\n");
+    }
+
+    visitAtribuicao = (ctx: AtribuicaoContext) => {
+        let variavel = ctx.variavel();
+        let id = variavel.ID();
+        let nome = id.getText();
+        this.historicoVariavel.push(nome);
+        let stackPosition = this.currentScope.resolve(nome)?.position;
+        this.generatedCode.push("ARMZ " + stackPosition + "\n");
+        //@ts-ignore
+        this.visitChildren(ctx.expressao());
     }
 
     visitComandoCondicional = (ctx: ComandoCondicionalContext) => {
-        this.visitChildren(ctx.getChild(0));
+        //@ts-ignore
+        this.visitChildren(ctx.expressao());
         let instructionReminder = this.generatedCode.length;
-        this.generatedCode.push("PLACEHOLDER\n");
-        this.visitChildren(ctx.getChild(1));
-        this.generatedCode[instructionReminder] = "DSVF " + instructionReminder + "\n";
         this.generatedCode.push("NADA\n");
+        //@ts-ignore
+        this.visitChildren(ctx.comando());
+        this.generatedCode[instructionReminder] = "DSVF " + this.generatedCode.length + "\n";
+        this.generatedCode.push("NADA\n");
+        instructionReminder = this.generatedCode.length;
+        //@ts-ignore
+        this.visitChildren(ctx.comandoCondicional_aux());
+        let currentInstruction = this.generatedCode.length;
+        if (instructionReminder != currentInstruction) {
+            this.generatedCode[instructionReminder] = "DSVS " + currentInstruction + "\n";
+            this.generatedCode.push("NADA\n");
+        }
     }
 
+    visitChamadaProcedimento = (ctx: ChamadaProcedimentoContext) => {
+        if (ctx.READ() != null) {
+            let instructionPointer = this.generatedCode.length;
+            //@ts-ignore
+            this.visitChildren(ctx);
+
+            while (instructionPointer !== this.generatedCode.length) {
+                this.generatedCode.pop();
+            }
+            for (let i = 0; i < this.historicoVariavel.length; i++) {
+                this.generatedCode.push("LEIT\n");
+                let stackPosition = this.currentScope.resolve(this.historicoVariavel[i])?.position;
+                this.generatedCode.push("ARMZ " + stackPosition + "\n");
+            }
+        } else if (ctx.WRITE() != null) {
+            //@ts-ignore
+            this.visitChildren(ctx);
+            this.generatedCode.push("IMPR\n");
+        }
+    }
+
+    visitListaExpressao = (ctx: ListaExpressaoContext) => {
+        this.historicoVariavel = [];
+        //@ts-ignore
+        this.visitChildren(ctx);
+    }
+
+    salvarPrograma = () => {
+        let codigo = "";
+        for (let i = 0; i < this.generatedCode.length; i++) {
+            codigo += i + " " + this.generatedCode[i];
+        }
+        console.log(codigo);
+    }
 }

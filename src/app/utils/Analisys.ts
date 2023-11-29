@@ -4,7 +4,7 @@ import antlr4 from "antlr4";
 import { GeneratorToken, LexicReturn, Token } from "./Interfaces";
 import CustomErrorListener from "./CustomErrorListener";
 import CustomErrorStrategy from "./CustomErrorStrategy";
-import semanticAnalyzer from "./SemanticAnalysis";
+import semanticAnalyzer from "./SemanticAnalyzer";
 
 export default class Analisys{
 
