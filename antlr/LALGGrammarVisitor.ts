@@ -9,10 +9,11 @@ import { Termo_auxContext } from "./LALGGrammar";
 import { ExpressaoSimplesContext } from "./LALGGrammar";
 import { ExpressaoSimples_auxContext } from "./LALGGrammar";
 import { ExpressaoContext } from "./LALGGrammar";
+import { RelacaoContext } from "./LALGGrammar";
 import { Expressao_auxContext } from "./LALGGrammar";
 import { FatorContext } from "./LALGGrammar";
 import { VariavelContext } from "./LALGGrammar";
-import { Variavel1Context } from "./LALGGrammar";
+import { Variavel_auxContext } from "./LALGGrammar";
 import { DeclaracaoVariavelContext } from "./LALGGrammar";
 import { ListaIDContext } from "./LALGGrammar";
 import { ListaID_auxContext } from "./LALGGrammar";
@@ -28,7 +29,7 @@ import { DeclaracaoProcedimento_auxContext } from "./LALGGrammar";
 import { ParametrosContext } from "./LALGGrammar";
 import { Parametros_auxContext } from "./LALGGrammar";
 import { SecaoParametrosContext } from "./LALGGrammar";
-import { SecaoParametrosFormais_auxContext } from "./LALGGrammar";
+import { SecaoParametros_auxContext } from "./LALGGrammar";
 import { ComandoCompostoContext } from "./LALGGrammar";
 import { ComandoComposto_auxContext } from "./LALGGrammar";
 import { ComandoContext } from "./LALGGrammar";
@@ -79,13 +80,19 @@ export default class LALGGrammarVisitor<Result> extends ParseTreeVisitor<Result>
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitExpressaoSimples?: (ctx: ExpressaoSimples_auxContext) => Result;
+	visitExpressaoSimples_aux?: (ctx: ExpressaoSimples_auxContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGGrammar.expressao`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitExpressao?: (ctx: ExpressaoContext) => Result;
+	/**
+	 * Visit a parse tree produced by `LALGGrammar.relacao`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRelacao?: (ctx: RelacaoContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGGrammar.expressao_aux`.
 	 * @param ctx the parse tree
@@ -105,11 +112,11 @@ export default class LALGGrammarVisitor<Result> extends ParseTreeVisitor<Result>
 	 */
 	visitVariavel?: (ctx: VariavelContext) => Result;
 	/**
-	 * Visit a parse tree produced by `LALGGrammar.variavel1`.
+	 * Visit a parse tree produced by `LALGGrammar.variavel_aux`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitVariavel1?: (ctx: Variavel1Context) => Result;
+	visitVariavel_aux?: (ctx: Variavel_auxContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGGrammar.declaracaoVariavel`.
 	 * @param ctx the parse tree
@@ -201,11 +208,11 @@ export default class LALGGrammarVisitor<Result> extends ParseTreeVisitor<Result>
 	 */
 	visitSecaoParametros?: (ctx: SecaoParametrosContext) => Result;
 	/**
-	 * Visit a parse tree produced by `LALGGrammar.secaoParametrosFormais_aux`.
+	 * Visit a parse tree produced by `LALGGrammar.secaoParametros_aux`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitSecaoParametrosFormais_aux?: (ctx: SecaoParametrosFormais_auxContext) => Result;
+	visitSecaoParametros_aux?: (ctx: SecaoParametros_auxContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGGrammar.comandoComposto`.
 	 * @param ctx the parse tree

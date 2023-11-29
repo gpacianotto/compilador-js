@@ -9,10 +9,11 @@ import { Termo_auxContext } from "./LALGGrammar";
 import { ExpressaoSimplesContext } from "./LALGGrammar";
 import { ExpressaoSimples_auxContext } from "./LALGGrammar";
 import { ExpressaoContext } from "./LALGGrammar";
+import { RelacaoContext } from "./LALGGrammar";
 import { Expressao_auxContext } from "./LALGGrammar";
 import { FatorContext } from "./LALGGrammar";
 import { VariavelContext } from "./LALGGrammar";
-import { Variavel1Context } from "./LALGGrammar";
+import { Variavel_auxContext } from "./LALGGrammar";
 import { DeclaracaoVariavelContext } from "./LALGGrammar";
 import { ListaIDContext } from "./LALGGrammar";
 import { ListaID_auxContext } from "./LALGGrammar";
@@ -28,7 +29,7 @@ import { DeclaracaoProcedimento_auxContext } from "./LALGGrammar";
 import { ParametrosContext } from "./LALGGrammar";
 import { Parametros_auxContext } from "./LALGGrammar";
 import { SecaoParametrosContext } from "./LALGGrammar";
-import { SecaoParametrosFormais_auxContext } from "./LALGGrammar";
+import { SecaoParametros_auxContext } from "./LALGGrammar";
 import { ComandoCompostoContext } from "./LALGGrammar";
 import { ComandoComposto_auxContext } from "./LALGGrammar";
 import { ComandoContext } from "./LALGGrammar";
@@ -108,6 +109,16 @@ export default class LALGGrammarListener extends ParseTreeListener {
 	 */
 	exitExpressao?: (ctx: ExpressaoContext) => void;
 	/**
+	 * Enter a parse tree produced by `LALGGrammar.relacao`.
+	 * @param ctx the parse tree
+	 */
+	enterRelacao?: (ctx: RelacaoContext) => void;
+	/**
+	 * Exit a parse tree produced by `LALGGrammar.relacao`.
+	 * @param ctx the parse tree
+	 */
+	exitRelacao?: (ctx: RelacaoContext) => void;
+	/**
 	 * Enter a parse tree produced by `LALGGrammar.expressao_aux`.
 	 * @param ctx the parse tree
 	 */
@@ -138,15 +149,15 @@ export default class LALGGrammarListener extends ParseTreeListener {
 	 */
 	exitVariavel?: (ctx: VariavelContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGGrammar.variavel1`.
+	 * Enter a parse tree produced by `LALGGrammar.variavel_aux`.
 	 * @param ctx the parse tree
 	 */
-	enterVariavel1?: (ctx: Variavel1Context) => void;
+	enterVariavel_aux?: (ctx: Variavel_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGGrammar.variavel1`.
+	 * Exit a parse tree produced by `LALGGrammar.variavel_aux`.
 	 * @param ctx the parse tree
 	 */
-	exitVariavel1?: (ctx: Variavel1Context) => void;
+	exitVariavel_aux?: (ctx: Variavel_auxContext) => void;
 	/**
 	 * Enter a parse tree produced by `LALGGrammar.declaracaoVariavel`.
 	 * @param ctx the parse tree
@@ -298,15 +309,15 @@ export default class LALGGrammarListener extends ParseTreeListener {
 	 */
 	exitSecaoParametros?: (ctx: SecaoParametrosContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGGrammar.secaoParametrosFormais_aux`.
+	 * Enter a parse tree produced by `LALGGrammar.secaoParametros_aux`.
 	 * @param ctx the parse tree
 	 */
-	enterSecaoParametrosFormais_aux?: (ctx: SecaoParametrosFormais_auxContext) => void;
+	enterSecaoParametros_aux?: (ctx: SecaoParametros_auxContext) => void;
 	/**
-	 * Exit a parse tree produced by `LALGGrammar.secaoParametrosFormais_aux`.
+	 * Exit a parse tree produced by `LALGGrammar.secaoParametros_aux`.
 	 * @param ctx the parse tree
 	 */
-	exitSecaoParametrosFormais_aux?: (ctx: SecaoParametrosFormais_auxContext) => void;
+	exitSecaoParametros_aux?: (ctx: SecaoParametros_auxContext) => void;
 	/**
 	 * Enter a parse tree produced by `LALGGrammar.comandoComposto`.
 	 * @param ctx the parse tree

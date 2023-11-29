@@ -12,13 +12,17 @@ begin
 	if (d) then
 	begin
 		b:=2*c;
-		write(b)
+		write(b);
+		c:=c-1;
+		write(c)
 	end;
 	while (a>1) do
 	begin
 		if (b>10) then
+		begin
 			b:=2;
-			write(b);
+			write(b)
+		end;
 		a:=a-1;
 		write(a)
 	end

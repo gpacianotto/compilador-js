@@ -89,7 +89,7 @@ export default function Home() {
           <Button onClick={() => {
             const generator = new CodeGenerator();
             setGenerator(generator);
-            console.log(generator.visitPrograma(analisys.tree));
+            generator.visitPrograma(analisys.tree);
           }}>
             Gerar código
           </Button>

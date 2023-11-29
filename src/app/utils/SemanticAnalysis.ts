@@ -127,7 +127,7 @@ class TypeExtractor {
     }
 
     public fromExpression(expression: ExpressaoContext): any {
-        if (expression.expressao_aux().RELACAO() !== null) {
+        if (expression.expressao_aux().relacao() !== null) {
             return "boolean";
         }
 

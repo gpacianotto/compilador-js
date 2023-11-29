@@ -1,4 +1,4 @@
-import { AtribuicaoContext, ChamadaProcedimentoContext, ComandoCondicionalContext, ComandoRepetitivoContext, ExpressaoSimplesContext, ExpressaoSimples_auxContext, Expressao_auxContext, FatorContext, ListaExpressaoContext, ListaIDContext, ListaID_auxContext, ProgramaContext, Termo_auxContext, Variavel1Context } from "../../../antlr/LALGGrammar";
+import { AtribuicaoContext, ChamadaProcedimentoContext, ComandoCondicionalContext, ComandoRepetitivoContext, ExpressaoSimplesContext, ExpressaoSimples_auxContext, Expressao_auxContext, FatorContext, ListaExpressaoContext, ListaIDContext, ListaID_auxContext, ProgramaContext, Termo_auxContext, Variavel_auxContext } from "../../../antlr/LALGGrammar";
 import LALGGrammarVisitor from "../../../antlr/LALGGrammarVisitor";
 import CustomErrorListener from "./CustomErrorListener";
 
@@ -89,22 +89,24 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
     }
 
     visitExpressao_aux = (ctx: Expressao_auxContext) => {
-        let relacao = ctx.RELACAO();
+        let relacao = ctx.relacao();
+        console.log(relacao);
+        console.log(ctx.expressaoSimples());
         if (relacao != null) {
-            let operador = relacao.getText();
+            console.log(ctx.expressaoSimples());
             //@ts-ignore
             this.visitChildren(ctx);
-            if (operador == "=") {
+            if (relacao.IGUAL() != null) {
                 this.generatedCode.push("CMIG\n");
-            } else if (operador == "<>") {
+            } else if (relacao.DIFERENTE() != null) {
                 this.generatedCode.push("CMDG\n");
-            } else if (operador == ">") {
+            } else if (relacao.MAIOR() != null) {
                 this.generatedCode.push("CMMA\n");
-            } else if (operador == "<") {
+            } else if (relacao.MENOR() != null) {
                 this.generatedCode.push("CMME\n");
-            } else if (operador == ">=") {
+            } else if (relacao.MAIOR_IGUAL() != null) {
                 this.generatedCode.push("CMAG\n");
-            } else if (operador == "<=") {
+            } else if (relacao.MENOR_IGUAL() != null) {
                 this.generatedCode.push("CMEG\n");
             }
         }
@@ -113,7 +115,7 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
     visitExpressaoSimples = (ctx: ExpressaoSimplesContext) => {
         if (ctx.MENOS() != null) {
             //@ts-ignore
-            if (ctx.parentCtx.parentCtx instanceof Variavel1Context) {
+            if (ctx.parentCtx.parentCtx instanceof Variavel_auxContext) {
                 //@ts-ignore
                 this.visitChildren(ctx);
                 this.generatedCode.push("SUBT\n");
@@ -135,21 +137,21 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
             this.visitChildren(ctx);
             this.generatedCode.push("SOMA\n");
         } else {
-            //@ts-ignore
+            //@ts-ignore;
             this.visitChildren(ctx);
         }
     }
     
     visitExpressaoSimples_aux = (ctx: ExpressaoSimples_auxContext) => {
-        if (ctx.MAIS() != null) {
+        if (ctx.MAIS()) {
             //@ts-ignore
             this.visitChildren(ctx);
             this.generatedCode.push("SOMA\n");
-        } else if (ctx.MENOS() != null) {
+        } else if (ctx.MENOS()) {
             //@ts-ignore
             this.visitChildren(ctx);
             this.generatedCode.push("SUBT\n");
-        } else if (ctx.OR() != null) {
+        } else if (ctx.OR()) {
             //@ts-ignore
             this.visitChildren(ctx);
             this.generatedCode.push("DISJ\n");
@@ -270,9 +272,12 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
 
     salvarPrograma = () : string => {
         let codigo = "";
+        let codigo_aux = "";
         for (let i = 0; i < this.generatedCode.length; i++) {
             codigo += this.generatedCode[i];
+            codigo_aux += i + " " + this.generatedCode[i];
         }
+        console.log(codigo_aux);
         return codigo;
     }
 }

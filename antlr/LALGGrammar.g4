@@ -16,16 +16,19 @@ expressaoSimples_aux:
 expressao:
     expressaoSimples expressao_aux;
 
+relacao:
+    ( IGUAL | MENOR | MAIOR | MENOR_IGUAL | MAIOR_IGUAL | DIFERENTE ) ;
+
 expressao_aux:
-    (RELACAO expressaoSimples)? ;
+    (relacao expressaoSimples)? ;
 
 fator:
     ( variavel | numero | ( ABRE_PARENTESES expressao FECHA_PARENTESES ) | ( NOT fator ) | TRUE_CONST | FALSE_CONST ) ;
 
 variavel:
-    ID variavel1 ;
+    ID variavel_aux;
 
-variavel1:
+variavel_aux:
     expressao? ;
 
 declaracaoVariavel: tipo listaID ;
@@ -37,7 +40,7 @@ parteDeclaracaoVariavel: declaracaoVariavel parteDeclaracaoVariavel_aux PONTO_VI
 
 parteDeclaracaoVariavel_aux: ( PONTO_VIRGULA declaracaoVariavel parteDeclaracaoVariavel_aux )? ;
 
-tipo: ( BOOL_TIPO | INT_TIPO | FLOAT_TIPO ) ;
+tipo: ( BOOL_TIPO | INT_TIPO ) ;
 
 programa:
     PROGRAM ID PONTO_VIRGULA
@@ -59,8 +62,8 @@ declaracaoProcedimento_aux: ( parametros )? ;
 parametros: ABRE_PARENTESES secaoParametros parametros_aux FECHA_PARENTESES ;
 parametros_aux: (PONTO_VIRGULA secaoParametros parametros_aux) ? ; 
 
-secaoParametros: ( VAR )? listaID DOIS_PONTOS secaoParametrosFormais_aux ;
-secaoParametrosFormais_aux: ID | tipo ;
+secaoParametros: ( VAR )? listaID DOIS_PONTOS secaoParametros_aux ;
+secaoParametros_aux: ID | tipo ;
 
 comandoComposto: BEGIN comando comandoComposto_aux END ;
 comandoComposto_aux: ( PONTO_VIRGULA comando comandoComposto_aux ) ? ;
