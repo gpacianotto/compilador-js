@@ -6,10 +6,16 @@ begin
 	b:=10;
 	c:=a+b;
 	write(c); //12
-        b:=2*c;
+	b:=2*c;
 	write(b); //24
 	c:=c-1;
-	write(c) //11
+	write(c); //11
+	if (a>1) then //é pra entrar
+	begin
+        a:=a+1;
+		write(a) //3
+	end
+	else
 	while (a>1) do
 	begin
 		if (b>10) then //é pra entrar

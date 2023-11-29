@@ -15,7 +15,7 @@ export default class Mepa {
         while (true) {
             const instructionLine = this.codeStack[this.instructionPointer].split(" ");
             const instruction = instructionLine[0];
-            const instructionValue = instructionLine.length === 2 ? parseInt(instructionLine[1]) : undefined;
+            const instructionValue = instructionLine.length > 1 ? parseInt(instructionLine[1]) : undefined;
 
             switch (instruction) {
                 case "INPP":
