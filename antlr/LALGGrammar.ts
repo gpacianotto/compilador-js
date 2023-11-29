@@ -45,27 +45,28 @@ export default class LALGGrammar extends Parser {
 	public static readonly MENOS = 24;
 	public static readonly MULT = 25;
 	public static readonly DIV = 26;
-	public static readonly IGUAL = 27;
-	public static readonly DIFERENTE = 28;
-	public static readonly MAIOR_IGUAL = 29;
-	public static readonly MENOR_IGUAL = 30;
-	public static readonly MAIOR = 31;
-	public static readonly MENOR = 32;
-	public static readonly ABRE_PARENTESES = 33;
-	public static readonly FECHA_PARENTESES = 34;
-	public static readonly ABRE_COLCHETES = 35;
-	public static readonly FECHA_COLCHETES = 36;
-	public static readonly VIRGULA = 37;
-	public static readonly PONTO_VIRGULA = 38;
-	public static readonly DOIS_PONTOS = 39;
-	public static readonly PONTO = 40;
-	public static readonly AND = 41;
-	public static readonly OR = 42;
-	public static readonly ID = 43;
-	public static readonly INT = 44;
-	public static readonly FLOAT = 45;
-	public static readonly INVALID_TOKEN = 46;
-	public static readonly INVALID = 47;
+	public static readonly DIV_INT = 27;
+	public static readonly IGUAL = 28;
+	public static readonly DIFERENTE = 29;
+	public static readonly MAIOR_IGUAL = 30;
+	public static readonly MENOR_IGUAL = 31;
+	public static readonly MAIOR = 32;
+	public static readonly MENOR = 33;
+	public static readonly ABRE_PARENTESES = 34;
+	public static readonly FECHA_PARENTESES = 35;
+	public static readonly ABRE_COLCHETES = 36;
+	public static readonly FECHA_COLCHETES = 37;
+	public static readonly VIRGULA = 38;
+	public static readonly PONTO_VIRGULA = 39;
+	public static readonly DOIS_PONTOS = 40;
+	public static readonly PONTO = 41;
+	public static readonly AND = 42;
+	public static readonly OR = 43;
+	public static readonly ID = 44;
+	public static readonly INT = 45;
+	public static readonly FLOAT = 46;
+	public static readonly INVALID_TOKEN = 47;
+	public static readonly INVALID = 48;
 	public static readonly EOF = Token.EOF;
 	public static readonly RULE_numero = 0;
 	public static readonly RULE_termo = 1;
@@ -73,8 +74,8 @@ export default class LALGGrammar extends Parser {
 	public static readonly RULE_expressaoSimples = 3;
 	public static readonly RULE_expressaoSimples_aux = 4;
 	public static readonly RULE_expressao = 5;
-	public static readonly RULE_relacao = 6;
-	public static readonly RULE_expressao_aux = 7;
+	public static readonly RULE_expressao_aux = 6;
+	public static readonly RULE_relacao = 7;
 	public static readonly RULE_fator = 8;
 	public static readonly RULE_variavel = 9;
 	public static readonly RULE_variavel_aux = 10;
@@ -119,15 +120,15 @@ export default class LALGGrammar extends Parser {
                                                             "'do'", "'not'", 
                                                             "':='", "'+'", 
                                                             "'-'", "'*'", 
-                                                            "'/'", "'='", 
-                                                            "'<>'", "'>='", 
-                                                            "'<='", "'>'", 
-                                                            "'<'", "'('", 
-                                                            "')'", "'['", 
-                                                            "']'", "','", 
-                                                            "';'", "':'", 
-                                                            "'.'", "'and'", 
-                                                            "'or'" ];
+                                                            "'/'", "'div'", 
+                                                            "'='", "'<>'", 
+                                                            "'>='", "'<='", 
+                                                            "'>'", "'<'", 
+                                                            "'('", "')'", 
+                                                            "'['", "']'", 
+                                                            "','", "';'", 
+                                                            "':'", "'.'", 
+                                                            "'and'", "'or'" ];
 	public static readonly symbolicNames: (string | null)[] = [ null, "COMENTARIO", 
                                                              "COMENTARIO_MULTI", 
                                                              "WS", "PROGRAM", 
@@ -145,6 +146,7 @@ export default class LALGGrammar extends Parser {
                                                              "ATRIBUICAO", 
                                                              "MAIS", "MENOS", 
                                                              "MULT", "DIV", 
+                                                             "DIV_INT", 
                                                              "IGUAL", "DIFERENTE", 
                                                              "MAIOR_IGUAL", 
                                                              "MENOR_IGUAL", 
@@ -164,7 +166,7 @@ export default class LALGGrammar extends Parser {
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
 		"numero", "termo", "termo_aux", "expressaoSimples", "expressaoSimples_aux", 
-		"expressao", "relacao", "expressao_aux", "fator", "variavel", "variavel_aux", 
+		"expressao", "expressao_aux", "relacao", "fator", "variavel", "variavel_aux", 
 		"declaracaoVariavel", "listaID", "listaID_aux", "parteDeclaracaoVariavel", 
 		"parteDeclaracaoVariavel_aux", "tipo", "programa", "bloco", "parteDeclaracaoSubRotina", 
 		"parteDeclaracaoSubRotina_aux", "declaracaoProcedimento", "declaracaoProcedimento_aux", 
@@ -197,7 +199,7 @@ export default class LALGGrammar extends Parser {
 			{
 			this.state = 76;
 			_la = this._input.LA(1);
-			if(!(_la===44 || _la===45)) {
+			if(!(_la===45 || _la===46)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
@@ -257,12 +259,12 @@ export default class LALGGrammar extends Parser {
 			{
 			this.state = 85;
 			this._errHandler.sync(this);
-			switch ( this._interp.adaptivePredict(this._input, 0, this._ctx) ) {
-			case 1:
+			_la = this._input.LA(1);
+			if (((((_la - 25)) & ~0x1F) === 0 && ((1 << (_la - 25)) & 131077) !== 0)) {
 				{
 				this.state = 81;
 				_la = this._input.LA(1);
-				if(!(((((_la - 25)) & ~0x1F) === 0 && ((1 << (_la - 25)) & 65539) !== 0))) {
+				if(!(((((_la - 25)) & ~0x1F) === 0 && ((1 << (_la - 25)) & 131077) !== 0))) {
 				this._errHandler.recoverInline(this);
 				}
 				else {
@@ -274,8 +276,8 @@ export default class LALGGrammar extends Parser {
 				this.state = 83;
 				this.termo_aux();
 				}
-				break;
 			}
+
 			}
 		}
 		catch (re) {
@@ -347,12 +349,12 @@ export default class LALGGrammar extends Parser {
 			{
 			this.state = 97;
 			this._errHandler.sync(this);
-			switch ( this._interp.adaptivePredict(this._input, 2, this._ctx) ) {
-			case 1:
+			_la = this._input.LA(1);
+			if (((((_la - 23)) & ~0x1F) === 0 && ((1 << (_la - 23)) & 1048579) !== 0)) {
 				{
 				this.state = 93;
 				_la = this._input.LA(1);
-				if(!(((((_la - 23)) & ~0x1F) === 0 && ((1 << (_la - 23)) & 524291) !== 0))) {
+				if(!(((((_la - 23)) & ~0x1F) === 0 && ((1 << (_la - 23)) & 1048579) !== 0))) {
 				this._errHandler.recoverInline(this);
 				}
 				else {
@@ -364,8 +366,8 @@ export default class LALGGrammar extends Parser {
 				this.state = 95;
 				this.expressaoSimples_aux();
 				}
-				break;
 			}
+
 			}
 		}
 		catch (re) {
@@ -410,22 +412,25 @@ export default class LALGGrammar extends Parser {
 		return localctx;
 	}
 	// @RuleVersion(0)
-	public relacao(): RelacaoContext {
-		let localctx: RelacaoContext = new RelacaoContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 12, LALGGrammar.RULE_relacao);
+	public expressao_aux(): Expressao_auxContext {
+		let localctx: Expressao_auxContext = new Expressao_auxContext(this, this._ctx, this.state);
+		this.enterRule(localctx, 12, LALGGrammar.RULE_expressao_aux);
 		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 102;
+			this.state = 105;
+			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if(!(((((_la - 27)) & ~0x1F) === 0 && ((1 << (_la - 27)) & 63) !== 0))) {
-			this._errHandler.recoverInline(this);
+			if (((((_la - 28)) & ~0x1F) === 0 && ((1 << (_la - 28)) & 63) !== 0)) {
+				{
+				this.state = 102;
+				this.relacao();
+				this.state = 103;
+				this.expressaoSimples();
+				}
 			}
-			else {
-				this._errHandler.reportMatch(this);
-			    this.consume();
-			}
+
 			}
 		}
 		catch (re) {
@@ -443,23 +448,21 @@ export default class LALGGrammar extends Parser {
 		return localctx;
 	}
 	// @RuleVersion(0)
-	public expressao_aux(): Expressao_auxContext {
-		let localctx: Expressao_auxContext = new Expressao_auxContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 14, LALGGrammar.RULE_expressao_aux);
+	public relacao(): RelacaoContext {
+		let localctx: RelacaoContext = new RelacaoContext(this, this._ctx, this.state);
+		this.enterRule(localctx, 14, LALGGrammar.RULE_relacao);
+		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
 			this.state = 107;
-			this._errHandler.sync(this);
-			switch ( this._interp.adaptivePredict(this._input, 3, this._ctx) ) {
-			case 1:
-				{
-				this.state = 104;
-				this.relacao();
-				this.state = 105;
-				this.expressaoSimples();
-				}
-				break;
+			_la = this._input.LA(1);
+			if(!(((((_la - 28)) & ~0x1F) === 0 && ((1 << (_la - 28)) & 63) !== 0))) {
+			this._errHandler.recoverInline(this);
+			}
+			else {
+				this._errHandler.reportMatch(this);
+			    this.consume();
 			}
 			}
 		}
@@ -487,20 +490,20 @@ export default class LALGGrammar extends Parser {
 			this.state = 119;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
-			case 43:
+			case 44:
 				{
 				this.state = 109;
 				this.variavel();
 				}
 				break;
-			case 44:
 			case 45:
+			case 46:
 				{
 				this.state = 110;
 				this.numero();
 				}
 				break;
-			case 33:
+			case 34:
 				{
 				{
 				this.state = 111;
@@ -562,8 +565,6 @@ export default class LALGGrammar extends Parser {
 			{
 			this.state = 121;
 			this.match(LALGGrammar.ID);
-			this.state = 122;
-			this.variavel_aux();
 			}
 		}
 		catch (re) {
@@ -584,19 +585,20 @@ export default class LALGGrammar extends Parser {
 	public variavel_aux(): Variavel_auxContext {
 		let localctx: Variavel_auxContext = new Variavel_auxContext(this, this._ctx, this.state);
 		this.enterRule(localctx, 20, LALGGrammar.RULE_variavel_aux);
+		let _la: number;
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 125;
+			this.state = 124;
 			this._errHandler.sync(this);
-			switch ( this._interp.adaptivePredict(this._input, 5, this._ctx) ) {
-			case 1:
+			_la = this._input.LA(1);
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & 27312128) !== 0) || ((((_la - 34)) & ~0x1F) === 0 && ((1 << (_la - 34)) & 7169) !== 0)) {
 				{
-				this.state = 124;
+				this.state = 123;
 				this.expressao();
 				}
-				break;
 			}
+
 			}
 		}
 		catch (re) {
@@ -620,9 +622,9 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 127;
+			this.state = 126;
 			this.tipo();
-			this.state = 128;
+			this.state = 127;
 			this.listaID();
 			}
 		}
@@ -647,9 +649,9 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 130;
+			this.state = 129;
 			this.match(LALGGrammar.ID);
-			this.state = 131;
+			this.state = 130;
 			this.listaID_aux();
 			}
 		}
@@ -675,16 +677,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 136;
+			this.state = 135;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===37) {
+			if (_la===38) {
 				{
-				this.state = 133;
+				this.state = 132;
 				this.match(LALGGrammar.VIRGULA);
-				this.state = 134;
+				this.state = 133;
 				this.match(LALGGrammar.ID);
-				this.state = 135;
+				this.state = 134;
 				this.listaID_aux();
 				}
 			}
@@ -712,11 +714,11 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 138;
+			this.state = 137;
 			this.declaracaoVariavel();
-			this.state = 139;
+			this.state = 138;
 			this.parteDeclaracaoVariavel_aux();
-			this.state = 140;
+			this.state = 139;
 			this.match(LALGGrammar.PONTO_VIRGULA);
 			}
 		}
@@ -741,16 +743,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 146;
+			this.state = 145;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 7, this._ctx) ) {
 			case 1:
 				{
-				this.state = 142;
+				this.state = 141;
 				this.match(LALGGrammar.PONTO_VIRGULA);
-				this.state = 143;
+				this.state = 142;
 				this.declaracaoVariavel();
-				this.state = 144;
+				this.state = 143;
 				this.parteDeclaracaoVariavel_aux();
 				}
 				break;
@@ -779,7 +781,7 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 148;
+			this.state = 147;
 			_la = this._input.LA(1);
 			if(!(_la===9 || _la===11)) {
 			this._errHandler.recoverInline(this);
@@ -812,29 +814,29 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 150;
+			this.state = 149;
 			this.match(LALGGrammar.PROGRAM);
-			this.state = 151;
+			this.state = 150;
 			this.match(LALGGrammar.ID);
-			this.state = 152;
+			this.state = 151;
 			this.match(LALGGrammar.PONTO_VIRGULA);
-			this.state = 153;
+			this.state = 152;
 			this.bloco();
-			this.state = 155;
+			this.state = 154;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			do {
 				{
 				{
-				this.state = 154;
+				this.state = 153;
 				this.match(LALGGrammar.PONTO);
 				}
 				}
-				this.state = 157;
+				this.state = 156;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while (_la===40);
-			this.state = 159;
+			} while (_la===41);
+			this.state = 158;
 			this.match(LALGGrammar.EOF);
 			}
 		}
@@ -860,27 +862,27 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 162;
+			this.state = 161;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la===9 || _la===11) {
 				{
-				this.state = 161;
+				this.state = 160;
 				this.parteDeclaracaoVariavel();
 				}
 			}
 
-			this.state = 165;
+			this.state = 164;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la===8) {
 				{
-				this.state = 164;
+				this.state = 163;
 				this.parteDeclaracaoSubRotina();
 				}
 			}
 
-			this.state = 167;
+			this.state = 166;
 			this.comandoComposto();
 			}
 		}
@@ -905,11 +907,11 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 169;
+			this.state = 168;
 			this.declaracaoProcedimento();
-			this.state = 170;
+			this.state = 169;
 			this.match(LALGGrammar.PONTO_VIRGULA);
-			this.state = 171;
+			this.state = 170;
 			this.parteDeclaracaoSubRotina_aux();
 			}
 		}
@@ -935,16 +937,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 177;
+			this.state = 176;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la===8) {
 				{
-				this.state = 173;
+				this.state = 172;
 				this.declaracaoProcedimento();
-				this.state = 174;
+				this.state = 173;
 				this.parteDeclaracaoSubRotina_aux();
-				this.state = 175;
+				this.state = 174;
 				this.match(LALGGrammar.PONTO_VIRGULA);
 				}
 			}
@@ -972,15 +974,15 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 179;
+			this.state = 178;
 			this.match(LALGGrammar.PROCEDURE);
-			this.state = 180;
+			this.state = 179;
 			this.match(LALGGrammar.ID);
-			this.state = 181;
+			this.state = 180;
 			this.declaracaoProcedimento_aux();
-			this.state = 182;
+			this.state = 181;
 			this.match(LALGGrammar.PONTO_VIRGULA);
-			this.state = 183;
+			this.state = 182;
 			this.bloco();
 			}
 		}
@@ -1006,12 +1008,12 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 186;
+			this.state = 185;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===33) {
+			if (_la===34) {
 				{
-				this.state = 185;
+				this.state = 184;
 				this.parametros();
 				}
 			}
@@ -1039,13 +1041,13 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 188;
+			this.state = 187;
 			this.match(LALGGrammar.ABRE_PARENTESES);
-			this.state = 189;
+			this.state = 188;
 			this.secaoParametros();
-			this.state = 190;
+			this.state = 189;
 			this.parametros_aux();
-			this.state = 191;
+			this.state = 190;
 			this.match(LALGGrammar.FECHA_PARENTESES);
 			}
 		}
@@ -1071,16 +1073,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 197;
+			this.state = 196;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===38) {
+			if (_la===39) {
 				{
-				this.state = 193;
+				this.state = 192;
 				this.match(LALGGrammar.PONTO_VIRGULA);
-				this.state = 194;
+				this.state = 193;
 				this.secaoParametros();
-				this.state = 195;
+				this.state = 194;
 				this.parametros_aux();
 				}
 			}
@@ -1109,21 +1111,21 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 200;
+			this.state = 199;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la===7) {
 				{
-				this.state = 199;
+				this.state = 198;
 				this.match(LALGGrammar.VAR);
 				}
 			}
 
-			this.state = 202;
+			this.state = 201;
 			this.listaID();
-			this.state = 203;
+			this.state = 202;
 			this.match(LALGGrammar.DOIS_PONTOS);
-			this.state = 204;
+			this.state = 203;
 			this.secaoParametros_aux();
 			}
 		}
@@ -1146,13 +1148,13 @@ export default class LALGGrammar extends Parser {
 		let localctx: SecaoParametros_auxContext = new SecaoParametros_auxContext(this, this._ctx, this.state);
 		this.enterRule(localctx, 52, LALGGrammar.RULE_secaoParametros_aux);
 		try {
-			this.state = 208;
+			this.state = 207;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
-			case 43:
+			case 44:
 				this.enterOuterAlt(localctx, 1);
 				{
-				this.state = 206;
+				this.state = 205;
 				this.match(LALGGrammar.ID);
 				}
 				break;
@@ -1160,7 +1162,7 @@ export default class LALGGrammar extends Parser {
 			case 11:
 				this.enterOuterAlt(localctx, 2);
 				{
-				this.state = 207;
+				this.state = 206;
 				this.tipo();
 				}
 				break;
@@ -1189,13 +1191,13 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 210;
+			this.state = 209;
 			this.match(LALGGrammar.BEGIN);
-			this.state = 211;
+			this.state = 210;
 			this.comando();
-			this.state = 212;
+			this.state = 211;
 			this.comandoComposto_aux();
-			this.state = 213;
+			this.state = 212;
 			this.match(LALGGrammar.END);
 			}
 		}
@@ -1221,16 +1223,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 219;
+			this.state = 218;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===38) {
+			if (_la===39) {
 				{
-				this.state = 215;
+				this.state = 214;
 				this.match(LALGGrammar.PONTO_VIRGULA);
-				this.state = 216;
+				this.state = 215;
 				this.comando();
-				this.state = 217;
+				this.state = 216;
 				this.comandoComposto_aux();
 				}
 			}
@@ -1258,36 +1260,36 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 226;
+			this.state = 225;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 17, this._ctx) ) {
 			case 1:
 				{
-				this.state = 221;
+				this.state = 220;
 				this.atribuicao();
 				}
 				break;
 			case 2:
 				{
-				this.state = 222;
+				this.state = 221;
 				this.chamadaProcedimento();
 				}
 				break;
 			case 3:
 				{
-				this.state = 223;
+				this.state = 222;
 				this.comandoComposto();
 				}
 				break;
 			case 4:
 				{
-				this.state = 224;
+				this.state = 223;
 				this.comandoCondicional();
 				}
 				break;
 			case 5:
 				{
-				this.state = 225;
+				this.state = 224;
 				this.comandoRepetitivo();
 				}
 				break;
@@ -1315,11 +1317,11 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 228;
+			this.state = 227;
 			this.variavel();
-			this.state = 229;
+			this.state = 228;
 			this.match(LALGGrammar.ATRIBUICAO);
-			this.state = 230;
+			this.state = 229;
 			this.expressao();
 			}
 		}
@@ -1345,16 +1347,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 232;
+			this.state = 231;
 			_la = this._input.LA(1);
-			if(!(((((_la - 12)) & ~0x1F) === 0 && ((1 << (_la - 12)) & 2147483651) !== 0))) {
+			if(!(_la===12 || _la===13 || _la===44)) {
 			this._errHandler.recoverInline(this);
 			}
 			else {
 				this._errHandler.reportMatch(this);
 			    this.consume();
 			}
-			this.state = 233;
+			this.state = 232;
 			this.chamadaProcedimento_aux();
 			}
 		}
@@ -1380,16 +1382,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 239;
+			this.state = 238;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===33) {
+			if (_la===34) {
 				{
-				this.state = 235;
+				this.state = 234;
 				this.match(LALGGrammar.ABRE_PARENTESES);
-				this.state = 236;
+				this.state = 235;
 				this.listaExpressao();
-				this.state = 237;
+				this.state = 236;
 				this.match(LALGGrammar.FECHA_PARENTESES);
 				}
 			}
@@ -1417,15 +1419,15 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 241;
+			this.state = 240;
 			this.match(LALGGrammar.IF);
-			this.state = 242;
+			this.state = 241;
 			this.expressao();
-			this.state = 243;
+			this.state = 242;
 			this.match(LALGGrammar.THEN);
-			this.state = 244;
+			this.state = 243;
 			this.comando();
-			this.state = 245;
+			this.state = 244;
 			this.comandoCondicional_aux();
 			}
 		}
@@ -1450,14 +1452,14 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 249;
+			this.state = 248;
 			this._errHandler.sync(this);
 			switch ( this._interp.adaptivePredict(this._input, 19, this._ctx) ) {
 			case 1:
 				{
-				this.state = 247;
+				this.state = 246;
 				this.match(LALGGrammar.ELSE);
-				this.state = 248;
+				this.state = 247;
 				this.comando();
 				}
 				break;
@@ -1485,13 +1487,13 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 251;
+			this.state = 250;
 			this.match(LALGGrammar.WHILE);
-			this.state = 252;
+			this.state = 251;
 			this.expressao();
-			this.state = 253;
+			this.state = 252;
 			this.match(LALGGrammar.DO);
-			this.state = 254;
+			this.state = 253;
 			this.comando();
 			}
 		}
@@ -1516,9 +1518,9 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 256;
+			this.state = 255;
 			this.expressao();
-			this.state = 257;
+			this.state = 256;
 			this.listaExpressao_aux();
 			}
 		}
@@ -1544,16 +1546,16 @@ export default class LALGGrammar extends Parser {
 		try {
 			this.enterOuterAlt(localctx, 1);
 			{
-			this.state = 263;
+			this.state = 262;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la===37) {
+			if (_la===38) {
 				{
-				this.state = 259;
+				this.state = 258;
 				this.match(LALGGrammar.VIRGULA);
-				this.state = 260;
+				this.state = 259;
 				this.expressao();
-				this.state = 261;
+				this.state = 260;
 				this.listaExpressao_aux();
 				}
 			}
@@ -1575,87 +1577,87 @@ export default class LALGGrammar extends Parser {
 		return localctx;
 	}
 
-	public static readonly _serializedATN: number[] = [4,1,47,266,2,0,7,0,2,
+	public static readonly _serializedATN: number[] = [4,1,48,265,2,0,7,0,2,
 	1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,
 	10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,
 	7,17,2,18,7,18,2,19,7,19,2,20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,
 	24,2,25,7,25,2,26,7,26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,
 	2,32,7,32,2,33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,1,0,1,0,1,1,
 	1,1,1,1,1,2,1,2,1,2,1,2,3,2,86,8,2,1,3,3,3,89,8,3,1,3,1,3,1,3,1,4,1,4,1,
-	4,1,4,3,4,98,8,4,1,5,1,5,1,5,1,6,1,6,1,7,1,7,1,7,3,7,108,8,7,1,8,1,8,1,
-	8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,120,8,8,1,9,1,9,1,9,1,10,3,10,126,8,10,
-	1,11,1,11,1,11,1,12,1,12,1,12,1,13,1,13,1,13,3,13,137,8,13,1,14,1,14,1,
-	14,1,14,1,15,1,15,1,15,1,15,3,15,147,8,15,1,16,1,16,1,17,1,17,1,17,1,17,
-	1,17,4,17,156,8,17,11,17,12,17,157,1,17,1,17,1,18,3,18,163,8,18,1,18,3,
-	18,166,8,18,1,18,1,18,1,19,1,19,1,19,1,19,1,20,1,20,1,20,1,20,3,20,178,
-	8,20,1,21,1,21,1,21,1,21,1,21,1,21,1,22,3,22,187,8,22,1,23,1,23,1,23,1,
-	23,1,23,1,24,1,24,1,24,1,24,3,24,198,8,24,1,25,3,25,201,8,25,1,25,1,25,
-	1,25,1,25,1,26,1,26,3,26,209,8,26,1,27,1,27,1,27,1,27,1,27,1,28,1,28,1,
-	28,1,28,3,28,220,8,28,1,29,1,29,1,29,1,29,1,29,3,29,227,8,29,1,30,1,30,
-	1,30,1,30,1,31,1,31,1,31,1,32,1,32,1,32,1,32,3,32,240,8,32,1,33,1,33,1,
-	33,1,33,1,33,1,33,1,34,1,34,3,34,250,8,34,1,35,1,35,1,35,1,35,1,35,1,36,
-	1,36,1,36,1,37,1,37,1,37,1,37,3,37,264,8,37,1,37,0,0,38,0,2,4,6,8,10,12,
-	14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,
-	62,64,66,68,70,72,74,0,7,1,0,44,45,2,0,25,26,41,41,1,0,23,24,2,0,23,24,
-	42,42,1,0,27,32,2,0,9,9,11,11,2,0,12,13,43,43,255,0,76,1,0,0,0,2,78,1,0,
-	0,0,4,85,1,0,0,0,6,88,1,0,0,0,8,97,1,0,0,0,10,99,1,0,0,0,12,102,1,0,0,0,
-	14,107,1,0,0,0,16,119,1,0,0,0,18,121,1,0,0,0,20,125,1,0,0,0,22,127,1,0,
-	0,0,24,130,1,0,0,0,26,136,1,0,0,0,28,138,1,0,0,0,30,146,1,0,0,0,32,148,
-	1,0,0,0,34,150,1,0,0,0,36,162,1,0,0,0,38,169,1,0,0,0,40,177,1,0,0,0,42,
-	179,1,0,0,0,44,186,1,0,0,0,46,188,1,0,0,0,48,197,1,0,0,0,50,200,1,0,0,0,
-	52,208,1,0,0,0,54,210,1,0,0,0,56,219,1,0,0,0,58,226,1,0,0,0,60,228,1,0,
-	0,0,62,232,1,0,0,0,64,239,1,0,0,0,66,241,1,0,0,0,68,249,1,0,0,0,70,251,
-	1,0,0,0,72,256,1,0,0,0,74,263,1,0,0,0,76,77,7,0,0,0,77,1,1,0,0,0,78,79,
+	4,1,4,3,4,98,8,4,1,5,1,5,1,5,1,6,1,6,1,6,3,6,106,8,6,1,7,1,7,1,8,1,8,1,
+	8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,120,8,8,1,9,1,9,1,10,3,10,125,8,10,1,
+	11,1,11,1,11,1,12,1,12,1,12,1,13,1,13,1,13,3,13,136,8,13,1,14,1,14,1,14,
+	1,14,1,15,1,15,1,15,1,15,3,15,146,8,15,1,16,1,16,1,17,1,17,1,17,1,17,1,
+	17,4,17,155,8,17,11,17,12,17,156,1,17,1,17,1,18,3,18,162,8,18,1,18,3,18,
+	165,8,18,1,18,1,18,1,19,1,19,1,19,1,19,1,20,1,20,1,20,1,20,3,20,177,8,20,
+	1,21,1,21,1,21,1,21,1,21,1,21,1,22,3,22,186,8,22,1,23,1,23,1,23,1,23,1,
+	23,1,24,1,24,1,24,1,24,3,24,197,8,24,1,25,3,25,200,8,25,1,25,1,25,1,25,
+	1,25,1,26,1,26,3,26,208,8,26,1,27,1,27,1,27,1,27,1,27,1,28,1,28,1,28,1,
+	28,3,28,219,8,28,1,29,1,29,1,29,1,29,1,29,3,29,226,8,29,1,30,1,30,1,30,
+	1,30,1,31,1,31,1,31,1,32,1,32,1,32,1,32,3,32,239,8,32,1,33,1,33,1,33,1,
+	33,1,33,1,33,1,34,1,34,3,34,249,8,34,1,35,1,35,1,35,1,35,1,35,1,36,1,36,
+	1,36,1,37,1,37,1,37,1,37,3,37,263,8,37,1,37,0,0,38,0,2,4,6,8,10,12,14,16,
+	18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,
+	66,68,70,72,74,0,7,1,0,45,46,3,0,25,25,27,27,42,42,1,0,23,24,2,0,23,24,
+	43,43,1,0,28,33,2,0,9,9,11,11,2,0,12,13,44,44,254,0,76,1,0,0,0,2,78,1,0,
+	0,0,4,85,1,0,0,0,6,88,1,0,0,0,8,97,1,0,0,0,10,99,1,0,0,0,12,105,1,0,0,0,
+	14,107,1,0,0,0,16,119,1,0,0,0,18,121,1,0,0,0,20,124,1,0,0,0,22,126,1,0,
+	0,0,24,129,1,0,0,0,26,135,1,0,0,0,28,137,1,0,0,0,30,145,1,0,0,0,32,147,
+	1,0,0,0,34,149,1,0,0,0,36,161,1,0,0,0,38,168,1,0,0,0,40,176,1,0,0,0,42,
+	178,1,0,0,0,44,185,1,0,0,0,46,187,1,0,0,0,48,196,1,0,0,0,50,199,1,0,0,0,
+	52,207,1,0,0,0,54,209,1,0,0,0,56,218,1,0,0,0,58,225,1,0,0,0,60,227,1,0,
+	0,0,62,231,1,0,0,0,64,238,1,0,0,0,66,240,1,0,0,0,68,248,1,0,0,0,70,250,
+	1,0,0,0,72,255,1,0,0,0,74,262,1,0,0,0,76,77,7,0,0,0,77,1,1,0,0,0,78,79,
 	3,16,8,0,79,80,3,4,2,0,80,3,1,0,0,0,81,82,7,1,0,0,82,83,3,16,8,0,83,84,
 	3,4,2,0,84,86,1,0,0,0,85,81,1,0,0,0,85,86,1,0,0,0,86,5,1,0,0,0,87,89,7,
 	2,0,0,88,87,1,0,0,0,88,89,1,0,0,0,89,90,1,0,0,0,90,91,3,2,1,0,91,92,3,8,
 	4,0,92,7,1,0,0,0,93,94,7,3,0,0,94,95,3,2,1,0,95,96,3,8,4,0,96,98,1,0,0,
-	0,97,93,1,0,0,0,97,98,1,0,0,0,98,9,1,0,0,0,99,100,3,6,3,0,100,101,3,14,
-	7,0,101,11,1,0,0,0,102,103,7,4,0,0,103,13,1,0,0,0,104,105,3,12,6,0,105,
-	106,3,6,3,0,106,108,1,0,0,0,107,104,1,0,0,0,107,108,1,0,0,0,108,15,1,0,
-	0,0,109,120,3,18,9,0,110,120,3,0,0,0,111,112,5,33,0,0,112,113,3,10,5,0,
-	113,114,5,34,0,0,114,120,1,0,0,0,115,116,5,21,0,0,116,120,3,16,8,0,117,
-	120,5,14,0,0,118,120,5,15,0,0,119,109,1,0,0,0,119,110,1,0,0,0,119,111,1,
-	0,0,0,119,115,1,0,0,0,119,117,1,0,0,0,119,118,1,0,0,0,120,17,1,0,0,0,121,
-	122,5,43,0,0,122,123,3,20,10,0,123,19,1,0,0,0,124,126,3,10,5,0,125,124,
-	1,0,0,0,125,126,1,0,0,0,126,21,1,0,0,0,127,128,3,32,16,0,128,129,3,24,12,
-	0,129,23,1,0,0,0,130,131,5,43,0,0,131,132,3,26,13,0,132,25,1,0,0,0,133,
-	134,5,37,0,0,134,135,5,43,0,0,135,137,3,26,13,0,136,133,1,0,0,0,136,137,
-	1,0,0,0,137,27,1,0,0,0,138,139,3,22,11,0,139,140,3,30,15,0,140,141,5,38,
-	0,0,141,29,1,0,0,0,142,143,5,38,0,0,143,144,3,22,11,0,144,145,3,30,15,0,
-	145,147,1,0,0,0,146,142,1,0,0,0,146,147,1,0,0,0,147,31,1,0,0,0,148,149,
-	7,5,0,0,149,33,1,0,0,0,150,151,5,4,0,0,151,152,5,43,0,0,152,153,5,38,0,
-	0,153,155,3,36,18,0,154,156,5,40,0,0,155,154,1,0,0,0,156,157,1,0,0,0,157,
-	155,1,0,0,0,157,158,1,0,0,0,158,159,1,0,0,0,159,160,5,0,0,1,160,35,1,0,
-	0,0,161,163,3,28,14,0,162,161,1,0,0,0,162,163,1,0,0,0,163,165,1,0,0,0,164,
-	166,3,38,19,0,165,164,1,0,0,0,165,166,1,0,0,0,166,167,1,0,0,0,167,168,3,
-	54,27,0,168,37,1,0,0,0,169,170,3,42,21,0,170,171,5,38,0,0,171,172,3,40,
-	20,0,172,39,1,0,0,0,173,174,3,42,21,0,174,175,3,40,20,0,175,176,5,38,0,
-	0,176,178,1,0,0,0,177,173,1,0,0,0,177,178,1,0,0,0,178,41,1,0,0,0,179,180,
-	5,8,0,0,180,181,5,43,0,0,181,182,3,44,22,0,182,183,5,38,0,0,183,184,3,36,
-	18,0,184,43,1,0,0,0,185,187,3,46,23,0,186,185,1,0,0,0,186,187,1,0,0,0,187,
-	45,1,0,0,0,188,189,5,33,0,0,189,190,3,50,25,0,190,191,3,48,24,0,191,192,
-	5,34,0,0,192,47,1,0,0,0,193,194,5,38,0,0,194,195,3,50,25,0,195,196,3,48,
-	24,0,196,198,1,0,0,0,197,193,1,0,0,0,197,198,1,0,0,0,198,49,1,0,0,0,199,
-	201,5,7,0,0,200,199,1,0,0,0,200,201,1,0,0,0,201,202,1,0,0,0,202,203,3,24,
-	12,0,203,204,5,39,0,0,204,205,3,52,26,0,205,51,1,0,0,0,206,209,5,43,0,0,
-	207,209,3,32,16,0,208,206,1,0,0,0,208,207,1,0,0,0,209,53,1,0,0,0,210,211,
-	5,5,0,0,211,212,3,58,29,0,212,213,3,56,28,0,213,214,5,6,0,0,214,55,1,0,
-	0,0,215,216,5,38,0,0,216,217,3,58,29,0,217,218,3,56,28,0,218,220,1,0,0,
-	0,219,215,1,0,0,0,219,220,1,0,0,0,220,57,1,0,0,0,221,227,3,60,30,0,222,
-	227,3,62,31,0,223,227,3,54,27,0,224,227,3,66,33,0,225,227,3,70,35,0,226,
-	221,1,0,0,0,226,222,1,0,0,0,226,223,1,0,0,0,226,224,1,0,0,0,226,225,1,0,
-	0,0,227,59,1,0,0,0,228,229,3,18,9,0,229,230,5,22,0,0,230,231,3,10,5,0,231,
-	61,1,0,0,0,232,233,7,6,0,0,233,234,3,64,32,0,234,63,1,0,0,0,235,236,5,33,
-	0,0,236,237,3,72,36,0,237,238,5,34,0,0,238,240,1,0,0,0,239,235,1,0,0,0,
-	239,240,1,0,0,0,240,65,1,0,0,0,241,242,5,16,0,0,242,243,3,10,5,0,243,244,
-	5,17,0,0,244,245,3,58,29,0,245,246,3,68,34,0,246,67,1,0,0,0,247,248,5,18,
-	0,0,248,250,3,58,29,0,249,247,1,0,0,0,249,250,1,0,0,0,250,69,1,0,0,0,251,
-	252,5,19,0,0,252,253,3,10,5,0,253,254,5,20,0,0,254,255,3,58,29,0,255,71,
-	1,0,0,0,256,257,3,10,5,0,257,258,3,74,37,0,258,73,1,0,0,0,259,260,5,37,
-	0,0,260,261,3,10,5,0,261,262,3,74,37,0,262,264,1,0,0,0,263,259,1,0,0,0,
-	263,264,1,0,0,0,264,75,1,0,0,0,21,85,88,97,107,119,125,136,146,157,162,
-	165,177,186,197,200,208,219,226,239,249,263];
+	0,97,93,1,0,0,0,97,98,1,0,0,0,98,9,1,0,0,0,99,100,3,6,3,0,100,101,3,12,
+	6,0,101,11,1,0,0,0,102,103,3,14,7,0,103,104,3,6,3,0,104,106,1,0,0,0,105,
+	102,1,0,0,0,105,106,1,0,0,0,106,13,1,0,0,0,107,108,7,4,0,0,108,15,1,0,0,
+	0,109,120,3,18,9,0,110,120,3,0,0,0,111,112,5,34,0,0,112,113,3,10,5,0,113,
+	114,5,35,0,0,114,120,1,0,0,0,115,116,5,21,0,0,116,120,3,16,8,0,117,120,
+	5,14,0,0,118,120,5,15,0,0,119,109,1,0,0,0,119,110,1,0,0,0,119,111,1,0,0,
+	0,119,115,1,0,0,0,119,117,1,0,0,0,119,118,1,0,0,0,120,17,1,0,0,0,121,122,
+	5,44,0,0,122,19,1,0,0,0,123,125,3,10,5,0,124,123,1,0,0,0,124,125,1,0,0,
+	0,125,21,1,0,0,0,126,127,3,32,16,0,127,128,3,24,12,0,128,23,1,0,0,0,129,
+	130,5,44,0,0,130,131,3,26,13,0,131,25,1,0,0,0,132,133,5,38,0,0,133,134,
+	5,44,0,0,134,136,3,26,13,0,135,132,1,0,0,0,135,136,1,0,0,0,136,27,1,0,0,
+	0,137,138,3,22,11,0,138,139,3,30,15,0,139,140,5,39,0,0,140,29,1,0,0,0,141,
+	142,5,39,0,0,142,143,3,22,11,0,143,144,3,30,15,0,144,146,1,0,0,0,145,141,
+	1,0,0,0,145,146,1,0,0,0,146,31,1,0,0,0,147,148,7,5,0,0,148,33,1,0,0,0,149,
+	150,5,4,0,0,150,151,5,44,0,0,151,152,5,39,0,0,152,154,3,36,18,0,153,155,
+	5,41,0,0,154,153,1,0,0,0,155,156,1,0,0,0,156,154,1,0,0,0,156,157,1,0,0,
+	0,157,158,1,0,0,0,158,159,5,0,0,1,159,35,1,0,0,0,160,162,3,28,14,0,161,
+	160,1,0,0,0,161,162,1,0,0,0,162,164,1,0,0,0,163,165,3,38,19,0,164,163,1,
+	0,0,0,164,165,1,0,0,0,165,166,1,0,0,0,166,167,3,54,27,0,167,37,1,0,0,0,
+	168,169,3,42,21,0,169,170,5,39,0,0,170,171,3,40,20,0,171,39,1,0,0,0,172,
+	173,3,42,21,0,173,174,3,40,20,0,174,175,5,39,0,0,175,177,1,0,0,0,176,172,
+	1,0,0,0,176,177,1,0,0,0,177,41,1,0,0,0,178,179,5,8,0,0,179,180,5,44,0,0,
+	180,181,3,44,22,0,181,182,5,39,0,0,182,183,3,36,18,0,183,43,1,0,0,0,184,
+	186,3,46,23,0,185,184,1,0,0,0,185,186,1,0,0,0,186,45,1,0,0,0,187,188,5,
+	34,0,0,188,189,3,50,25,0,189,190,3,48,24,0,190,191,5,35,0,0,191,47,1,0,
+	0,0,192,193,5,39,0,0,193,194,3,50,25,0,194,195,3,48,24,0,195,197,1,0,0,
+	0,196,192,1,0,0,0,196,197,1,0,0,0,197,49,1,0,0,0,198,200,5,7,0,0,199,198,
+	1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,0,201,202,3,24,12,0,202,203,5,40,
+	0,0,203,204,3,52,26,0,204,51,1,0,0,0,205,208,5,44,0,0,206,208,3,32,16,0,
+	207,205,1,0,0,0,207,206,1,0,0,0,208,53,1,0,0,0,209,210,5,5,0,0,210,211,
+	3,58,29,0,211,212,3,56,28,0,212,213,5,6,0,0,213,55,1,0,0,0,214,215,5,39,
+	0,0,215,216,3,58,29,0,216,217,3,56,28,0,217,219,1,0,0,0,218,214,1,0,0,0,
+	218,219,1,0,0,0,219,57,1,0,0,0,220,226,3,60,30,0,221,226,3,62,31,0,222,
+	226,3,54,27,0,223,226,3,66,33,0,224,226,3,70,35,0,225,220,1,0,0,0,225,221,
+	1,0,0,0,225,222,1,0,0,0,225,223,1,0,0,0,225,224,1,0,0,0,226,59,1,0,0,0,
+	227,228,3,18,9,0,228,229,5,22,0,0,229,230,3,10,5,0,230,61,1,0,0,0,231,232,
+	7,6,0,0,232,233,3,64,32,0,233,63,1,0,0,0,234,235,5,34,0,0,235,236,3,72,
+	36,0,236,237,5,35,0,0,237,239,1,0,0,0,238,234,1,0,0,0,238,239,1,0,0,0,239,
+	65,1,0,0,0,240,241,5,16,0,0,241,242,3,10,5,0,242,243,5,17,0,0,243,244,3,
+	58,29,0,244,245,3,68,34,0,245,67,1,0,0,0,246,247,5,18,0,0,247,249,3,58,
+	29,0,248,246,1,0,0,0,248,249,1,0,0,0,249,69,1,0,0,0,250,251,5,19,0,0,251,
+	252,3,10,5,0,252,253,5,20,0,0,253,254,3,58,29,0,254,71,1,0,0,0,255,256,
+	3,10,5,0,256,257,3,74,37,0,257,73,1,0,0,0,258,259,5,38,0,0,259,260,3,10,
+	5,0,260,261,3,74,37,0,261,263,1,0,0,0,262,258,1,0,0,0,262,263,1,0,0,0,263,
+	75,1,0,0,0,21,85,88,97,105,119,124,135,145,156,161,164,176,185,196,199,
+	207,218,225,238,248,262];
 
 	private static __ATN: ATN;
 	public static get _ATN(): ATN {
@@ -1758,8 +1760,8 @@ export class Termo_auxContext extends ParserRuleContext {
 	public AND(): TerminalNode {
 		return this.getToken(LALGGrammar.AND, 0);
 	}
-	public DIV(): TerminalNode {
-		return this.getToken(LALGGrammar.DIV, 0);
+	public DIV_INT(): TerminalNode {
+		return this.getToken(LALGGrammar.DIV_INT, 0);
 	}
     public get ruleIndex(): number {
     	return LALGGrammar.RULE_termo_aux;
@@ -1905,6 +1907,41 @@ export class ExpressaoContext extends ParserRuleContext {
 }
 
 
+export class Expressao_auxContext extends ParserRuleContext {
+	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
+		super(parent, invokingState);
+    	this.parser = parser;
+	}
+	public relacao(): RelacaoContext {
+		return this.getTypedRuleContext(RelacaoContext, 0) as RelacaoContext;
+	}
+	public expressaoSimples(): ExpressaoSimplesContext {
+		return this.getTypedRuleContext(ExpressaoSimplesContext, 0) as ExpressaoSimplesContext;
+	}
+    public get ruleIndex(): number {
+    	return LALGGrammar.RULE_expressao_aux;
+	}
+	public enterRule(listener: LALGGrammarListener): void {
+	    if(listener.enterExpressao_aux) {
+	 		listener.enterExpressao_aux(this);
+		}
+	}
+	public exitRule(listener: LALGGrammarListener): void {
+	    if(listener.exitExpressao_aux) {
+	 		listener.exitExpressao_aux(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
+		if (visitor.visitExpressao_aux) {
+			return visitor.visitExpressao_aux(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
 export class RelacaoContext extends ParserRuleContext {
 	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
@@ -1945,41 +1982,6 @@ export class RelacaoContext extends ParserRuleContext {
 	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
 		if (visitor.visitRelacao) {
 			return visitor.visitRelacao(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
-}
-
-
-export class Expressao_auxContext extends ParserRuleContext {
-	constructor(parser?: LALGGrammar, parent?: ParserRuleContext, invokingState?: number) {
-		super(parent, invokingState);
-    	this.parser = parser;
-	}
-	public relacao(): RelacaoContext {
-		return this.getTypedRuleContext(RelacaoContext, 0) as RelacaoContext;
-	}
-	public expressaoSimples(): ExpressaoSimplesContext {
-		return this.getTypedRuleContext(ExpressaoSimplesContext, 0) as ExpressaoSimplesContext;
-	}
-    public get ruleIndex(): number {
-    	return LALGGrammar.RULE_expressao_aux;
-	}
-	public enterRule(listener: LALGGrammarListener): void {
-	    if(listener.enterExpressao_aux) {
-	 		listener.enterExpressao_aux(this);
-		}
-	}
-	public exitRule(listener: LALGGrammarListener): void {
-	    if(listener.exitExpressao_aux) {
-	 		listener.exitExpressao_aux(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: LALGGrammarVisitor<Result>): Result {
-		if (visitor.visitExpressao_aux) {
-			return visitor.visitExpressao_aux(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -2050,9 +2052,6 @@ export class VariavelContext extends ParserRuleContext {
 	}
 	public ID(): TerminalNode {
 		return this.getToken(LALGGrammar.ID, 0);
-	}
-	public variavel_aux(): Variavel_auxContext {
-		return this.getTypedRuleContext(Variavel_auxContext, 0) as Variavel_auxContext;
 	}
     public get ruleIndex(): number {
     	return LALGGrammar.RULE_variavel;

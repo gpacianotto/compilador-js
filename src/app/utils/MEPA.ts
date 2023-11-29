@@ -48,7 +48,7 @@ export default class Mepa {
                     this.dataStack.push(Number(val1) + Number(val2));
                     break;
 
-                case "SUB":
+                case "SUBT":
                     const subVal2 = this.dataStack.pop()!;
                     const subVal1 = this.dataStack.pop()!;
                     this.dataStack.push(Number(subVal1) - Number(subVal2));
@@ -177,7 +177,7 @@ export default class Mepa {
                     return;
             
                 default:
-                    console.log("COMANDO DESCONHECIDO");
+                    console.log("COMANDO DESCONHECIDO: " + instruction);
                     return;
             }
 

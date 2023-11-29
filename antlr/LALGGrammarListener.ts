@@ -9,8 +9,8 @@ import { Termo_auxContext } from "./LALGGrammar";
 import { ExpressaoSimplesContext } from "./LALGGrammar";
 import { ExpressaoSimples_auxContext } from "./LALGGrammar";
 import { ExpressaoContext } from "./LALGGrammar";
-import { RelacaoContext } from "./LALGGrammar";
 import { Expressao_auxContext } from "./LALGGrammar";
+import { RelacaoContext } from "./LALGGrammar";
 import { FatorContext } from "./LALGGrammar";
 import { VariavelContext } from "./LALGGrammar";
 import { Variavel_auxContext } from "./LALGGrammar";
@@ -109,16 +109,6 @@ export default class LALGGrammarListener extends ParseTreeListener {
 	 */
 	exitExpressao?: (ctx: ExpressaoContext) => void;
 	/**
-	 * Enter a parse tree produced by `LALGGrammar.relacao`.
-	 * @param ctx the parse tree
-	 */
-	enterRelacao?: (ctx: RelacaoContext) => void;
-	/**
-	 * Exit a parse tree produced by `LALGGrammar.relacao`.
-	 * @param ctx the parse tree
-	 */
-	exitRelacao?: (ctx: RelacaoContext) => void;
-	/**
 	 * Enter a parse tree produced by `LALGGrammar.expressao_aux`.
 	 * @param ctx the parse tree
 	 */
@@ -128,6 +118,16 @@ export default class LALGGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitExpressao_aux?: (ctx: Expressao_auxContext) => void;
+	/**
+	 * Enter a parse tree produced by `LALGGrammar.relacao`.
+	 * @param ctx the parse tree
+	 */
+	enterRelacao?: (ctx: RelacaoContext) => void;
+	/**
+	 * Exit a parse tree produced by `LALGGrammar.relacao`.
+	 * @param ctx the parse tree
+	 */
+	exitRelacao?: (ctx: RelacaoContext) => void;
 	/**
 	 * Enter a parse tree produced by `LALGGrammar.fator`.
 	 * @param ctx the parse tree

@@ -31,6 +31,7 @@ MAIS: '+';
 MENOS: '-';
 MULT: '*';
 DIV: '/';
+DIV_INT: 'div';
 IGUAL: '=';
 DIFERENTE: '<>';
 MAIOR_IGUAL: '>=';

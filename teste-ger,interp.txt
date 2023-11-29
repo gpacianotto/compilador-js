@@ -1,29 +1,23 @@
 program correto;
 int a, b, c;
-boolean d, e;
 
 begin
 	a:=2;
 	b:=10;
 	c:=a+b;
-	write(c);
-	d:=true;
-	e:=false;
-	if (d) then
-	begin
-		b:=2*c;
-		write(b);
-		c:=c-1;
-		write(c)
-	end;
+	write(c); //12
+        b:=2*c;
+	write(b); //24
+	c:=c-1;
+	write(c) //11
 	while (a>1) do
 	begin
-		if (b>10) then
+		if (b>10) then //é pra entrar
 		begin
 			b:=2;
-			write(b)
+			write(b) //2
 		end;
 		a:=a-1;
-		write(a)
+		write(a) //2, 1
 	end
 end.

@@ -90,8 +90,6 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
 
     visitExpressao_aux = (ctx: Expressao_auxContext) => {
         let relacao = ctx.relacao();
-        console.log(relacao);
-        console.log(ctx.expressaoSimples());
         if (relacao != null) {
             console.log(ctx.expressaoSimples());
             //@ts-ignore
@@ -119,6 +117,7 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
                 //@ts-ignore
                 this.visitChildren(ctx);
                 this.generatedCode.push("SUBT\n");
+
             } else {
                 const intructionReminder = this.generatedCode.length;
                 //@ts-ignore
@@ -132,10 +131,12 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
                 //@ts-ignore
                 this.visitChildren(ctx.expressaoSimples_aux());
             }
+
         }  else if (ctx.MAIS() != null) {
             //@ts-ignore
             this.visitChildren(ctx);
             this.generatedCode.push("SOMA\n");
+        
         } else {
             //@ts-ignore;
             this.visitChildren(ctx);
@@ -163,17 +164,22 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
             let variavel = ctx.variavel();
             let id = variavel.ID();
             let nome = id.getText();
+
             this.historicoVariavel.push(nome);
             let stackPosition = this.currentScope.resolve(nome)?.position;
             this.generatedCode.push("CRVL " + stackPosition + "\n");
+
         } else if (ctx.numero() != null) {
             let numero = ctx.numero().INT().getText();
             let valor = parseInt(numero);
             this.generatedCode.push("CRCT " + valor + "\n");
+        
         } else if (ctx.TRUE_CONST() != null) {
             this.generatedCode.push("CRCT 1\n");
+        
         } else if (ctx.FALSE_CONST() != null) {
             this.generatedCode.push("CRCT 0\n");
+        
         } else if (ctx.NOT() != null) {
             this.generatedCode.push("NEGA\n");
         }
@@ -187,7 +193,7 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
             if (ctx.MULT() != null) {
                 this.generatedCode.push("MULT\n");
             //@ts-ignore
-            } else if (ctx.DIV() != null) {
+            } else if (ctx.DIV_INT() != null) {
                 //@ts-ignore
                 this.visitChildren(ctx);
                 this.generatedCode.push("DIVI\n");
@@ -219,9 +225,9 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
         let nome = id.getText();
         this.historicoVariavel.push(nome);
         let stackPosition = this.currentScope.resolve(nome)?.position;
-        this.generatedCode.push("ARMZ " + stackPosition + "\n");
         //@ts-ignore
         this.visitChildren(ctx.expressao());
+        this.generatedCode.push("ARMZ " + stackPosition + "\n");
     }
 
     visitComandoCondicional = (ctx: ComandoCondicionalContext) => {

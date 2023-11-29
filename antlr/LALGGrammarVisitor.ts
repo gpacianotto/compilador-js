@@ -9,8 +9,8 @@ import { Termo_auxContext } from "./LALGGrammar";
 import { ExpressaoSimplesContext } from "./LALGGrammar";
 import { ExpressaoSimples_auxContext } from "./LALGGrammar";
 import { ExpressaoContext } from "./LALGGrammar";
-import { RelacaoContext } from "./LALGGrammar";
 import { Expressao_auxContext } from "./LALGGrammar";
+import { RelacaoContext } from "./LALGGrammar";
 import { FatorContext } from "./LALGGrammar";
 import { VariavelContext } from "./LALGGrammar";
 import { Variavel_auxContext } from "./LALGGrammar";
@@ -88,17 +88,17 @@ export default class LALGGrammarVisitor<Result> extends ParseTreeVisitor<Result>
 	 */
 	visitExpressao?: (ctx: ExpressaoContext) => Result;
 	/**
-	 * Visit a parse tree produced by `LALGGrammar.relacao`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitRelacao?: (ctx: RelacaoContext) => Result;
-	/**
 	 * Visit a parse tree produced by `LALGGrammar.expressao_aux`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitExpressao_aux?: (ctx: Expressao_auxContext) => Result;
+	/**
+	 * Visit a parse tree produced by `LALGGrammar.relacao`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRelacao?: (ctx: RelacaoContext) => Result;
 	/**
 	 * Visit a parse tree produced by `LALGGrammar.fator`.
 	 * @param ctx the parse tree

@@ -5,7 +5,7 @@ numero: (INT | FLOAT);
 
 termo: fator termo_aux ;
 
-termo_aux: ( ( MULT | AND | DIV ) fator termo_aux )? ;
+termo_aux: ( ( MULT | AND | DIV_INT ) fator termo_aux )? ;
 
 expressaoSimples:
     ( MAIS | MENOS )? termo expressaoSimples_aux ;
@@ -16,17 +16,17 @@ expressaoSimples_aux:
 expressao:
     expressaoSimples expressao_aux;
 
-relacao:
-    ( IGUAL | MENOR | MAIOR | MENOR_IGUAL | MAIOR_IGUAL | DIFERENTE ) ;
-
 expressao_aux:
     (relacao expressaoSimples)? ;
+
+relacao:
+    ( IGUAL | MENOR | MAIOR | MENOR_IGUAL | MAIOR_IGUAL | DIFERENTE ) ;
 
 fator:
     ( variavel | numero | ( ABRE_PARENTESES expressao FECHA_PARENTESES ) | ( NOT fator ) | TRUE_CONST | FALSE_CONST ) ;
 
 variavel:
-    ID variavel_aux;
+    ID;
 
 variavel_aux:
     expressao? ;
