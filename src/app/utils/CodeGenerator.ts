@@ -1,6 +1,5 @@
 import { AtribuicaoContext, ChamadaProcedimentoContext, ComandoCondicionalContext, ComandoRepetitivoContext, ExpressaoSimplesContext, ExpressaoSimples_auxContext, Expressao_auxContext, FatorContext, ListaExpressaoContext, ListaIDContext, ListaID_auxContext, ProgramaContext, Termo_auxContext, Variavel1Context } from "../../../antlr/LALGGrammar";
 import LALGGrammarVisitor from "../../../antlr/LALGGrammarVisitor";
-import LALGParserVisitor from "../../../antlr/LALGGrammarVisitor";
 import CustomErrorListener from "./CustomErrorListener";
 
 class Symbol {
@@ -53,12 +52,12 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
         this.currentScope = this.currentScope.enclosingScope!;
     }
 
-    visitPrograma = (ctx: ProgramaContext) => {
+    visitPrograma = (ctx: ProgramaContext) : string  => {
         this.generatedCode.push("INPP\n");
         //@ts-ignore
         this.visitChildren(ctx);
         this.generatedCode.push("PARA\n");
-        this.salvarPrograma();
+        return this.salvarPrograma();
     }
 
     visitListaID = (ctx: ListaIDContext) => {
@@ -113,6 +112,7 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
 
     visitExpressaoSimples = (ctx: ExpressaoSimplesContext) => {
         if (ctx.MENOS() != null) {
+            //@ts-ignore
             if (ctx.parentCtx.parentCtx instanceof Variavel1Context) {
                 //@ts-ignore
                 this.visitChildren(ctx);
@@ -178,11 +178,13 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
     }
 
     visitTermo_aux = (ctx: Termo_auxContext) => {
+        //@ts-ignore
         if (ctx.children != null){
             //@ts-ignore
             this.visitChildren(ctx);
             if (ctx.MULT() != null) {
                 this.generatedCode.push("MULT\n");
+            //@ts-ignore
             } else if (ctx.DIV() != null) {
                 //@ts-ignore
                 this.visitChildren(ctx);
@@ -266,11 +268,11 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
         this.visitChildren(ctx);
     }
 
-    salvarPrograma = () => {
+    salvarPrograma = () : string => {
         let codigo = "";
         for (let i = 0; i < this.generatedCode.length; i++) {
-            codigo += i + " " + this.generatedCode[i];
+            codigo += this.generatedCode[i];
         }
-        console.log(codigo);
+        return codigo;
     }
 }

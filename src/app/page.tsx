@@ -8,6 +8,7 @@ import { SaveButton } from './components/SaveButton';
 import LexicTable from './components/LexicTable';
 import Analisys from './utils/Analisys';
 import CodeGenerator from './utils/CodeGenerator';
+import Mepa from './utils/MEPA';
 
 export default function Home() {
   
@@ -15,6 +16,7 @@ export default function Home() {
   const [lexic, setLexicResult] = useState<LexicReturn>({} as LexicReturn)
   const [errors, setErrorsResult] = useState<Array<string>>([]);
   const [analisys, setAnalisys] = useState<Analisys>({} as Analisys);
+  const [generator, setGenerator] = useState<CodeGenerator>({} as CodeGenerator);
 
   function handleFilePickerClick() {
     // Create an input element of type 'file'
@@ -86,9 +88,18 @@ export default function Home() {
         <Col className='text-center mt-4'>
           <Button onClick={() => {
             const generator = new CodeGenerator();
-            generator.visitPrograma(analisys.tree);
+            setGenerator(generator);
+            console.log(generator.visitPrograma(analisys.tree));
           }}>
             Gerar código
+          </Button>
+        </Col>
+        <Col className='text-center mt-4'>
+          <Button onClick={() => {
+            const MEPA = new Mepa(generator.salvarPrograma());
+            MEPA.run_code();
+          }}>
+            Executar código
           </Button>
         </Col>
         

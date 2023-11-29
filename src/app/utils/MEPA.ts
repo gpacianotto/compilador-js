@@ -1,6 +1,6 @@
 
 
-class Mepa {
+export default class Mepa {
     code_stack: string[];
     instruction_pointer: number;
     data_stack: (number | boolean | string | null)[];
