@@ -47,6 +47,7 @@ class TypeExtractor {
             const identifier = fator.variavel().ID();
             const variableName = identifier.getText();
             const symbol = this.scope.resolve(variableName);
+            console.log("symbol: ",symbol);
             if (!symbol || !(symbol instanceof VariableSymbol || symbol instanceof ParameterSymbol)) {
                 const [symbol, msg] = [identifier.symbol, `Variable ${variableName} not declared`];
                 this.errorListener.semanticError(symbol.line, symbol.column, msg);
