@@ -38,6 +38,7 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
     public errorListener: CustomErrorListener;
     public historicoVariavel: string[] = [];
     public generatedCode: string[] = [];
+    public code = "";
 
     constructor() {
         super();
@@ -52,12 +53,16 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
         this.currentScope = this.currentScope.enclosingScope!;
     }
 
-    visitPrograma = (ctx: ProgramaContext) : string  => {
+    start = (ctx: ProgramaContext) => {
+        this.visitPrograma(ctx);
+        this.salvarPrograma();
+    }
+
+    visitPrograma = (ctx: ProgramaContext)  => {
         this.generatedCode.push("INPP\n");
         //@ts-ignore
         this.visitChildren(ctx);
         this.generatedCode.push("PARA\n");
-        return this.salvarPrograma();
     }
 
     visitListaID = (ctx: ListaIDContext) => {
@@ -206,11 +211,11 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
     }
 
     visitComandoRepetitivo = (ctx: ComandoRepetitivoContext) => {
-        let loopStart = this.generatedCode.length;
+        const loopStart = this.generatedCode.length;
         this.generatedCode.push("NADA\n");
         //@ts-ignore
         this.visitChildren(ctx.expressao());
-        let instructionReminder = this.generatedCode.length;
+        const instructionReminder = this.generatedCode.length;
         this.generatedCode.push("NADA\n");
         //@ts-ignore
         this.visitChildren(ctx.comando());
@@ -244,7 +249,7 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
         this.visitChildren(ctx.comandoCondicional_aux());
         let currentInstruction = this.generatedCode.length;
         if (instructionReminder != currentInstruction) {
-            this.generatedCode[instructionReminder] = "DSVS " + currentInstruction + "\n";
+            // this.generatedCode[instructionReminder] = "DSVS " + currentInstruction + "\n";
             this.generatedCode.push("NADA\n");
         }
     }
@@ -276,14 +281,14 @@ export default class CodeGenerator extends LALGGrammarVisitor<void> {
         this.visitChildren(ctx);
     }
 
-    salvarPrograma = () : string => {
+    salvarPrograma = () => {
         let codigo = "";
         let codigo_aux = "";
         for (let i = 0; i < this.generatedCode.length; i++) {
             codigo += this.generatedCode[i];
-            codigo_aux += i + " " + this.generatedCode[i];
+            codigo_aux += `${i}`.padStart(2, " ") + " " + this.generatedCode[i];
         }
         console.log(codigo_aux);
-        return codigo;
+        this.code = codigo;
     }
 }

@@ -1,5 +1,5 @@
 program correto;
-int a, b, c;
+int a, b, c, d;
 
 begin
 	a:=2;
@@ -10,12 +10,18 @@ begin
 	write(b); //24
 	c:=c-1;
 	write(c); //11
+	d:=2+2;
+	write(d); //4
 	if (a>1) then //é pra entrar
 	begin
         a:=a+1;
 		write(a) //3
 	end
 	else
+	begin
+		a:=a-1;
+		write(a) //2
+	end;
 	while (a>1) do
 	begin
 		if (b>10) then //é pra entrar

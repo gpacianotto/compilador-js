@@ -89,14 +89,14 @@ export default function Home() {
           <Button onClick={() => {
             const generator = new CodeGenerator();
             setGenerator(generator);
-            generator.visitPrograma(analisys.tree);
+            generator.start(analisys.tree);
           }}>
             Gerar código
           </Button>
         </Col>
         <Col className='text-center mt-4'>
           <Button onClick={() => {
-            const MEPA = new Mepa(generator.salvarPrograma());
+            const MEPA = new Mepa(generator.code);
             MEPA.run_code();
           }}>
             Executar código
