@@ -1,4 +1,8 @@
 
+interface PropsRunCode {
+    printLineCallback: (str: string) => void;
+    readLineCallback: () => Promise<string | null>;
+}
 
 export default class Mepa {
     codeStack: string[];
@@ -11,7 +15,7 @@ export default class Mepa {
         this.dataStack = [];
     }
 
-    public run_code(): void {
+    public async run_code({printLineCallback, readLineCallback}:PropsRunCode): Promise<void>{
         while (true) {
             const instructionLine = this.codeStack[this.instructionPointer].split(" ");
             const instruction = instructionLine[0];
@@ -152,15 +156,15 @@ export default class Mepa {
                     break;
             
                 case "IMPR":
-                    console.log(Number(this.dataStack.pop()));
+                    printLineCallback("" + Number(this.dataStack.pop()));
                     break;
             
                 case "IMPC":
-                    console.log(this.dataStack.pop());
+                    printLineCallback("" + this.dataStack.pop());
                     break;
             
                 case "IMPE":
-                    console.log("");
+                    printLineCallback("");
                     break;
             
                 case "DMEM":
@@ -173,11 +177,11 @@ export default class Mepa {
                     break;
             
                 case "PARA":
-                    console.log("FIM DA EXECUÇÃO");
+                    printLineCallback("FIM DA EXECUÇÃO");
                     return;
             
                 default:
-                    console.log("COMANDO DESCONHECIDO: " + instruction);
+                    printLineCallback("COMANDO DESCONHECIDO: " + instruction);
                     return;
             }
 

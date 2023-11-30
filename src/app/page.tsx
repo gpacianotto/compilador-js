@@ -9,6 +9,7 @@ import LexicTable from './components/LexicTable';
 import Analisys from './utils/Analisys';
 import CodeGenerator from './utils/CodeGenerator';
 import Mepa from './utils/MEPA';
+import ModalConsole from './components/ModalConsole';
 
 export default function Home() {
   
@@ -17,6 +18,8 @@ export default function Home() {
   const [errors, setErrorsResult] = useState<Array<string>>([]);
   const [analisys, setAnalisys] = useState<Analisys>({} as Analisys);
   const [generator, setGenerator] = useState<CodeGenerator>({} as CodeGenerator);
+  const [generatedCode, setGeneratedCode] = useState<string[]>([] as string[]);
+  const [openModalConsole, setOpenModalConsole] = useState<boolean>(false);
 
   function handleFilePickerClick() {
     // Create an input element of type 'file'
@@ -96,15 +99,17 @@ export default function Home() {
         </Col>
         <Col className='text-center mt-4'>
           <Button onClick={() => {
-            const MEPA = new Mepa(generator.code);
-            MEPA.run_code();
+            // const MEPA = new Mepa(generator.code);
+            // MEPA.run_code();
+            // setGeneratedCode(generator.generatedCode);
+            setOpenModalConsole(true);
           }}>
             Executar código
           </Button>
         </Col>
         
       </Row>
-      
+      <ModalConsole codeGenerator={generator} isOpen={openModalConsole} setOpen={setOpenModalConsole}/>
       <Row className='mt-5'>
         <Col className='mb-5' style={{
           border: "1px solid black"
